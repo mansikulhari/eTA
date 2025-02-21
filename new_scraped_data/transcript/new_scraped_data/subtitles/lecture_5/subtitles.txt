@@ -1,0 +1,10206 @@
+1
+00:00:00,000 --> 00:00:03,416
+[MUSIC PLAYING]
+
+2
+00:00:03,416 --> 00:00:17,595
+
+
+3
+00:00:17,595 --> 00:00:18,470
+SPEAKER 1: All right.
+
+4
+00:00:18,470 --> 00:00:20,220
+Welcome back, everyone,
+to an introduction
+
+5
+00:00:20,220 --> 00:00:22,070
+to Artificial Intelligence with Python.
+
+6
+00:00:22,070 --> 00:00:25,160
+Now last time, we took a look at
+machine learning-- a set of techniques
+
+7
+00:00:25,160 --> 00:00:28,010
+that computers can use in
+order to take a set of data
+
+8
+00:00:28,010 --> 00:00:31,860
+and learn some patterns inside of that
+data, learn how to perform a task,
+
+9
+00:00:31,860 --> 00:00:35,540
+even if we, the programmers, didn't
+give the computer explicit instructions
+
+10
+00:00:35,540 --> 00:00:37,520
+for how to perform that task.
+
+11
+00:00:37,520 --> 00:00:40,520
+Today, we transition to one of the
+most popular techniques and tools
+
+12
+00:00:40,520 --> 00:00:43,320
+within machine learning
+that have neural networks.
+
+13
+00:00:43,320 --> 00:00:46,370
+And neural networks were
+inspired as early as the 1940s
+
+14
+00:00:46,370 --> 00:00:49,340
+by researchers who were thinking
+about how it is that humans learn,
+
+15
+00:00:49,340 --> 00:00:51,410
+studying neuroscience
+and the human brain,
+
+16
+00:00:51,410 --> 00:00:55,010
+and trying to see whether or not we can
+apply those same ideas to computers as
+
+17
+00:00:55,010 --> 00:00:58,290
+well, and model computer
+learning off of human learning.
+
+18
+00:00:58,290 --> 00:01:00,230
+So how is the brain structured?
+
+19
+00:01:00,230 --> 00:01:03,800
+Well, very simply put, the brain
+consists of a whole bunch of neurons,
+
+20
+00:01:03,800 --> 00:01:06,230
+and those neurons are
+connected to one another
+
+21
+00:01:06,230 --> 00:01:08,540
+and communicate with
+one another in some way.
+
+22
+00:01:08,540 --> 00:01:11,540
+In particular, if you think about
+the structure of a biological neural
+
+23
+00:01:11,540 --> 00:01:13,170
+network-- something like this--
+
+24
+00:01:13,170 --> 00:01:16,070
+there are a couple of key
+properties that scientists observed.
+
+25
+00:01:16,070 --> 00:01:18,440
+One was that these neurons
+are connected to each other
+
+26
+00:01:18,440 --> 00:01:20,640
+and receive electrical
+signals from one another,
+
+27
+00:01:20,640 --> 00:01:24,860
+that one neuron can propagate
+electrical signals to another neuron.
+
+28
+00:01:24,860 --> 00:01:26,630
+And another point is
+that neurons process
+
+29
+00:01:26,630 --> 00:01:29,960
+those input signals, and then can
+be activated, that a neuron becomes
+
+30
+00:01:29,960 --> 00:01:33,500
+activated at a certain point, and
+then can propagate further signals
+
+31
+00:01:33,500 --> 00:01:35,610
+onto neurons in the future.
+
+32
+00:01:35,610 --> 00:01:39,380
+And so the question then became, could
+we take this biological idea of how it
+
+33
+00:01:39,380 --> 00:01:41,760
+is that humans learn-- with
+brains and with neurons--
+
+34
+00:01:41,760 --> 00:01:44,540
+and apply that to a
+machine as well, in effect,
+
+35
+00:01:44,540 --> 00:01:48,440
+designing an artificial neural
+network, or an ANN, which
+
+36
+00:01:48,440 --> 00:01:51,740
+will be a mathematical model
+for learning that is inspired
+
+37
+00:01:51,740 --> 00:01:53,600
+by these biological neural networks?
+
+38
+00:01:53,600 --> 00:01:56,090
+And what artificial neural
+networks will allow us to do
+
+39
+00:01:56,090 --> 00:01:59,492
+is they will first be able to model
+some sort of mathematical function.
+
+40
+00:01:59,492 --> 00:02:02,700
+Every time you look at a neural network,
+which we'll see more of later today,
+
+41
+00:02:02,700 --> 00:02:05,330
+each one of them is really
+just some mathematical function
+
+42
+00:02:05,330 --> 00:02:08,600
+that is mapping certain
+inputs to particular outputs,
+
+43
+00:02:08,600 --> 00:02:10,820
+based on the structure of
+the network, that depending
+
+44
+00:02:10,820 --> 00:02:14,540
+on where we place particular units
+inside of this neural network,
+
+45
+00:02:14,540 --> 00:02:18,340
+that's going to determine how it is
+that the network is going to function.
+
+46
+00:02:18,340 --> 00:02:20,540
+And in particular,
+artificial neural networks
+
+47
+00:02:20,540 --> 00:02:23,990
+are going to lend themselves
+to a way that we can learn what
+
+48
+00:02:23,990 --> 00:02:25,993
+the network's parameters should be.
+
+49
+00:02:25,993 --> 00:02:27,660
+We'll see more on that in just a moment.
+
+50
+00:02:27,660 --> 00:02:30,560
+But in effect we want to model,
+such that it is easy for us
+
+51
+00:02:30,560 --> 00:02:33,290
+to be able to write some code
+that allows for the network
+
+52
+00:02:33,290 --> 00:02:36,950
+to be able to figure out how to model
+the right mathematical function,
+
+53
+00:02:36,950 --> 00:02:39,570
+given a particular set of input data.
+
+54
+00:02:39,570 --> 00:02:41,840
+So in order to create our
+artificial neural network,
+
+55
+00:02:41,840 --> 00:02:43,837
+instead of using
+biological neurons, we're
+
+56
+00:02:43,837 --> 00:02:45,920
+just going to use what
+we're going to call units--
+
+57
+00:02:45,920 --> 00:02:47,760
+units inside of a neural network--
+
+58
+00:02:47,760 --> 00:02:50,160
+which we can represent kind
+of like a node in a graph,
+
+59
+00:02:50,160 --> 00:02:53,340
+which will here be represented
+just by a blue circle like this.
+
+60
+00:02:53,340 --> 00:02:56,270
+And these artificial units--
+these artificial neurons--
+
+61
+00:02:56,270 --> 00:02:58,080
+can be connected to one another.
+
+62
+00:02:58,080 --> 00:03:00,320
+So here, for instance,
+we have two units that
+
+63
+00:03:00,320 --> 00:03:05,020
+are connected by this edge inside
+of this graph, effectively.
+
+64
+00:03:05,020 --> 00:03:06,770
+And so what we're going
+to do now is think
+
+65
+00:03:06,770 --> 00:03:10,450
+of this idea as some sort of
+mapping from inputs to outputs,
+
+66
+00:03:10,450 --> 00:03:13,550
+that we have one unit that
+is connected to another unit,
+
+67
+00:03:13,550 --> 00:03:17,210
+that we might think of this side as
+the input and that side of the output.
+
+68
+00:03:17,210 --> 00:03:20,390
+And what we're trying to do then is
+to figure out how to solve a problem,
+
+69
+00:03:20,390 --> 00:03:22,702
+how to model some sort
+of mathematical function.
+
+70
+00:03:22,702 --> 00:03:24,410
+And this might take
+the form of something
+
+71
+00:03:24,410 --> 00:03:26,420
+we saw last time, which
+was something like, we
+
+72
+00:03:26,420 --> 00:03:30,500
+have certain inputs like variables
+x1 and x2, and given those inputs,
+
+73
+00:03:30,500 --> 00:03:32,570
+we want to perform some sort of task--
+
+74
+00:03:32,570 --> 00:03:35,570
+a task like predicting whether
+or not it's going to rain.
+
+75
+00:03:35,570 --> 00:03:38,870
+And ideally, we'd like some way,
+given these inputs x1 and x2,
+
+76
+00:03:38,870 --> 00:03:41,870
+which stand for some sort of
+variables to do with the weather,
+
+77
+00:03:41,870 --> 00:03:44,150
+we would like to be able
+to predict, in this case,
+
+78
+00:03:44,150 --> 00:03:48,890
+a Boolean classification-- is it going
+to rain, or is it not going to rain?
+
+79
+00:03:48,890 --> 00:03:52,100
+And we did this last time by
+way of a mathematical function.
+
+80
+00:03:52,100 --> 00:03:55,640
+We defined some function h
+for our hypothesis function
+
+81
+00:03:55,640 --> 00:03:57,650
+that took as input x1 and x2--
+
+82
+00:03:57,650 --> 00:04:00,250
+the two inputs that we cared
+about processing-- in order
+
+83
+00:04:00,250 --> 00:04:03,500
+to determine whether we thought it was
+going to rain, or whether we thought it
+
+84
+00:04:03,500 --> 00:04:04,910
+was not going to rain.
+
+85
+00:04:04,910 --> 00:04:08,570
+The question then becomes, what does
+this hypothesis function do in order
+
+86
+00:04:08,570 --> 00:04:10,260
+to make that determination?
+
+87
+00:04:10,260 --> 00:04:15,260
+And we decided last time to use a linear
+combination of these input variables
+
+88
+00:04:15,260 --> 00:04:16,980
+to determine what the output should be.
+
+89
+00:04:16,980 --> 00:04:20,510
+So our hypothesis function
+was equal to something
+
+90
+00:04:20,510 --> 00:04:26,300
+like this: weight 0 plus weight 1
+times x1 plus weight 2 times x2.
+
+91
+00:04:26,300 --> 00:04:28,880
+So what's going on here
+is that x1 and x2--
+
+92
+00:04:28,880 --> 00:04:33,770
+those are input variables-- the
+inputs to this hypothesis function--
+
+93
+00:04:33,770 --> 00:04:35,720
+and each of those input
+variables is being
+
+94
+00:04:35,720 --> 00:04:39,140
+multiplied by some weight,
+which is just some number.
+
+95
+00:04:39,140 --> 00:04:43,970
+So x1 is being multiplied by weight
+1, x2 is being multiplied by weight 2,
+
+96
+00:04:43,970 --> 00:04:46,290
+and we have this additional
+weight-- weight 0--
+
+97
+00:04:46,290 --> 00:04:48,290
+that doesn't get multiplied
+by an input variable
+
+98
+00:04:48,290 --> 00:04:51,540
+at all, that just serves to either move
+the function up or move the function's
+
+99
+00:04:51,540 --> 00:04:52,650
+value down.
+
+100
+00:04:52,650 --> 00:04:54,680
+You can think of this as
+either a weight that's
+
+101
+00:04:54,680 --> 00:04:56,900
+just multiplied by some
+dummy value, like the number
+
+102
+00:04:56,900 --> 00:05:00,560
+1 when it's multiplied by 1, and
+so it's not multiplied by anything.
+
+103
+00:05:00,560 --> 00:05:02,670
+Or sometimes you'll
+see in the literature,
+
+104
+00:05:02,670 --> 00:05:04,775
+people call this variable
+weight 0 a "bias,"
+
+105
+00:05:04,775 --> 00:05:07,400
+so that you can think of these
+variables as slightly different.
+
+106
+00:05:07,400 --> 00:05:09,620
+We have weights that are
+multiplied by the input
+
+107
+00:05:09,620 --> 00:05:13,127
+and we separately add some
+bias to the result as well.
+
+108
+00:05:13,127 --> 00:05:14,960
+You'll hear both of
+those terminologies used
+
+109
+00:05:14,960 --> 00:05:18,745
+when people talk about neural
+networks and machine learning.
+
+110
+00:05:18,745 --> 00:05:20,870
+So in effect, what we've
+done here is that in order
+
+111
+00:05:20,870 --> 00:05:23,360
+to define a hypothesis
+function, we just need
+
+112
+00:05:23,360 --> 00:05:26,810
+to decide and figure out
+what these weights should be,
+
+113
+00:05:26,810 --> 00:05:30,778
+to determine what values to multiply by
+our inputs to get some sort of result.
+
+114
+00:05:30,778 --> 00:05:32,570
+Of course, at the end
+of this, what we need
+
+115
+00:05:32,570 --> 00:05:34,880
+to do is make some
+sort of classification
+
+116
+00:05:34,880 --> 00:05:39,120
+like raining or not raining, and to
+do that, we use some sort of function
+
+117
+00:05:39,120 --> 00:05:41,220
+to define some sort of threshold.
+
+118
+00:05:41,220 --> 00:05:46,820
+And so we saw, for instance, the
+step function, which is defined as 1
+
+119
+00:05:46,820 --> 00:05:50,090
+if the result of multiplying the
+weights by the inputs is at least 0;
+
+120
+00:05:50,090 --> 00:05:50,960
+otherwise as 0.
+
+121
+00:05:50,960 --> 00:05:53,210
+You can think of this line
+down the middle-- it's kind
+
+122
+00:05:53,210 --> 00:05:54,290
+of like a dotted line.
+
+123
+00:05:54,290 --> 00:05:57,222
+Effectively, it stays at 0
+all the way up to one point,
+
+124
+00:05:57,222 --> 00:05:58,430
+and then the function steps--
+
+125
+00:05:58,430 --> 00:06:00,120
+or jumps up-- to 1.
+
+126
+00:06:00,120 --> 00:06:02,550
+So it's zero before it
+reaches some threshold,
+
+127
+00:06:02,550 --> 00:06:05,790
+and then it's 1 after it
+reaches a particular threshold.
+
+128
+00:06:05,790 --> 00:06:07,760
+And so this was one way
+we could define what
+
+129
+00:06:07,760 --> 00:06:10,400
+we'll come to call an "activation
+function," a function that
+
+130
+00:06:10,400 --> 00:06:13,550
+determines when it is that
+this output becomes active--
+
+131
+00:06:13,550 --> 00:06:17,030
+changes to a 1 instead of being a 0.
+
+132
+00:06:17,030 --> 00:06:20,495
+But we also saw that if we didn't just
+want a purely binary classification,
+
+133
+00:06:20,495 --> 00:06:23,540
+if we didn't want purely
+1 or 0, but we wanted
+
+134
+00:06:23,540 --> 00:06:26,750
+to allow for some in-between
+real number values,
+
+135
+00:06:26,750 --> 00:06:28,170
+we could use a different function.
+
+136
+00:06:28,170 --> 00:06:31,003
+And there are a number of choices,
+but the one that we looked at was
+
+137
+00:06:31,003 --> 00:06:34,520
+the logistic sigmoid function that
+has sort of an S-shaped curve,
+
+138
+00:06:34,520 --> 00:06:36,740
+where we could represent
+this as a probability--
+
+139
+00:06:36,740 --> 00:06:40,130
+that may be somewhere in between the
+probability of rain of something like
+
+140
+00:06:40,130 --> 00:06:44,490
+0.5, and maybe a little bit later
+the probability of rain is 0.8--
+
+141
+00:06:44,490 --> 00:06:48,320
+and so rather than just have a
+binary classification of 0 or 1,
+
+142
+00:06:48,320 --> 00:06:50,702
+we can allow for numbers
+that are in between as well.
+
+143
+00:06:50,702 --> 00:06:52,910
+And it turns out there are
+many other different types
+
+144
+00:06:52,910 --> 00:06:56,240
+of activation functions, where
+an activation function just
+
+145
+00:06:56,240 --> 00:06:59,720
+takes the output of multiplying the
+weights together and adding that bias,
+
+146
+00:06:59,720 --> 00:07:02,510
+and then figuring out what
+the actual output should be.
+
+147
+00:07:02,510 --> 00:07:06,480
+Another popular one is the rectified
+linear unit, otherwise known ReLU,
+
+148
+00:07:06,480 --> 00:07:09,170
+and the way that works is
+that it just takes as input
+
+149
+00:07:09,170 --> 00:07:11,660
+and takes the maximum
+of that input and 0.
+
+150
+00:07:11,660 --> 00:07:15,950
+So if it's positive, it remains
+unchanged, but i if it's negative,
+
+151
+00:07:15,950 --> 00:07:17,720
+it goes ahead and levels out at 0.
+
+152
+00:07:17,720 --> 00:07:21,140
+And there are other activation
+functions that we can choose as well.
+
+153
+00:07:21,140 --> 00:07:23,480
+But in short, each of
+these activation functions,
+
+154
+00:07:23,480 --> 00:07:28,220
+you can just think of as a function
+that gets applied to the result of all
+
+155
+00:07:28,220 --> 00:07:29,120
+of this computation.
+
+156
+00:07:29,120 --> 00:07:34,160
+We take some function g and apply it to
+the result of all of that calculation.
+
+157
+00:07:34,160 --> 00:07:36,680
+And this then is what we saw
+last time-- the way of defining
+
+158
+00:07:36,680 --> 00:07:39,650
+some hypothesis function
+that takes on inputs,
+
+159
+00:07:39,650 --> 00:07:42,710
+calculates some linear
+combination of those inputs,
+
+160
+00:07:42,710 --> 00:07:47,510
+and then passes it through some sort of
+activation function to get our output.
+
+161
+00:07:47,510 --> 00:07:49,880
+And this actually turns
+out to be the model
+
+162
+00:07:49,880 --> 00:07:52,280
+for the simplest of neural
+networks, that we're
+
+163
+00:07:52,280 --> 00:07:56,720
+going to instead represent this
+mathematical idea graphically, by using
+
+164
+00:07:56,720 --> 00:07:58,040
+a structure like this.
+
+165
+00:07:58,040 --> 00:08:00,770
+Here then is a neural
+network that has two inputs.
+
+166
+00:08:00,770 --> 00:08:03,140
+We can think of this
+as x1 and this as x2.
+
+167
+00:08:03,140 --> 00:08:06,860
+And then one output, which you can
+think of classifying whether or not
+
+168
+00:08:06,860 --> 00:08:09,810
+we think it's going to rain
+or not rain, for example,
+
+169
+00:08:09,810 --> 00:08:11,450
+in this particular instance.
+
+170
+00:08:11,450 --> 00:08:13,340
+And so how exactly does this model work?
+
+171
+00:08:13,340 --> 00:08:16,370
+Well, each of these two inputs
+represents one of our input variables--
+
+172
+00:08:16,370 --> 00:08:18,410
+x1 and x2.
+
+173
+00:08:18,410 --> 00:08:21,080
+And notice that these
+inputs are connected
+
+174
+00:08:21,080 --> 00:08:23,990
+to this output via
+these edges, which are
+
+175
+00:08:23,990 --> 00:08:25,700
+going to be defined by their weights.
+
+176
+00:08:25,700 --> 00:08:28,190
+So these edges each have a
+weight associated with them--
+
+177
+00:08:28,190 --> 00:08:30,740
+weight 1 and weight 2--
+
+178
+00:08:30,740 --> 00:08:33,049
+and then this output unit,
+what it's going to do
+
+179
+00:08:33,049 --> 00:08:36,440
+is it is going to calculate an
+output based on those inputs
+
+180
+00:08:36,440 --> 00:08:37,970
+and based on those weights.
+
+181
+00:08:37,970 --> 00:08:42,049
+This output unit is going to multiply
+all the inputs by their weights,
+
+182
+00:08:42,049 --> 00:08:45,590
+add in this bias term, which you can
+think of as an extra w0 term that
+
+183
+00:08:45,590 --> 00:08:49,860
+gets added into it, and then we pass
+it through an activation function.
+
+184
+00:08:49,860 --> 00:08:53,390
+So this then is just a graphical
+way of representing the same idea
+
+185
+00:08:53,390 --> 00:08:55,520
+we saw last time, just mathematically.
+
+186
+00:08:55,520 --> 00:08:58,880
+And we're going to call this
+a very simple neural network.
+
+187
+00:08:58,880 --> 00:09:00,710
+And we'd like for this
+neural network to be
+
+188
+00:09:00,710 --> 00:09:03,222
+able to learn how to
+calculate some function,
+
+189
+00:09:03,222 --> 00:09:05,680
+that we want some function for
+the neural network to learn,
+
+190
+00:09:05,680 --> 00:09:07,610
+and the neural network
+is going to learn what
+
+191
+00:09:07,610 --> 00:09:11,070
+should the values of w0, w1, and w2 be.
+
+192
+00:09:11,070 --> 00:09:13,280
+What should the activation
+function be in order
+
+193
+00:09:13,280 --> 00:09:15,962
+to get the result that we would expect?
+
+194
+00:09:15,962 --> 00:09:18,170
+So we can actually take a
+look at an example of this.
+
+195
+00:09:18,170 --> 00:09:21,170
+What then is a very simple
+function that we might calculate?
+
+196
+00:09:21,170 --> 00:09:24,770
+Well, if we recall back from when we
+were looking at propositional logic,
+
+197
+00:09:24,770 --> 00:09:26,660
+one of the simplest
+functions we looked at
+
+198
+00:09:26,660 --> 00:09:29,760
+was something like the or
+function, that takes two inputs--
+
+199
+00:09:29,760 --> 00:09:35,360
+x and y-- and outputs 1, otherwise known
+as true, if either one of the inputs,
+
+200
+00:09:35,360 --> 00:09:40,930
+or both of them, are 1, and outputs a 0
+if both of the inputs are 0, or false.
+
+201
+00:09:40,930 --> 00:09:42,485
+So this then is the or function.
+
+202
+00:09:42,485 --> 00:09:45,110
+And this was the truth table for
+the or function-- that as long
+
+203
+00:09:45,110 --> 00:09:48,560
+as either of the inputs are 1,
+the output of the function is 1,
+
+204
+00:09:48,560 --> 00:09:53,210
+and the only case where the output of
+0 is where both of the inputs are 0.
+
+205
+00:09:53,210 --> 00:09:57,140
+So the question is, how could we take
+this and train a neural network to be
+
+206
+00:09:57,140 --> 00:09:59,360
+able to learn this particular function?
+
+207
+00:09:59,360 --> 00:10:01,290
+What would those weights look like?
+
+208
+00:10:01,290 --> 00:10:03,130
+Well, we could do something like this.
+
+209
+00:10:03,130 --> 00:10:05,450
+Here's our neural
+network, and I'll propose
+
+210
+00:10:05,450 --> 00:10:07,670
+that in order to
+calculate the or function,
+
+211
+00:10:07,670 --> 00:10:11,660
+we're going to use a value
+of 1 for each of the weights,
+
+212
+00:10:11,660 --> 00:10:14,810
+and we'll use a bias
+of negative 1, and then
+
+213
+00:10:14,810 --> 00:10:18,270
+we'll just use this step function
+as our activation function.
+
+214
+00:10:18,270 --> 00:10:19,570
+How then does this work?
+
+215
+00:10:19,570 --> 00:10:23,010
+Well, if I wanted to calculate
+something like 0 or 0,
+
+216
+00:10:23,010 --> 00:10:26,340
+which we know to be 0, because
+false or false is false, then
+
+217
+00:10:26,340 --> 00:10:27,580
+what are we going to do?
+
+218
+00:10:27,580 --> 00:10:29,730
+Well, our output unit
+is going to calculate
+
+219
+00:10:29,730 --> 00:10:31,650
+this input multiplied by the weight.
+
+220
+00:10:31,650 --> 00:10:33,543
+0 times 1, that's 0.
+
+221
+00:10:33,543 --> 00:10:34,210
+Same thing here.
+
+222
+00:10:34,210 --> 00:10:36,210
+0 times 1, that's 0.
+
+223
+00:10:36,210 --> 00:10:40,240
+And we'll add to that the bias, minus 1.
+
+224
+00:10:40,240 --> 00:10:42,640
+So that'll give us some
+result of negative 1.
+
+225
+00:10:42,640 --> 00:10:45,690
+If we plot that on our activation
+function-- negative 1 is here--
+
+226
+00:10:45,690 --> 00:10:49,290
+it's before the threshold,
+which means either 0 or 1.
+
+227
+00:10:49,290 --> 00:10:51,150
+It's only 1 after the threshold.
+
+228
+00:10:51,150 --> 00:10:53,590
+Since negative 1 is
+before the threshold,
+
+229
+00:10:53,590 --> 00:10:57,210
+the output that this unit
+provides it is going to be 0.
+
+230
+00:10:57,210 --> 00:11:02,380
+And that's what we would expect
+it to be, that 0 or 0 should be 0.
+
+231
+00:11:02,380 --> 00:11:06,150
+What if instead we had had 1 or
+0, where this is the number 1?
+
+232
+00:11:06,150 --> 00:11:07,950
+Well, in this case,
+in order to calculate
+
+233
+00:11:07,950 --> 00:11:11,850
+what the output is going to be, we
+again have to do this weighted sum.
+
+234
+00:11:11,850 --> 00:11:14,520
+1 times 1, that's 1.
+
+235
+00:11:14,520 --> 00:11:16,090
+0 times 1, that's 0.
+
+236
+00:11:16,090 --> 00:11:18,240
+Sum of that so far is 1.
+
+237
+00:11:18,240 --> 00:11:19,650
+Add negative 1 to that.
+
+238
+00:11:19,650 --> 00:11:21,310
+Well, then the output of 0.
+
+239
+00:11:21,310 --> 00:11:24,360
+And if we plot 0 on the step
+function, 0 ends up being here--
+
+240
+00:11:24,360 --> 00:11:26,910
+it's just at the threshold--
+and so the output here
+
+241
+00:11:26,910 --> 00:11:30,990
+is going to be 1, because the
+output of 1 or 0, that's 1.
+
+242
+00:11:30,990 --> 00:11:32,730
+So that's what we would expect as well.
+
+243
+00:11:32,730 --> 00:11:36,570
+And just for one more example, if I
+had 1 or 1, what would the result be?
+
+244
+00:11:36,570 --> 00:11:38,310
+Well 1 times 1 is 1.
+
+245
+00:11:38,310 --> 00:11:39,330
+1 times 1 is 1.
+
+246
+00:11:39,330 --> 00:11:40,970
+The sum of those is 2.
+
+247
+00:11:40,970 --> 00:11:42,240
+I add the bias term to that.
+
+248
+00:11:42,240 --> 00:11:43,480
+I get the number 1.
+
+249
+00:11:43,480 --> 00:11:45,750
+1 plotted on this graph
+is way over there.
+
+250
+00:11:45,750 --> 00:11:47,650
+That's well beyond the threshold.
+
+251
+00:11:47,650 --> 00:11:49,800
+And so this output is
+going to be 1 as well.
+
+252
+00:11:49,800 --> 00:11:52,920
+The output is always 0 or 1,
+depending on whether or not
+
+253
+00:11:52,920 --> 00:11:54,330
+we're past the threshold.
+
+254
+00:11:54,330 --> 00:11:58,560
+And this neural network then models the
+or function-- a very simple function,
+
+255
+00:11:58,560 --> 00:12:01,270
+definitely-- but it still is
+able to model it correctly.
+
+256
+00:12:01,270 --> 00:12:06,662
+If I give it the inputs, it will
+tell me what x1 or x2 happens to be.
+
+257
+00:12:06,662 --> 00:12:09,120
+And you could imagine trying
+to do this for other functions
+
+258
+00:12:09,120 --> 00:12:12,760
+as well-- a function like the
+and function, for instance,
+
+259
+00:12:12,760 --> 00:12:18,220
+that takes two inputs and calculates
+whether both x and y are true.
+
+260
+00:12:18,220 --> 00:12:22,830
+So if x is 1 and y is 1, then
+the output of x and y is 1,
+
+261
+00:12:22,830 --> 00:12:25,920
+but in all of the other
+cases, the output is 0.
+
+262
+00:12:25,920 --> 00:12:29,290
+How could we model that inside
+of a neural network as well?
+
+263
+00:12:29,290 --> 00:12:34,170
+Well, it turns out we could do it in the
+same way, except instead of negative 1
+
+264
+00:12:34,170 --> 00:12:38,712
+as the bias, we can use
+negative 2 as the bias instead.
+
+265
+00:12:38,712 --> 00:12:40,170
+What does that end up looking like?
+
+266
+00:12:40,170 --> 00:12:44,700
+Well, if I had 1 and 1, that should
+be 1, because 1, true and true,
+
+267
+00:12:44,700 --> 00:12:45,870
+is equal to true.
+
+268
+00:12:45,870 --> 00:12:47,040
+Well, I take 1 times 1.
+
+269
+00:12:47,040 --> 00:12:47,810
+That's 1.
+
+270
+00:12:47,810 --> 00:12:49,020
+1 times 1 is 1.
+
+271
+00:12:49,020 --> 00:12:51,060
+I got a total sum of 2 so far.
+
+272
+00:12:51,060 --> 00:12:54,750
+Now I add the bias of negative
+2, and I get the value 0.
+
+273
+00:12:54,750 --> 00:12:59,290
+And 0 when I plotted on the activation
+function is just past that threshold.
+
+274
+00:12:59,290 --> 00:13:01,320
+And so the output is going to be 1.
+
+275
+00:13:01,320 --> 00:13:05,760
+But if I had any other input,
+for example, like 1 and 0, well,
+
+276
+00:13:05,760 --> 00:13:08,430
+the weighted sum of these is 1 plus 0.
+
+277
+00:13:08,430 --> 00:13:09,810
+It's going to be 1.
+
+278
+00:13:09,810 --> 00:13:12,750
+Minus 2 is going to give us
+negative 1, and negative 1
+
+279
+00:13:12,750 --> 00:13:17,550
+is not past that threshold, and
+so the output is going to be zero.
+
+280
+00:13:17,550 --> 00:13:20,190
+So those then are some
+very simple functions
+
+281
+00:13:20,190 --> 00:13:23,850
+that we can model using a neural
+network, that has two inputs and one
+
+282
+00:13:23,850 --> 00:13:26,070
+output, where our goal is
+to be able to figure out
+
+283
+00:13:26,070 --> 00:13:29,880
+what those weights should be in order
+to determine what the output should be.
+
+284
+00:13:29,880 --> 00:13:33,360
+And you could imagine generalizing this
+to calculate more complex functions as
+
+285
+00:13:33,360 --> 00:13:35,940
+well, that maybe given the
+humidity and the pressure,
+
+286
+00:13:35,940 --> 00:13:38,790
+we want to calculate what's the
+probability that it's going to rain,
+
+287
+00:13:38,790 --> 00:13:39,385
+for example.
+
+288
+00:13:39,385 --> 00:13:41,760
+Or you might want to do a
+regression-style problem, where
+
+289
+00:13:41,760 --> 00:13:45,210
+given some amount of advertising
+and given what month it is maybe,
+
+290
+00:13:45,210 --> 00:13:47,220
+we want to predict what
+our expected sales are
+
+291
+00:13:47,220 --> 00:13:49,270
+going to be for that particular month.
+
+292
+00:13:49,270 --> 00:13:52,900
+So you could imagine these inputs
+and outputs being different as well.
+
+293
+00:13:52,900 --> 00:13:55,920
+And it turns out that in some problems,
+we're not just going to have two
+
+294
+00:13:55,920 --> 00:14:00,000
+inputs, and the nice thing about these
+neural networks is that we can compose
+
+295
+00:14:00,000 --> 00:14:03,510
+multiple units together-- make
+our networks more complex--
+
+296
+00:14:03,510 --> 00:14:07,170
+just by adding more units into
+this particular neural network.
+
+297
+00:14:07,170 --> 00:14:11,692
+So the network we've been looking
+at has two inputs and one output.
+
+298
+00:14:11,692 --> 00:14:13,650
+But we could just as
+easily say, let's go ahead
+
+299
+00:14:13,650 --> 00:14:16,260
+and have three inputs in there,
+or have even more inputs,
+
+300
+00:14:16,260 --> 00:14:19,380
+where we could arbitrarily
+decide, however many inputs there
+
+301
+00:14:19,380 --> 00:14:23,540
+are to our problem, all going to
+be calculating some sort of output
+
+302
+00:14:23,540 --> 00:14:26,520
+that we care about
+figuring out the value of.
+
+303
+00:14:26,520 --> 00:14:29,280
+How then does the math work
+for figuring out that output?
+
+304
+00:14:29,280 --> 00:14:31,290
+Well, it's going to work
+in a very similar way.
+
+305
+00:14:31,290 --> 00:14:35,580
+In the case of two inputs, we had
+two weights indicated by these edges,
+
+306
+00:14:35,580 --> 00:14:39,100
+and we multiplied the weights by
+the numbers, adding this bias term,
+
+307
+00:14:39,100 --> 00:14:41,550
+and we'll do the same thing
+in the other cases as well.
+
+308
+00:14:41,550 --> 00:14:45,120
+If I have three inputs, you'll imagine
+multiplying each of these three inputs
+
+309
+00:14:45,120 --> 00:14:46,680
+by each of these weights.
+
+310
+00:14:46,680 --> 00:14:49,860
+If I had five inputs instead,
+we're going to do the same thing.
+
+311
+00:14:49,860 --> 00:14:52,795
+Here, I'm saying sum up from 1 to 5.
+
+312
+00:14:52,795 --> 00:14:54,680
+xi multiplied by weight i.
+
+313
+00:14:54,680 --> 00:14:57,010
+So take each of the
+five input variables,
+
+314
+00:14:57,010 --> 00:15:00,660
+multiply them by their corresponding
+weight, and then add the bias to that.
+
+315
+00:15:00,660 --> 00:15:03,900
+So this would be a case where there are
+five inputs into this neural network,
+
+316
+00:15:03,900 --> 00:15:04,840
+for example.
+
+317
+00:15:04,840 --> 00:15:06,930
+But there could be more
+arbitrarily many nodes
+
+318
+00:15:06,930 --> 00:15:08,910
+that we want inside of
+this neural network,
+
+319
+00:15:08,910 --> 00:15:10,950
+where each time we're
+just going to sum up
+
+320
+00:15:10,950 --> 00:15:13,680
+all of those input variables
+multiplied by the weight,
+
+321
+00:15:13,680 --> 00:15:16,385
+and then add the bias
+term at the very end.
+
+322
+00:15:16,385 --> 00:15:18,260
+And so this allows us
+to be able to represent
+
+323
+00:15:18,260 --> 00:15:21,290
+problems that have even
+more inputs, just by growing
+
+324
+00:15:21,290 --> 00:15:24,140
+the size of our neural network.
+
+325
+00:15:24,140 --> 00:15:26,460
+Now, the next question we
+might ask is a question
+
+326
+00:15:26,460 --> 00:15:29,580
+about how it is that we train
+these internal networks?
+
+327
+00:15:29,580 --> 00:15:31,920
+In the case of the or
+function and the and function,
+
+328
+00:15:31,920 --> 00:15:34,293
+they were simple enough
+functions that I could just
+
+329
+00:15:34,293 --> 00:15:36,210
+tell you like here what
+the weights should be,
+
+330
+00:15:36,210 --> 00:15:38,252
+and you could probably
+reason through it yourself
+
+331
+00:15:38,252 --> 00:15:42,000
+what the weights should be in order
+to calculate the output that you want.
+
+332
+00:15:42,000 --> 00:15:45,240
+But in general, with functions
+like predicting sales or predicting
+
+333
+00:15:45,240 --> 00:15:47,730
+whether or not it's going to
+rain, these are much trickier
+
+334
+00:15:47,730 --> 00:15:49,380
+functions to be able to figure out.
+
+335
+00:15:49,380 --> 00:15:53,912
+We would like the computer to have some
+mechanism of calculating what it is
+
+336
+00:15:53,912 --> 00:15:56,370
+that the weights should be--
+how it is to set the weights--
+
+337
+00:15:56,370 --> 00:16:00,330
+so that our neural network is able
+to accurately model the function
+
+338
+00:16:00,330 --> 00:16:02,057
+that we care about trying to estimate.
+
+339
+00:16:02,057 --> 00:16:04,140
+And it turns out that the
+strategy for doing this,
+
+340
+00:16:04,140 --> 00:16:08,340
+inspired by the domain of calculus, is
+a technique called gradient descent.
+
+341
+00:16:08,340 --> 00:16:13,020
+And what gradient descent is, it
+is an algorithm for minimizing loss
+
+342
+00:16:13,020 --> 00:16:14,670
+when you're training a neural network.
+
+343
+00:16:14,670 --> 00:16:19,970
+And recall that loss refers to how bad
+our hypothesis function happens to be,
+
+344
+00:16:19,970 --> 00:16:22,220
+that we can define
+certain loss functions,
+
+345
+00:16:22,220 --> 00:16:23,970
+and we saw some examples
+of loss functions
+
+346
+00:16:23,970 --> 00:16:27,720
+last time that just give us a number
+for any particular hypothesis,
+
+347
+00:16:27,720 --> 00:16:30,190
+saying how poorly does
+it model the data?
+
+348
+00:16:30,190 --> 00:16:32,430
+How many examples does it get wrong?
+
+349
+00:16:32,430 --> 00:16:36,390
+How are they worse or less bad as
+compared to other hypothesis functions
+
+350
+00:16:36,390 --> 00:16:37,860
+that we might define?
+
+351
+00:16:37,860 --> 00:16:41,360
+And this loss function is
+just a mathematical function,
+
+352
+00:16:41,360 --> 00:16:43,110
+and when you have a
+mathematical function,
+
+353
+00:16:43,110 --> 00:16:44,910
+in calculus, what you
+could do is calculate
+
+354
+00:16:44,910 --> 00:16:48,030
+something known as the gradient, which
+you can think of is like a slope.
+
+355
+00:16:48,030 --> 00:16:51,720
+It's the direction the loss function
+is moving at any particular point.
+
+356
+00:16:51,720 --> 00:16:54,930
+And what it's going to tell
+us is in which direction
+
+357
+00:16:54,930 --> 00:16:59,880
+should we be moving these weights in
+order to minimize the amount of loss?
+
+358
+00:16:59,880 --> 00:17:02,640
+And so generally speaking-- we
+won't get into the calculus of it--
+
+359
+00:17:02,640 --> 00:17:04,980
+but the high-level idea
+for gradient descent
+
+360
+00:17:04,980 --> 00:17:06,599
+is going to look something like this.
+
+361
+00:17:06,599 --> 00:17:08,760
+If we want to train a
+neural network, we'll
+
+362
+00:17:08,760 --> 00:17:11,579
+go ahead and start just by
+choosing the weights randomly.
+
+363
+00:17:11,579 --> 00:17:14,940
+Just pick random weights for all of
+the weights in the neural network.
+
+364
+00:17:14,940 --> 00:17:18,089
+And then we'll use the input data
+that we have access to in order
+
+365
+00:17:18,089 --> 00:17:20,010
+to train the network
+in order to figure out
+
+366
+00:17:20,010 --> 00:17:21,599
+what the weights should actually be.
+
+367
+00:17:21,599 --> 00:17:24,220
+So we'll repeat this
+process again and again.
+
+368
+00:17:24,220 --> 00:17:26,940
+The first step is we're going
+to calculate the gradient based
+
+369
+00:17:26,940 --> 00:17:28,130
+on all of the data points.
+
+370
+00:17:28,130 --> 00:17:31,612
+So we'll look at all the data and figure
+out what the gradient is at the place
+
+371
+00:17:31,612 --> 00:17:34,320
+where we currently are-- for the
+current setting of the weights--
+
+372
+00:17:34,320 --> 00:17:38,190
+which means that in which direction
+should we move the weights in order
+
+373
+00:17:38,190 --> 00:17:43,172
+to minimize the total amount of loss
+in order to make our solution better?
+
+374
+00:17:43,172 --> 00:17:44,880
+And once we've calculated
+that gradient--
+
+375
+00:17:44,880 --> 00:17:47,730
+which direction we should
+move in the loss function--
+
+376
+00:17:47,730 --> 00:17:51,070
+well, then we can just update those
+weights according to the gradient,
+
+377
+00:17:51,070 --> 00:17:53,970
+take a small step in the
+direction of those weights
+
+378
+00:17:53,970 --> 00:17:56,530
+in order to try to make our
+solution a little bit better.
+
+379
+00:17:56,530 --> 00:17:59,050
+And the size of the step that
+we take, that's going to vary,
+
+380
+00:17:59,050 --> 00:18:02,092
+and you can choose that when you're
+training a particular neural network.
+
+381
+00:18:02,092 --> 00:18:04,980
+But in short, the idea is going
+to be take all of the data points,
+
+382
+00:18:04,980 --> 00:18:08,730
+figure out based on those data points in
+what direction the weights should move,
+
+383
+00:18:08,730 --> 00:18:12,010
+and then move the weights one
+small step in that direction.
+
+384
+00:18:12,010 --> 00:18:14,407
+And if you repeat that
+process over and over again,
+
+385
+00:18:14,407 --> 00:18:17,490
+adjusting the weights a little bit at
+a time based on all the data points,
+
+386
+00:18:17,490 --> 00:18:21,480
+eventually, you should end up with
+a pretty good solution to trying
+
+387
+00:18:21,480 --> 00:18:23,040
+to solve this sort of problem.
+
+388
+00:18:23,040 --> 00:18:25,247
+At least that's what we
+would hope to happen.
+
+389
+00:18:25,247 --> 00:18:27,330
+Now as you look at this
+algorithm, a good question
+
+390
+00:18:27,330 --> 00:18:29,640
+to ask anytime you're
+analyzing an algorithm
+
+391
+00:18:29,640 --> 00:18:33,390
+is, what is going to be the expensive
+part of doing the calculation?
+
+392
+00:18:33,390 --> 00:18:36,090
+What's going to take a lot of
+work to try to figure out what
+
+393
+00:18:36,090 --> 00:18:38,430
+is going to be expensive to calculate?
+
+394
+00:18:38,430 --> 00:18:40,800
+And in particular, in the
+case of gradient descent,
+
+395
+00:18:40,800 --> 00:18:44,970
+the really expensive part is this
+all data points part right here,
+
+396
+00:18:44,970 --> 00:18:48,390
+having to take all of the data
+points and using all of those data
+
+397
+00:18:48,390 --> 00:18:52,740
+points to figure out what the gradient
+is at this particular setting of all
+
+398
+00:18:52,740 --> 00:18:55,737
+of the weights, because odds are,
+in a big machine learning problem
+
+399
+00:18:55,737 --> 00:18:58,320
+where you're trying to solve a
+big problem with a lot of data,
+
+400
+00:18:58,320 --> 00:19:00,720
+you have a lot of data
+points in order to calculate,
+
+401
+00:19:00,720 --> 00:19:03,570
+and figuring out the gradient
+based on all of those data points
+
+402
+00:19:03,570 --> 00:19:04,920
+is going to be expensive.
+
+403
+00:19:04,920 --> 00:19:08,040
+And you'll have to do it many times,
+but you'll likely repeat this process
+
+404
+00:19:08,040 --> 00:19:10,620
+again and again and again, going
+through all the data points,
+
+405
+00:19:10,620 --> 00:19:13,950
+taking one small step over and
+over, as you try and figure
+
+406
+00:19:13,950 --> 00:19:18,060
+out what the optimal setting
+of those weights happens to be.
+
+407
+00:19:18,060 --> 00:19:20,880
+It turns out that we
+would ideally like to be
+
+408
+00:19:20,880 --> 00:19:24,900
+able to train our neural networks faster
+to be able to more quickly converge
+
+409
+00:19:24,900 --> 00:19:28,757
+to some sort of solution that is going
+to be a good solution to the problem.
+
+410
+00:19:28,757 --> 00:19:31,840
+So in that case, there are alternatives
+to just standard gradient descent,
+
+411
+00:19:31,840 --> 00:19:33,990
+which looks at all of
+the data points at once.
+
+412
+00:19:33,990 --> 00:19:38,130
+We can employ a method like stochastic
+gradient descent, which will randomly
+
+413
+00:19:38,130 --> 00:19:42,870
+just choose one data point at a time
+to calculate the gradient based on,
+
+414
+00:19:42,870 --> 00:19:45,940
+instead of calculating it based
+on all of the data points.
+
+415
+00:19:45,940 --> 00:19:48,900
+So the idea there is that we
+have some setting of the weights,
+
+416
+00:19:48,900 --> 00:19:51,750
+we pick a data point, and
+based on that one data point,
+
+417
+00:19:51,750 --> 00:19:54,630
+we figure out in which direction
+should we move all of the weights,
+
+418
+00:19:54,630 --> 00:19:57,902
+and move the weights in that small
+direction, then take another data point
+
+419
+00:19:57,902 --> 00:20:00,360
+and do that again, and repeat
+this process again and again,
+
+420
+00:20:00,360 --> 00:20:03,000
+maybe looking at each of the
+data points multiple times,
+
+421
+00:20:03,000 --> 00:20:07,380
+but each time, only using one data
+point to calculate the gradient
+
+422
+00:20:07,380 --> 00:20:10,440
+to calculate which
+direction we should move in.
+
+423
+00:20:10,440 --> 00:20:13,800
+Now just using one data point
+instead of all of the data points
+
+424
+00:20:13,800 --> 00:20:16,350
+probably gives us a
+less accurate estimate
+
+425
+00:20:16,350 --> 00:20:18,565
+of what the gradient actually is.
+
+426
+00:20:18,565 --> 00:20:21,690
+But on the plus side, it's going to be
+much faster to be able to calculate,
+
+427
+00:20:21,690 --> 00:20:25,370
+that we can much more quickly calculate
+what the gradient is, based on one data
+
+428
+00:20:25,370 --> 00:20:28,610
+point, instead of calculating
+based on all of the data points
+
+429
+00:20:28,610 --> 00:20:31,933
+and having to do all of that
+computational work again and again.
+
+430
+00:20:31,933 --> 00:20:34,850
+So there are trade-offs here between
+looking at all of the data points
+
+431
+00:20:34,850 --> 00:20:36,740
+and just looking at one data point.
+
+432
+00:20:36,740 --> 00:20:39,740
+And it turns out that a middle ground--
+and this is also quite popular--
+
+433
+00:20:39,740 --> 00:20:42,560
+is a technique called
+mini-batch gradient descent,
+
+434
+00:20:42,560 --> 00:20:45,800
+where the idea there is instead at
+looking at all of the data versus just
+
+435
+00:20:45,800 --> 00:20:49,760
+a single point, we instead divide
+our dataset up into small batches--
+
+436
+00:20:49,760 --> 00:20:53,628
+groups of data points-- where you can
+decide how big a particular batch is,
+
+437
+00:20:53,628 --> 00:20:56,420
+but in short, you're just going to
+look at a small number of points
+
+438
+00:20:56,420 --> 00:21:00,020
+at any given time, hopefully getting a
+more accurate estimate of the gradient,
+
+439
+00:21:00,020 --> 00:21:03,680
+but also not requiring all of
+the computational effort needed
+
+440
+00:21:03,680 --> 00:21:07,620
+to look at every single
+one of these data points.
+
+441
+00:21:07,620 --> 00:21:09,710
+So gradient descent
+then is this technique
+
+442
+00:21:09,710 --> 00:21:12,800
+that we can use in order to train
+these neural networks in order
+
+443
+00:21:12,800 --> 00:21:15,410
+to figure out what the setting
+of all of these weights
+
+444
+00:21:15,410 --> 00:21:20,570
+should be, if we want some way to try
+and get an accurate notion of how it is
+
+445
+00:21:20,570 --> 00:21:23,480
+that this function should work, some
+way of modeling how to transform
+
+446
+00:21:23,480 --> 00:21:27,320
+the inputs into particular outputs.
+
+447
+00:21:27,320 --> 00:21:30,080
+So far, the networks that
+we've taken a look at
+
+448
+00:21:30,080 --> 00:21:32,330
+have all been structured
+similar to this.
+
+449
+00:21:32,330 --> 00:21:35,720
+We have some number of inputs--
+maybe two or three or five or more--
+
+450
+00:21:35,720 --> 00:21:39,980
+and then we have one output that is
+just predicting like rain or no rain,
+
+451
+00:21:39,980 --> 00:21:42,510
+or just predicting one particular value.
+
+452
+00:21:42,510 --> 00:21:46,580
+But often in machine learning problems,
+we don't just care about one output.
+
+453
+00:21:46,580 --> 00:21:50,330
+We might care about an output that has
+multiple different values associated
+
+454
+00:21:50,330 --> 00:21:51,180
+with it.
+
+455
+00:21:51,180 --> 00:21:53,780
+So in the same way that we
+could take a neural network
+
+456
+00:21:53,780 --> 00:21:58,910
+and add units to the input layer,
+we can likewise add outputs
+
+457
+00:21:58,910 --> 00:22:00,500
+to the output layer as well.
+
+458
+00:22:00,500 --> 00:22:03,490
+Instead of just one output, you
+could imagine we have two outputs,
+
+459
+00:22:03,490 --> 00:22:06,650
+or we could have like four outputs,
+for example, where in each case,
+
+460
+00:22:06,650 --> 00:22:09,610
+as we add more inputs
+or add more outputs,
+
+461
+00:22:09,610 --> 00:22:13,100
+if we want to keep this network fully
+connected between these two layers,
+
+462
+00:22:13,100 --> 00:22:17,570
+we just need to add more weights,
+that now each of these input nodes
+
+463
+00:22:17,570 --> 00:22:21,560
+have four weights associated
+with each of the four outputs,
+
+464
+00:22:21,560 --> 00:22:25,070
+and that's true for each of these
+various different input nodes.
+
+465
+00:22:25,070 --> 00:22:27,860
+So as we add nodes, we
+add more weights in order
+
+466
+00:22:27,860 --> 00:22:30,230
+to make sure that each
+of the inputs can somehow
+
+467
+00:22:30,230 --> 00:22:33,560
+be connected to each of the
+outputs, so that each output
+
+468
+00:22:33,560 --> 00:22:38,420
+value can be calculated based on what
+the value of the input happens to be.
+
+469
+00:22:38,420 --> 00:22:42,600
+So what might a case be where we want
+multiple different output values?
+
+470
+00:22:42,600 --> 00:22:44,900
+Well, you might consider
+that in the case of weather
+
+471
+00:22:44,900 --> 00:22:47,570
+predicting, for example,
+we might not just care
+
+472
+00:22:47,570 --> 00:22:49,490
+whether it's raining or not raining.
+
+473
+00:22:49,490 --> 00:22:52,250
+There might be multiple
+different categories of weather
+
+474
+00:22:52,250 --> 00:22:54,380
+that we would like to
+categorize the weather into.
+
+475
+00:22:54,380 --> 00:22:58,100
+With just a single output variable,
+we can do a binary classification,
+
+476
+00:22:58,100 --> 00:23:00,330
+like rain or no rain, for instance--
+
+477
+00:23:00,330 --> 00:23:04,340
+1 or 0-- but it doesn't allow
+us to do much more than that.
+
+478
+00:23:04,340 --> 00:23:06,320
+With multiple output
+variables, I might be
+
+479
+00:23:06,320 --> 00:23:09,330
+able to use each one to predict
+something a little different.
+
+480
+00:23:09,330 --> 00:23:11,375
+Maybe I want to categorize
+the weather into one
+
+481
+00:23:11,375 --> 00:23:13,250
+of four different
+categories, something like,
+
+482
+00:23:13,250 --> 00:23:16,740
+is it going to be raining
+or sunny or cloudy or snowy,
+
+483
+00:23:16,740 --> 00:23:18,710
+and I now have four
+output variables that
+
+484
+00:23:18,710 --> 00:23:23,090
+can be used to represent maybe the
+probability that it is raining,
+
+485
+00:23:23,090 --> 00:23:27,260
+as opposed to sunny, as opposed
+to cloudy, or as opposed to snowy.
+
+486
+00:23:27,260 --> 00:23:29,300
+How then would this neural network work?
+
+487
+00:23:29,300 --> 00:23:32,060
+Well, we have some input
+variables that represent some data
+
+488
+00:23:32,060 --> 00:23:34,010
+that we have collected
+about the weather.
+
+489
+00:23:34,010 --> 00:23:36,020
+Each of those inputs
+gets multiplied by each
+
+490
+00:23:36,020 --> 00:23:37,490
+of these various different weights.
+
+491
+00:23:37,490 --> 00:23:39,710
+We have more multiplications
+to do, but these
+
+492
+00:23:39,710 --> 00:23:42,790
+are fairly quick mathematical
+operations to perform.
+
+493
+00:23:42,790 --> 00:23:44,540
+And then what we get
+is after passing them
+
+494
+00:23:44,540 --> 00:23:47,180
+through some sort of activation
+function in the outputs,
+
+495
+00:23:47,180 --> 00:23:50,930
+we end up getting some sort of number,
+where that number, you might imagine,
+
+496
+00:23:50,930 --> 00:23:54,020
+you can interpret as like a
+probability, like a probability
+
+497
+00:23:54,020 --> 00:23:57,120
+that it is one category, as
+opposed to another category.
+
+498
+00:23:57,120 --> 00:23:59,390
+So here we're saying
+that based on the inputs,
+
+499
+00:23:59,390 --> 00:24:03,740
+we think there is a 10% chance that it's
+raining, a 60% chance that it's sunny,
+
+500
+00:24:03,740 --> 00:24:07,460
+a 20% chance of cloudy, a
+10% chance of it's snowy.
+
+501
+00:24:07,460 --> 00:24:11,640
+And given that output, if these
+represent a probability distribution,
+
+502
+00:24:11,640 --> 00:24:14,660
+well, then you could just pick
+whichever one has the highest value--
+
+503
+00:24:14,660 --> 00:24:15,710
+in this case, sunny--
+
+504
+00:24:15,710 --> 00:24:17,690
+and say that, well,
+most likely, we think
+
+505
+00:24:17,690 --> 00:24:23,777
+that this categorization of inputs
+means that the output should be sunny,
+
+506
+00:24:23,777 --> 00:24:25,610
+and that is what we
+would expect the weather
+
+507
+00:24:25,610 --> 00:24:28,710
+to be in this particular instance.
+
+508
+00:24:28,710 --> 00:24:32,510
+So this allows us to do these sort
+of multi-class classifications,
+
+509
+00:24:32,510 --> 00:24:35,030
+where instead of just having
+a binary classification--
+
+510
+00:24:35,030 --> 00:24:38,630
+1 or 0-- we can have as many
+different categories as we
+
+511
+00:24:38,630 --> 00:24:42,380
+want, and we can have our neural
+network output these probabilities
+
+512
+00:24:42,380 --> 00:24:46,430
+over which categories are most
+more likely than other categories,
+
+513
+00:24:46,430 --> 00:24:49,550
+and using that data, we're able
+to draw some sort of inference
+
+514
+00:24:49,550 --> 00:24:51,860
+on what it is that we should do.
+
+515
+00:24:51,860 --> 00:24:54,560
+So this was sort of the idea
+of supervised machine learning.
+
+516
+00:24:54,560 --> 00:24:57,650
+I can give this neural network
+a whole bunch of data--
+
+517
+00:24:57,650 --> 00:24:59,450
+whole bunch of input data--
+
+518
+00:24:59,450 --> 00:25:01,670
+corresponding to some
+label, some output data--
+
+519
+00:25:01,670 --> 00:25:03,740
+like we know that it
+was raining on this day,
+
+520
+00:25:03,740 --> 00:25:05,720
+we know that it was sunny on that day--
+
+521
+00:25:05,720 --> 00:25:08,150
+and using all of that
+data, the algorithm
+
+522
+00:25:08,150 --> 00:25:11,150
+can use gradient descent to
+figure out what all of the weights
+
+523
+00:25:11,150 --> 00:25:13,670
+should be in order to create
+some sort of model that
+
+524
+00:25:13,670 --> 00:25:16,010
+hopefully allows us
+a way to predict what
+
+525
+00:25:16,010 --> 00:25:18,020
+we think the weather is going to be.
+
+526
+00:25:18,020 --> 00:25:20,810
+But neural networks have a lot
+of other applications as well.
+
+527
+00:25:20,810 --> 00:25:23,570
+You can imagine applying
+the same sort of idea
+
+528
+00:25:23,570 --> 00:25:26,630
+to a reinforcement learning
+sort of example as well.
+
+529
+00:25:26,630 --> 00:25:29,930
+Well, you remember that in
+reinforcement learning, we wanted to do
+
+530
+00:25:29,930 --> 00:25:34,520
+is train some sort of agent to learn
+what action to take depending on what
+
+531
+00:25:34,520 --> 00:25:36,120
+state they currently happen to be in.
+
+532
+00:25:36,120 --> 00:25:38,390
+So depending on the
+current state of the world,
+
+533
+00:25:38,390 --> 00:25:41,900
+we wanted the agent to pick from
+one of the available actions that
+
+534
+00:25:41,900 --> 00:25:43,550
+is available to them.
+
+535
+00:25:43,550 --> 00:25:47,030
+And you might model that by having
+each of these input variables
+
+536
+00:25:47,030 --> 00:25:50,150
+represent some information
+about the state--
+
+537
+00:25:50,150 --> 00:25:53,660
+some data about what state
+our agent is currently in--
+
+538
+00:25:53,660 --> 00:25:55,820
+and then the output,
+for example, could be
+
+539
+00:25:55,820 --> 00:25:58,610
+each of the various different
+actions that our agent could
+
+540
+00:25:58,610 --> 00:26:01,640
+take-- action 1, 2, 3,
+and 4, and you might
+
+541
+00:26:01,640 --> 00:26:04,240
+imagine that this network
+would work in the same way,
+
+542
+00:26:04,240 --> 00:26:06,530
+that based on these
+particular inputs we go ahead
+
+543
+00:26:06,530 --> 00:26:08,840
+and calculate values for
+each of these outputs,
+
+544
+00:26:08,840 --> 00:26:12,690
+and those outputs could model which
+action is better than other actions,
+
+545
+00:26:12,690 --> 00:26:15,440
+and we could just choose, based
+on looking at those outputs, which
+
+546
+00:26:15,440 --> 00:26:17,890
+actions we should take.
+
+547
+00:26:17,890 --> 00:26:20,600
+And so these neural networks
+are very broadly applicable,
+
+548
+00:26:20,600 --> 00:26:23,870
+that all they're really doing is
+modeling some mathematical function.
+
+549
+00:26:23,870 --> 00:26:26,690
+So anything that we can frame as
+a mathematical function, something
+
+550
+00:26:26,690 --> 00:26:30,050
+like classifying inputs into
+various different categories,
+
+551
+00:26:30,050 --> 00:26:32,810
+or figuring out based
+on some input state what
+
+552
+00:26:32,810 --> 00:26:36,140
+action we should take-- these are all
+mathematical functions that we could
+
+553
+00:26:36,140 --> 00:26:40,100
+attempt to model by taking advantage
+of this neural network structure,
+
+554
+00:26:40,100 --> 00:26:43,760
+and in particular, taking advantage
+of this technique, gradient descent,
+
+555
+00:26:43,760 --> 00:26:47,240
+that we can use in order to figure out
+what the weights should be in order
+
+556
+00:26:47,240 --> 00:26:49,890
+to do this sort of calculation.
+
+557
+00:26:49,890 --> 00:26:52,890
+Now how is it that you would go about
+training a neural network that has
+
+558
+00:26:52,890 --> 00:26:55,550
+multiple outputs instead of just one?
+
+559
+00:26:55,550 --> 00:26:57,330
+Well, with just a
+single output, we could
+
+560
+00:26:57,330 --> 00:26:59,920
+see what the output for
+that value should be,
+
+561
+00:26:59,920 --> 00:27:03,190
+and then you update all of the
+weights that corresponded to it.
+
+562
+00:27:03,190 --> 00:27:06,730
+And when we have multiple outputs,
+at least in this particular case,
+
+563
+00:27:06,730 --> 00:27:10,260
+we can really think of this as
+four separate neural networks,
+
+564
+00:27:10,260 --> 00:27:12,780
+that really we just
+have one network here
+
+565
+00:27:12,780 --> 00:27:16,170
+that has these three inputs,
+corresponding with these three weights,
+
+566
+00:27:16,170 --> 00:27:18,750
+corresponding to this one output value.
+
+567
+00:27:18,750 --> 00:27:21,150
+And the same thing is true
+for this output value.
+
+568
+00:27:21,150 --> 00:27:24,750
+This output value effectively
+defines yet another neural network
+
+569
+00:27:24,750 --> 00:27:28,320
+that has these same three inputs,
+but a different set of weights
+
+570
+00:27:28,320 --> 00:27:29,880
+that correspond to this output.
+
+571
+00:27:29,880 --> 00:27:32,910
+And likewise, this output has
+its own set of weights as well,
+
+572
+00:27:32,910 --> 00:27:35,790
+and the same thing for
+the fourth output too.
+
+573
+00:27:35,790 --> 00:27:39,480
+And so if you wanted to train a neural
+network that had four outputs instead
+
+574
+00:27:39,480 --> 00:27:42,840
+of just one, in this case where
+the inputs are directly connected
+
+575
+00:27:42,840 --> 00:27:44,760
+to the outputs, you could
+really think of this
+
+576
+00:27:44,760 --> 00:27:47,550
+as just training four
+independent neural networks.
+
+577
+00:27:47,550 --> 00:27:49,720
+We know what the outputs
+for each of these four
+
+578
+00:27:49,720 --> 00:27:52,980
+should be based on our input
+data, and using that data,
+
+579
+00:27:52,980 --> 00:27:56,210
+we can begin to figure out what all
+of these individual weights should be,
+
+580
+00:27:56,210 --> 00:27:58,710
+and maybe there's an additional
+step at the end to make sure
+
+581
+00:27:58,710 --> 00:28:02,130
+that turn these values into
+a probability distribution,
+
+582
+00:28:02,130 --> 00:28:04,860
+such that we can interpret
+which one is better than another
+
+583
+00:28:04,860 --> 00:28:09,150
+or more likely than another as a
+category or something like that.
+
+584
+00:28:09,150 --> 00:28:12,557
+So this then seems like it does a pretty
+good job of taking inputs and trying
+
+585
+00:28:12,557 --> 00:28:14,390
+to predict what outputs
+should be, and we'll
+
+586
+00:28:14,390 --> 00:28:17,158
+see some real examples of
+this in just a moment as well.
+
+587
+00:28:17,158 --> 00:28:18,950
+But it's important then
+to think about what
+
+588
+00:28:18,950 --> 00:28:21,670
+the limitations of this
+sort of approach is,
+
+589
+00:28:21,670 --> 00:28:25,130
+of just taking some linear
+combination of inputs
+
+590
+00:28:25,130 --> 00:28:27,993
+and passing it into some
+sort of activation function.
+
+591
+00:28:27,993 --> 00:28:31,160
+And it turns out that when we do this
+in the case of binary classification--
+
+592
+00:28:31,160 --> 00:28:35,480
+I'm trying to predict like does it
+belong to one category or another--
+
+593
+00:28:35,480 --> 00:28:39,470
+we can only predict things that are
+linearly separable, because we're
+
+594
+00:28:39,470 --> 00:28:43,670
+taking a linear combination of inputs
+and using that to define some decision
+
+595
+00:28:43,670 --> 00:28:45,320
+boundary or threshold.
+
+596
+00:28:45,320 --> 00:28:48,740
+Then what we get is a situation
+where if we have this set of data,
+
+597
+00:28:48,740 --> 00:28:52,340
+we can predict a line
+that separates linearly
+
+598
+00:28:52,340 --> 00:28:54,950
+the red points from the blue points.
+
+599
+00:28:54,950 --> 00:28:58,250
+But a single unit that is
+making a binary classification,
+
+600
+00:28:58,250 --> 00:29:03,260
+otherwise known as a perceptron,
+can't deal with a situation like this,
+
+601
+00:29:03,260 --> 00:29:05,390
+where-- we've seen this
+type of situation before--
+
+602
+00:29:05,390 --> 00:29:07,340
+where there is no
+straight line that just
+
+603
+00:29:07,340 --> 00:29:10,310
+goes straight through the data that
+will divide the red points away
+
+604
+00:29:10,310 --> 00:29:11,450
+from the blue points.
+
+605
+00:29:11,450 --> 00:29:13,890
+It's a more complex decision boundary.
+
+606
+00:29:13,890 --> 00:29:16,430
+The decision boundary somehow
+needs to capture the things
+
+607
+00:29:16,430 --> 00:29:19,700
+inside of the circle, and
+there isn't really a line
+
+608
+00:29:19,700 --> 00:29:21,860
+that will allow us to deal with that.
+
+609
+00:29:21,860 --> 00:29:24,410
+So this is the limitation
+of the perceptron--
+
+610
+00:29:24,410 --> 00:29:27,560
+these units that just make these binary
+decisions based on their inputs--
+
+611
+00:29:27,560 --> 00:29:31,240
+that a single perceptron
+is only capable of learning
+
+612
+00:29:31,240 --> 00:29:34,010
+a linearly separable decision boundary.
+
+613
+00:29:34,010 --> 00:29:36,230
+It can do is define a line.
+
+614
+00:29:36,230 --> 00:29:38,180
+And sure, it can give
+us probabilities based
+
+615
+00:29:38,180 --> 00:29:40,640
+on how close to that
+decision boundary we are,
+
+616
+00:29:40,640 --> 00:29:45,570
+but it can only really decide based
+on a linear decision boundary.
+
+617
+00:29:45,570 --> 00:29:49,100
+And so this doesn't seem like it's
+going to generalize well to situations
+
+618
+00:29:49,100 --> 00:29:52,310
+where real-world data is involved,
+because real-world data often
+
+619
+00:29:52,310 --> 00:29:53,630
+isn't linearly separable.
+
+620
+00:29:53,630 --> 00:29:56,990
+It often isn't the case that we can
+just draw a line through the data
+
+621
+00:29:56,990 --> 00:30:00,060
+and be able to divide it
+up into multiple groups.
+
+622
+00:30:00,060 --> 00:30:02,090
+So what then is the solution to this?
+
+623
+00:30:02,090 --> 00:30:06,380
+Well, what was proposed was the
+idea of a multilayer neural network,
+
+624
+00:30:06,380 --> 00:30:09,950
+that so far, all of the neural networks
+we've seen have had a set of inputs
+
+625
+00:30:09,950 --> 00:30:14,050
+and a set of outputs, and the inputs
+are connected to those outputs.
+
+626
+00:30:14,050 --> 00:30:17,420
+But in a multi-layer neural network,
+this is going to be an artificial
+
+627
+00:30:17,420 --> 00:30:20,870
+neural network that has an input
+layer still, it has an output layer,
+
+628
+00:30:20,870 --> 00:30:24,950
+but also has one or more
+hidden layers in between--
+
+629
+00:30:24,950 --> 00:30:28,160
+other layers of artificial
+neurons, or units, that
+
+630
+00:30:28,160 --> 00:30:30,793
+are going to calculate
+their own values as well.
+
+631
+00:30:30,793 --> 00:30:32,960
+So instead of a neural
+network that looks like this,
+
+632
+00:30:32,960 --> 00:30:37,370
+with three inputs and one output, you
+might imagine, in the middle here,
+
+633
+00:30:37,370 --> 00:30:39,417
+injecting a hidden layer--
+
+634
+00:30:39,417 --> 00:30:40,250
+something like this.
+
+635
+00:30:40,250 --> 00:30:42,230
+This is a hidden layer
+that has four nodes.
+
+636
+00:30:42,230 --> 00:30:45,590
+You could choose how many nodes or units
+end up going into the hidden layer,
+
+637
+00:30:45,590 --> 00:30:48,180
+and you have multiple
+hidden layers as well.
+
+638
+00:30:48,180 --> 00:30:52,430
+And so now each of these inputs isn't
+directly connected to the output.
+
+639
+00:30:52,430 --> 00:30:55,460
+Each of the inputs is connected
+to this hidden layer, and then
+
+640
+00:30:55,460 --> 00:30:59,840
+all of the nodes in the hidden layer,
+those are connected to the one output.
+
+641
+00:30:59,840 --> 00:31:02,690
+And so this is just
+another step that we can
+
+642
+00:31:02,690 --> 00:31:05,310
+take towards calculating
+more complex functions.
+
+643
+00:31:05,310 --> 00:31:08,660
+Each of these hidden units will
+calculate its output value,
+
+644
+00:31:08,660 --> 00:31:12,680
+otherwise known as its activation,
+based on a linear combination
+
+645
+00:31:12,680 --> 00:31:14,060
+of all the inputs.
+
+646
+00:31:14,060 --> 00:31:16,340
+And once we have values
+for all of these nodes,
+
+647
+00:31:16,340 --> 00:31:19,490
+as opposed to this just being the
+output, we do the same thing again--
+
+648
+00:31:19,490 --> 00:31:21,890
+calculate the output
+for this node, based
+
+649
+00:31:21,890 --> 00:31:26,687
+on multiplying each of the values for
+these units by their weights as well.
+
+650
+00:31:26,687 --> 00:31:29,270
+So in effect, the way this works
+is that we start with inputs.
+
+651
+00:31:29,270 --> 00:31:31,437
+They get multiplied by
+weights in order to calculate
+
+652
+00:31:31,437 --> 00:31:32,840
+values for the hidden nodes.
+
+653
+00:31:32,840 --> 00:31:35,810
+Those get multiplied by weights
+in order to figure out what
+
+654
+00:31:35,810 --> 00:31:38,550
+the ultimate output is going to be.
+
+655
+00:31:38,550 --> 00:31:42,260
+And the advantage of layering things
+like this is it gives us an ability
+
+656
+00:31:42,260 --> 00:31:46,400
+to model more complex functions,
+that instead of just having a single
+
+657
+00:31:46,400 --> 00:31:49,730
+decision boundary-- a single line
+dividing the red points from the blue
+
+658
+00:31:49,730 --> 00:31:50,600
+points--
+
+659
+00:31:50,600 --> 00:31:54,680
+each of these hidden nodes can
+learn a different decision boundary,
+
+660
+00:31:54,680 --> 00:31:57,710
+and we can combine those decision
+boundaries to figure out what
+
+661
+00:31:57,710 --> 00:31:59,750
+the ultimate output is going to be.
+
+662
+00:31:59,750 --> 00:32:02,210
+And as we begin to imagine
+more complex situations,
+
+663
+00:32:02,210 --> 00:32:05,930
+you could imagine each of these
+nodes learning some useful property
+
+664
+00:32:05,930 --> 00:32:09,290
+or learning some useful
+feature of all of the inputs
+
+665
+00:32:09,290 --> 00:32:12,800
+and somehow learning how to combine
+those features together in order to get
+
+666
+00:32:12,800 --> 00:32:15,370
+the output that we actually want.
+
+667
+00:32:15,370 --> 00:32:17,870
+Now the natural question, when
+we begin to look at this now,
+
+668
+00:32:17,870 --> 00:32:20,780
+is to ask the question of, how
+do we train a neural network
+
+669
+00:32:20,780 --> 00:32:23,180
+that has hidden layers inside of it?
+
+670
+00:32:23,180 --> 00:32:25,950
+And this turns out to initially
+be a bit of a tricky question,
+
+671
+00:32:25,950 --> 00:32:30,740
+because the input data we are given
+is we are given values for all
+
+672
+00:32:30,740 --> 00:32:34,670
+of the inputs, and we're given what
+the value of the output should be--
+
+673
+00:32:34,670 --> 00:32:36,830
+what the category is, for example--
+
+674
+00:32:36,830 --> 00:32:40,880
+but the input data doesn't tell us
+what the values for all of these nodes
+
+675
+00:32:40,880 --> 00:32:41,630
+should be.
+
+676
+00:32:41,630 --> 00:32:44,810
+So we don't know how far
+off each of these nodes
+
+677
+00:32:44,810 --> 00:32:48,570
+actually is, because we're only given
+data for the inputs and the outputs.
+
+678
+00:32:48,570 --> 00:32:50,390
+The reason this is
+called the hidden layer
+
+679
+00:32:50,390 --> 00:32:52,760
+is because the data that
+is made available to us
+
+680
+00:32:52,760 --> 00:32:56,930
+doesn't tell us what the values
+for all of these intermediate nodes
+
+681
+00:32:56,930 --> 00:32:58,530
+should actually be.
+
+682
+00:32:58,530 --> 00:33:03,020
+And so the strategy people came up
+with was to say that if you know what
+
+683
+00:33:03,020 --> 00:33:07,010
+the error or the losses
+on the output node, well,
+
+684
+00:33:07,010 --> 00:33:10,280
+then based on what these weights are--
+if one of these weights is higher than
+
+685
+00:33:10,280 --> 00:33:11,000
+another--
+
+686
+00:33:11,000 --> 00:33:16,670
+you can calculate an estimate for
+how much the error from this node
+
+687
+00:33:16,670 --> 00:33:20,492
+was due to this part of the hidden
+node, or this part of the hidden layer,
+
+688
+00:33:20,492 --> 00:33:23,450
+or this part of the hidden layer,
+based on the values of these weights,
+
+689
+00:33:23,450 --> 00:33:26,480
+in effect saying, that based
+on the error from the output,
+
+690
+00:33:26,480 --> 00:33:29,690
+I can backpropagate the
+error and figure out
+
+691
+00:33:29,690 --> 00:33:34,207
+an estimate for what the error is for
+each of these the hidden layer as well.
+
+692
+00:33:34,207 --> 00:33:37,290
+And there's some more calculus here
+that we won't get into the details of,
+
+693
+00:33:37,290 --> 00:33:40,550
+but the idea of this algorithm
+is known as backpropagation.
+
+694
+00:33:40,550 --> 00:33:42,770
+It's an algorithm for
+training a neural network
+
+695
+00:33:42,770 --> 00:33:44,930
+with multiple different hidden layers.
+
+696
+00:33:44,930 --> 00:33:47,000
+And the idea for this--
+the pseudocode for it--
+
+697
+00:33:47,000 --> 00:33:50,690
+will again be, if we want to run
+gradient descent with backpropagation,
+
+698
+00:33:50,690 --> 00:33:54,050
+we'll start with a random choice
+of weights as we did before,
+
+699
+00:33:54,050 --> 00:33:57,540
+and now we'll go ahead and repeat
+the training process again and again.
+
+700
+00:33:57,540 --> 00:33:59,810
+But what we're going
+to do each time is now
+
+701
+00:33:59,810 --> 00:34:02,720
+we're going to calculate the
+error for the output layer first.
+
+702
+00:34:02,720 --> 00:34:05,940
+We know the output and what it should
+be, and we know what we calculated,
+
+703
+00:34:05,940 --> 00:34:08,389
+so we figure out what
+the error there is.
+
+704
+00:34:08,389 --> 00:34:11,060
+But then we're going to
+repeat, for every layer,
+
+705
+00:34:11,060 --> 00:34:13,963
+starting with the output layer,
+moving back into the hidden layer,
+
+706
+00:34:13,963 --> 00:34:16,880
+then the hidden layer before that
+if there are multiple hidden layers,
+
+707
+00:34:16,880 --> 00:34:19,219
+going back all the way to
+the very first hidden layer,
+
+708
+00:34:19,219 --> 00:34:23,750
+assuming there are multiple, we're going
+to propagate the error back one layer--
+
+709
+00:34:23,750 --> 00:34:25,520
+whatever the error was from the output--
+
+710
+00:34:25,520 --> 00:34:28,550
+figure out what the error should be
+a layer before that based on what
+
+711
+00:34:28,550 --> 00:34:30,630
+the values of those weights are.
+
+712
+00:34:30,630 --> 00:34:33,697
+And then we can update those weights.
+
+713
+00:34:33,697 --> 00:34:35,780
+So graphically, the way
+you might think about this
+
+714
+00:34:35,780 --> 00:34:37,460
+is that we first start with the output.
+
+715
+00:34:37,460 --> 00:34:39,080
+We know what the output should be.
+
+716
+00:34:39,080 --> 00:34:40,497
+We know what output we calculated.
+
+717
+00:34:40,497 --> 00:34:42,497
+And based on that, we can
+figure out, all right,
+
+718
+00:34:42,497 --> 00:34:45,020
+how do we need to update
+those weights, backpropagating
+
+719
+00:34:45,020 --> 00:34:47,330
+the error to these nodes.
+
+720
+00:34:47,330 --> 00:34:50,290
+And using that, we can figure out
+how we should update these weights.
+
+721
+00:34:50,290 --> 00:34:52,415
+And you might imagine if
+there are multiple layers,
+
+722
+00:34:52,415 --> 00:34:54,500
+we could repeat this
+process again and again
+
+723
+00:34:54,500 --> 00:34:58,427
+to begin to figure out how all of
+these weights should be updated.
+
+724
+00:34:58,427 --> 00:35:00,260
+And this backpropagation
+algorithm is really
+
+725
+00:35:00,260 --> 00:35:03,080
+the key algorithm that makes
+neural networks possible,
+
+726
+00:35:03,080 --> 00:35:06,510
+and makes it possible to take
+these multi-level structures
+
+727
+00:35:06,510 --> 00:35:09,020
+and be able to train those
+structures, depending
+
+728
+00:35:09,020 --> 00:35:12,380
+on what the values of these
+weights are in order to figure out
+
+729
+00:35:12,380 --> 00:35:15,290
+how it is that we should go about
+updating those weights in order
+
+730
+00:35:15,290 --> 00:35:19,370
+to create some function that is able
+to minimize the total amount of loss,
+
+731
+00:35:19,370 --> 00:35:22,910
+to figure out some good setting of
+the weights that will take the inputs
+
+732
+00:35:22,910 --> 00:35:26,360
+and translate it into the
+output that we expect.
+
+733
+00:35:26,360 --> 00:35:29,165
+And this works, as we said, not
+just for a single hidden layer,
+
+734
+00:35:29,165 --> 00:35:32,210
+but you can imagine multiple hidden
+layers, where each hidden layer--
+
+735
+00:35:32,210 --> 00:35:34,490
+we just defined however
+many nodes we want--
+
+736
+00:35:34,490 --> 00:35:36,470
+where each of the nodes
+in one layer, we can
+
+737
+00:35:36,470 --> 00:35:40,010
+connect to the nodes in the next
+layer, defining more and more complex
+
+738
+00:35:40,010 --> 00:35:45,190
+networks that are able to model more
+and more complex types of functions.
+
+739
+00:35:45,190 --> 00:35:49,100
+And so this type of network is what we
+might call a deep neural network, part
+
+740
+00:35:49,100 --> 00:35:52,098
+of a larger family of
+deep learning algorithms,
+
+741
+00:35:52,098 --> 00:35:53,390
+if you've ever heard that term.
+
+742
+00:35:53,390 --> 00:35:57,620
+And all deep learning is about is
+it's using multiple layers to be
+
+743
+00:35:57,620 --> 00:36:01,130
+able to predict and be able to
+model higher-level features inside
+
+744
+00:36:01,130 --> 00:36:03,910
+of the input, to be able to figure
+out what the output should be.
+
+745
+00:36:03,910 --> 00:36:06,410
+And so the deep neural network
+is just a neural network that
+
+746
+00:36:06,410 --> 00:36:09,230
+has multiple of these hidden
+layers, where we start at the input,
+
+747
+00:36:09,230 --> 00:36:12,500
+calculate values for this layer,
+then this layer, then this layer,
+
+748
+00:36:12,500 --> 00:36:14,460
+and then ultimately get an output.
+
+749
+00:36:14,460 --> 00:36:17,600
+And this allows us to be able to
+model more and more sophisticated
+
+750
+00:36:17,600 --> 00:36:20,030
+types of functions, that
+each of these layers
+
+751
+00:36:20,030 --> 00:36:22,710
+can calculate something
+a little bit different.
+
+752
+00:36:22,710 --> 00:36:27,290
+And we can combine that information to
+figure out what the output should be.
+
+753
+00:36:27,290 --> 00:36:29,840
+Of course, as with any
+situation of machine learning,
+
+754
+00:36:29,840 --> 00:36:32,330
+as we begin to make our
+models more and more complex,
+
+755
+00:36:32,330 --> 00:36:35,920
+to model more and more complex
+functions, the risk we run
+
+756
+00:36:35,920 --> 00:36:37,670
+is something like overfitting.
+
+757
+00:36:37,670 --> 00:36:39,620
+And we talked about
+overfitting last time
+
+758
+00:36:39,620 --> 00:36:44,210
+in the context of overfitting based on
+when we were training our models to be
+
+759
+00:36:44,210 --> 00:36:47,510
+able to learn some sort of decision
+boundary, where overfitting happens
+
+760
+00:36:47,510 --> 00:36:51,300
+when we fit too closely to the
+training data, and as a result,
+
+761
+00:36:51,300 --> 00:36:54,990
+we don't generalize well to
+other situations as well.
+
+762
+00:36:54,990 --> 00:36:59,000
+And one of the risks we run with a
+far more complex neural network that
+
+763
+00:36:59,000 --> 00:37:01,070
+has many, many different
+nodes is that we
+
+764
+00:37:01,070 --> 00:37:03,200
+might overfit based
+on the input data; we
+
+765
+00:37:03,200 --> 00:37:07,310
+might grow over-reliant on certain nodes
+to calculate things just purely based
+
+766
+00:37:07,310 --> 00:37:12,180
+on the input data that doesn't allow us
+to generalize very well to the output.
+
+767
+00:37:12,180 --> 00:37:15,190
+And there are a number of strategies
+for dealing with overfitting,
+
+768
+00:37:15,190 --> 00:37:18,010
+but one of the most popular in
+the context of neural networks
+
+769
+00:37:18,010 --> 00:37:19,900
+is a technique known as dropout.
+
+770
+00:37:19,900 --> 00:37:23,410
+And what dropout does is it when we're
+training the neural network, what we'll
+
+771
+00:37:23,410 --> 00:37:26,740
+do in dropout, is
+temporarily remove units,
+
+772
+00:37:26,740 --> 00:37:28,900
+temporarily remove
+these artificial neurons
+
+773
+00:37:28,900 --> 00:37:32,080
+from our network, chosen at
+random, and the goal here
+
+774
+00:37:32,080 --> 00:37:35,120
+is to prevent over-reliance
+on certain units.
+
+775
+00:37:35,120 --> 00:37:37,060
+So what generally
+happens in overfitting is
+
+776
+00:37:37,060 --> 00:37:40,660
+that we begin to over-rely on certain
+units inside the neural network
+
+777
+00:37:40,660 --> 00:37:43,600
+to be able to tell us how
+to interpret the input data.
+
+778
+00:37:43,600 --> 00:37:46,900
+What dropout will do is randomly
+remove some of these units
+
+779
+00:37:46,900 --> 00:37:50,260
+in order to reduce the chance that
+we over-rely on certain units,
+
+780
+00:37:50,260 --> 00:37:52,630
+to make our neural
+network more robust, to be
+
+781
+00:37:52,630 --> 00:37:56,740
+able to handle the situations even when
+we just drop out particular neurons
+
+782
+00:37:56,740 --> 00:37:58,140
+entirely.
+
+783
+00:37:58,140 --> 00:38:00,850
+So the way that might work is
+we have a network like this,
+
+784
+00:38:00,850 --> 00:38:03,010
+and as we're training it,
+when we go about trying
+
+785
+00:38:03,010 --> 00:38:04,870
+to update the weights
+the first time, we'll
+
+786
+00:38:04,870 --> 00:38:08,350
+just randomly pick some percentage of
+the nodes to drop out of the network.
+
+787
+00:38:08,350 --> 00:38:10,280
+It's as if those nodes
+aren't there at all.
+
+788
+00:38:10,280 --> 00:38:13,490
+It's as if the weights associated
+with those nodes aren't there at all.
+
+789
+00:38:13,490 --> 00:38:14,930
+And we'll train in this way.
+
+790
+00:38:14,930 --> 00:38:17,200
+Then the next time we update the
+weights, we'll pick a different set
+
+791
+00:38:17,200 --> 00:38:20,050
+and just go ahead and train that
+way, and then again randomly choose
+
+792
+00:38:20,050 --> 00:38:23,360
+and train with other nodes that
+have been dropped that as well.
+
+793
+00:38:23,360 --> 00:38:25,990
+And the goal of that is that
+after the training process,
+
+794
+00:38:25,990 --> 00:38:29,308
+if you train by dropping out random
+nodes inside of this neural network,
+
+795
+00:38:29,308 --> 00:38:32,350
+you hopefully end up with a network
+that's a little bit more robust, that
+
+796
+00:38:32,350 --> 00:38:35,620
+doesn't rely too heavily
+on any one particular node,
+
+797
+00:38:35,620 --> 00:38:40,420
+but more generally learns how to
+approximate a function in general.
+
+798
+00:38:40,420 --> 00:38:42,790
+So that then is a look at
+some of these techniques
+
+799
+00:38:42,790 --> 00:38:46,390
+that we can use in order to
+implement a neural network, to get
+
+800
+00:38:46,390 --> 00:38:49,060
+at the idea of taking
+this input, passing it
+
+801
+00:38:49,060 --> 00:38:51,160
+through these various
+different layers, in order
+
+802
+00:38:51,160 --> 00:38:52,870
+to produce some sort of output.
+
+803
+00:38:52,870 --> 00:38:55,870
+And what we'd like to do now is take
+those ideas and put them into code.
+
+804
+00:38:55,870 --> 00:38:58,537
+And to do that, there are a number
+of different machine learning
+
+805
+00:38:58,537 --> 00:39:01,120
+libraries-- neural network
+libraries-- that we can use that
+
+806
+00:39:01,120 --> 00:39:05,560
+allow us to get access to someone's
+implementation of backpropagation
+
+807
+00:39:05,560 --> 00:39:07,210
+and all of these hidden layers.
+
+808
+00:39:07,210 --> 00:39:09,370
+And one of the most popular,
+developed by Google,
+
+809
+00:39:09,370 --> 00:39:11,440
+is known as TensorFlow,
+a library that we
+
+810
+00:39:11,440 --> 00:39:13,930
+can use for quickly
+creating neural networks
+
+811
+00:39:13,930 --> 00:39:16,780
+and modeling them and running
+them on some sample data
+
+812
+00:39:16,780 --> 00:39:18,730
+to see what the output is going to be.
+
+813
+00:39:18,730 --> 00:39:20,690
+And before we actually
+start writing code,
+
+814
+00:39:20,690 --> 00:39:23,380
+we'll go ahead and take a look
+at TensorFlow's Playground, which
+
+815
+00:39:23,380 --> 00:39:25,422
+will be an opportunity
+for us just to play around
+
+816
+00:39:25,422 --> 00:39:28,180
+with this idea of neural
+networks in different layers,
+
+817
+00:39:28,180 --> 00:39:31,660
+just to get a sense for what it is
+that we can do by taking advantage
+
+818
+00:39:31,660 --> 00:39:33,950
+of a neural networks.
+
+819
+00:39:33,950 --> 00:39:37,360
+So let's go ahead and go into
+TensorFlow's Playground, which you can
+
+820
+00:39:37,360 --> 00:39:39,670
+go to by visiting that URL from before.
+
+821
+00:39:39,670 --> 00:39:43,480
+And what we're going to do now is we're
+going to try and learn the decision
+
+822
+00:39:43,480 --> 00:39:46,240
+boundary for this particular output.
+
+823
+00:39:46,240 --> 00:39:49,710
+I want to learn to separate the
+orange points from the blue points,
+
+824
+00:39:49,710 --> 00:39:52,090
+and I'd like to learn some
+sort of setting of weights
+
+825
+00:39:52,090 --> 00:39:56,690
+inside of a neural network that will be
+able to separate those from each other.
+
+826
+00:39:56,690 --> 00:39:58,960
+The features we have
+access to, our input data,
+
+827
+00:39:58,960 --> 00:40:03,590
+are the x value and the y value, so the
+two values along each of the two axes.
+
+828
+00:40:03,590 --> 00:40:06,340
+And what I'll do now is I can set
+particular parameters, like what
+
+829
+00:40:06,340 --> 00:40:09,490
+activation function I would like
+to use, and I'll just go ahead
+
+830
+00:40:09,490 --> 00:40:12,720
+and press Play and see what happens.
+
+831
+00:40:12,720 --> 00:40:16,560
+And what happens here is that you'll
+see that just by using these two input
+
+832
+00:40:16,560 --> 00:40:20,590
+features-- the x value and the
+y value, with no hidden layers--
+
+833
+00:40:20,590 --> 00:40:24,450
+just take the input, x and y values, and
+figure out what the decision boundary
+
+834
+00:40:24,450 --> 00:40:24,990
+is--
+
+835
+00:40:24,990 --> 00:40:27,600
+our neural network learns
+pretty quickly that in order
+
+836
+00:40:27,600 --> 00:40:30,150
+to divide these two points,
+we should just use this line.
+
+837
+00:40:30,150 --> 00:40:34,193
+This line acts as the decision boundary
+that separates this group of points
+
+838
+00:40:34,193 --> 00:40:36,360
+from that group of points,
+and it does it very well.
+
+839
+00:40:36,360 --> 00:40:38,160
+You can see up here what the loss is.
+
+840
+00:40:38,160 --> 00:40:40,320
+The training loss is
+zero, meaning we were
+
+841
+00:40:40,320 --> 00:40:44,640
+able to perfectly model separating
+these two points from each other inside
+
+842
+00:40:44,640 --> 00:40:46,380
+of our training data.
+
+843
+00:40:46,380 --> 00:40:50,610
+So this was a fairly simple case of
+trying to apply a neural network,
+
+844
+00:40:50,610 --> 00:40:54,630
+because the data is very clean it's
+very nicely linearly separable.
+
+845
+00:40:54,630 --> 00:40:58,810
+We can just draw a line that separates
+all of those points from each other.
+
+846
+00:40:58,810 --> 00:41:00,900
+Let's now consider a more complex case.
+
+847
+00:41:00,900 --> 00:41:03,390
+So I'll go ahead and
+pause the simulation,
+
+848
+00:41:03,390 --> 00:41:06,570
+and we'll go ahead and
+look at this data set here.
+
+849
+00:41:06,570 --> 00:41:09,030
+This data set is a little
+bit more complex now.
+
+850
+00:41:09,030 --> 00:41:11,280
+In this data set, we still
+have blue and orange points
+
+851
+00:41:11,280 --> 00:41:13,140
+that we'd like to
+separate from each other,
+
+852
+00:41:13,140 --> 00:41:15,150
+but there is no single
+line that we can draw
+
+853
+00:41:15,150 --> 00:41:17,400
+that is going to be able to
+figure out how to separate
+
+854
+00:41:17,400 --> 00:41:21,480
+the blue from the orange, because the
+blue is located in these two quadrants
+
+855
+00:41:21,480 --> 00:41:23,640
+and the orange is located here and here.
+
+856
+00:41:23,640 --> 00:41:26,890
+It's a more complex function
+to be able to learn.
+
+857
+00:41:26,890 --> 00:41:30,660
+So let's see what happens if we just
+try and predict based on those inputs--
+
+858
+00:41:30,660 --> 00:41:34,080
+the x- and y-coordinates--
+what the output should be.
+
+859
+00:41:34,080 --> 00:41:38,220
+Press Play, and what you'll notice
+is that we're not really able
+
+860
+00:41:38,220 --> 00:41:40,530
+to draw much of a
+conclusion, that we're not
+
+861
+00:41:40,530 --> 00:41:42,900
+able to very cleanly
+see how we should divide
+
+862
+00:41:42,900 --> 00:41:46,170
+the orange points from the
+blue points, and you don't
+
+863
+00:41:46,170 --> 00:41:48,760
+see a very clean separation there.
+
+864
+00:41:48,760 --> 00:41:53,050
+So it seems like we don't have enough
+sophistication inside of our network
+
+865
+00:41:53,050 --> 00:41:55,910
+to be able to model something
+that is that complex.
+
+866
+00:41:55,910 --> 00:41:58,540
+We need a better model
+for this neural network.
+
+867
+00:41:58,540 --> 00:42:01,730
+And I'll do that by
+adding a hidden layer.
+
+868
+00:42:01,730 --> 00:42:04,700
+So now I have the hidden layer
+that has two neurons inside of it.
+
+869
+00:42:04,700 --> 00:42:09,000
+So I have two inputs that then go to
+two neurons inside of a hidden layer
+
+870
+00:42:09,000 --> 00:42:14,260
+that then go to our output, and now I'll
+press Play, and what you'll notice here
+
+871
+00:42:14,260 --> 00:42:16,570
+is that we're able to
+do slightly better.
+
+872
+00:42:16,570 --> 00:42:19,420
+We're able to now say, all right,
+these points are definitely blue.
+
+873
+00:42:19,420 --> 00:42:21,370
+These points are definitely orange.
+
+874
+00:42:21,370 --> 00:42:24,432
+We're still struggling a little bit
+with these points up here though,
+
+875
+00:42:24,432 --> 00:42:26,140
+and what we can do is
+we can see for each
+
+876
+00:42:26,140 --> 00:42:28,660
+of these hidden neurons
+what is it exactly
+
+877
+00:42:28,660 --> 00:42:30,460
+that these hidden neurons are doing.
+
+878
+00:42:30,460 --> 00:42:33,850
+Each hidden neuron is learning
+its own decision boundary,
+
+879
+00:42:33,850 --> 00:42:35,590
+and we can see what that boundary is.
+
+880
+00:42:35,590 --> 00:42:38,350
+This first neuron is
+learning, all right,
+
+881
+00:42:38,350 --> 00:42:41,440
+this line that seems to
+separate some of the blue points
+
+882
+00:42:41,440 --> 00:42:43,510
+from the rest of the points.
+
+883
+00:42:43,510 --> 00:42:45,983
+This other hidden neuron
+is learning another line
+
+884
+00:42:45,983 --> 00:42:48,400
+that seems to be separating
+the orange points in the lower
+
+885
+00:42:48,400 --> 00:42:50,420
+right from the rest of the points.
+
+886
+00:42:50,420 --> 00:42:52,720
+So that's why we're able
+to sort of figure out
+
+887
+00:42:52,720 --> 00:42:55,900
+these two areas in the bottom
+region, but we're still not
+
+888
+00:42:55,900 --> 00:42:59,090
+able to perfectly classify
+all of the points.
+
+889
+00:42:59,090 --> 00:43:01,760
+So let's go ahead and
+add another neuron--
+
+890
+00:43:01,760 --> 00:43:04,900
+now we've got three neurons
+inside of our hidden layer--
+
+891
+00:43:04,900 --> 00:43:07,020
+and see what we're able to learn now.
+
+892
+00:43:07,020 --> 00:43:07,520
+All right.
+
+893
+00:43:07,520 --> 00:43:09,440
+Well, now we seem to
+be doing a better job
+
+894
+00:43:09,440 --> 00:43:11,990
+by learning three different
+decision boundaries, which
+
+895
+00:43:11,990 --> 00:43:14,540
+each of the three neurons
+inside of our hidden layer
+
+896
+00:43:14,540 --> 00:43:18,352
+were able to much better figure out
+how to separate these blue points
+
+897
+00:43:18,352 --> 00:43:19,310
+from the orange points.
+
+898
+00:43:19,310 --> 00:43:22,340
+And you can see what each of
+these hidden neurons is learning.
+
+899
+00:43:22,340 --> 00:43:25,220
+Each one is learning a slightly
+different decision boundary,
+
+900
+00:43:25,220 --> 00:43:27,860
+and then we're combining those
+decision boundaries together
+
+901
+00:43:27,860 --> 00:43:30,770
+to figure out what the
+overall output should be.
+
+902
+00:43:30,770 --> 00:43:34,390
+And we can try it one more time
+by adding a fourth neuron there
+
+903
+00:43:34,390 --> 00:43:35,930
+and try learning that.
+
+904
+00:43:35,930 --> 00:43:37,798
+And it seems like now
+we can do even better
+
+905
+00:43:37,798 --> 00:43:40,340
+at trying to separate the blue
+points from the orange points,
+
+906
+00:43:40,340 --> 00:43:43,280
+but we were only able to do
+this by adding a hidden layer,
+
+907
+00:43:43,280 --> 00:43:46,160
+by adding some layer that is
+learning some other boundaries,
+
+908
+00:43:46,160 --> 00:43:49,070
+and combining those boundaries
+to determine the output.
+
+909
+00:43:49,070 --> 00:43:51,980
+And the strength-- the size
+and thickness of these lines--
+
+910
+00:43:51,980 --> 00:43:55,790
+and indicate how high these weights
+are, how important each of these inputs
+
+911
+00:43:55,790 --> 00:43:59,050
+is, for making this sort of calculation.
+
+912
+00:43:59,050 --> 00:44:01,730
+And we can do maybe one more simulation.
+
+913
+00:44:01,730 --> 00:44:04,960
+Let's go ahead and try this on
+a data set that looks like this.
+
+914
+00:44:04,960 --> 00:44:06,668
+Go ahead and get rid
+of the hidden layer.
+
+915
+00:44:06,668 --> 00:44:08,710
+Here now we're trying to
+separate the blue points
+
+916
+00:44:08,710 --> 00:44:11,830
+from the orange points, where all
+the blue points are located, again,
+
+917
+00:44:11,830 --> 00:44:13,700
+inside of a circle, effectively.
+
+918
+00:44:13,700 --> 00:44:16,130
+So we're not going to
+be able to learn a line.
+
+919
+00:44:16,130 --> 00:44:17,920
+Notice I press Play,
+and we're really not
+
+920
+00:44:17,920 --> 00:44:20,240
+able to draw any sort of
+classification at all,
+
+921
+00:44:20,240 --> 00:44:22,420
+because there is no line
+that cleanly separates
+
+922
+00:44:22,420 --> 00:44:25,570
+the blue points from the orange points.
+
+923
+00:44:25,570 --> 00:44:29,350
+So let's try to solve this by
+introducing a hidden layer.
+
+924
+00:44:29,350 --> 00:44:31,307
+I'll go ahead and press Play.
+
+925
+00:44:31,307 --> 00:44:31,890
+And all right.
+
+926
+00:44:31,890 --> 00:44:33,793
+With two neurons and
+a hidden layer, we're
+
+927
+00:44:33,793 --> 00:44:36,210
+able to do a little better,
+because we effectively learned
+
+928
+00:44:36,210 --> 00:44:37,627
+two different decision boundaries.
+
+929
+00:44:37,627 --> 00:44:40,380
+We learned this line here,
+and we learned this line
+
+930
+00:44:40,380 --> 00:44:41,760
+on the right-hand side.
+
+931
+00:44:41,760 --> 00:44:43,890
+And right now, we're just saying,
+all right, well, if it's in-between,
+
+932
+00:44:43,890 --> 00:44:46,473
+we'll call it blue, and if it's
+outside, we'll call it orange.
+
+933
+00:44:46,473 --> 00:44:49,150
+So, not great, but certainly
+better than before.
+
+934
+00:44:49,150 --> 00:44:52,620
+We're learning one decision boundary
+and another, and based on those,
+
+935
+00:44:52,620 --> 00:44:55,690
+we can figure out what
+the output should be.
+
+936
+00:44:55,690 --> 00:45:00,770
+But let's now go ahead and add a
+third neuron and see what happens now.
+
+937
+00:45:00,770 --> 00:45:02,150
+I go ahead and train it.
+
+938
+00:45:02,150 --> 00:45:04,878
+And now, using three
+different decision boundaries
+
+939
+00:45:04,878 --> 00:45:06,920
+that are learned by each
+of these hidden neurons,
+
+940
+00:45:06,920 --> 00:45:09,800
+we're able to much more
+accurately model this distinction
+
+941
+00:45:09,800 --> 00:45:11,840
+between blue points and orange points.
+
+942
+00:45:11,840 --> 00:45:14,750
+We're able to figure out, maybe with
+these three decision boundaries,
+
+943
+00:45:14,750 --> 00:45:18,530
+combining them together, you can imagine
+figuring out what the output should be
+
+944
+00:45:18,530 --> 00:45:20,908
+and how to make that
+sort of classification.
+
+945
+00:45:20,908 --> 00:45:22,700
+And so the goal here
+is just to get a sense
+
+946
+00:45:22,700 --> 00:45:25,670
+for having more neurons in
+these hidden layers that
+
+947
+00:45:25,670 --> 00:45:28,490
+allows us to learn more
+structure in the data,
+
+948
+00:45:28,490 --> 00:45:31,400
+allows us to figure out what the
+relevant and important decision
+
+949
+00:45:31,400 --> 00:45:32,360
+boundaries are.
+
+950
+00:45:32,360 --> 00:45:34,365
+And then using this
+backpropagation algorithm,
+
+951
+00:45:34,365 --> 00:45:36,740
+we're able to figure out what
+the values of these weights
+
+952
+00:45:36,740 --> 00:45:39,290
+should be in order to
+train this network to be
+
+953
+00:45:39,290 --> 00:45:44,240
+able to classify one category of points
+away from another category of points
+
+954
+00:45:44,240 --> 00:45:45,228
+instead.
+
+955
+00:45:45,228 --> 00:45:48,020
+And this is ultimately what we're
+going to be trying to do whenever
+
+956
+00:45:48,020 --> 00:45:50,970
+we're training a neural network.
+
+957
+00:45:50,970 --> 00:45:53,300
+So let's go ahead and actually
+see an example of this.
+
+958
+00:45:53,300 --> 00:45:57,020
+You'll recall from last time that
+we had this banknotes file that
+
+959
+00:45:57,020 --> 00:46:00,080
+included information about
+counterfeit banknotes as opposed
+
+960
+00:46:00,080 --> 00:46:04,670
+to authentic banknotes, where it had
+four different values for each banknote
+
+961
+00:46:04,670 --> 00:46:07,640
+and then a categorization of
+whether that bank note is considered
+
+962
+00:46:07,640 --> 00:46:10,280
+to be authentic or a counterfeit note.
+
+963
+00:46:10,280 --> 00:46:13,880
+And what I wanted to do was,
+based on that input information,
+
+964
+00:46:13,880 --> 00:46:15,830
+figure out some function
+that could calculate
+
+965
+00:46:15,830 --> 00:46:19,250
+based on the input information
+what category it belonged to.
+
+966
+00:46:19,250 --> 00:46:21,590
+And what I've written
+here in banknotes.py
+
+967
+00:46:21,590 --> 00:46:25,340
+is a neural network that we'll learn
+just that, a network that learns,
+
+968
+00:46:25,340 --> 00:46:27,320
+based on all of the
+input, whether or not
+
+969
+00:46:27,320 --> 00:46:31,790
+we should categorize a banknote
+as authentic or as counterfeit.
+
+970
+00:46:31,790 --> 00:46:34,250
+The first step is the same as
+what we saw from last time.
+
+971
+00:46:34,250 --> 00:46:38,130
+I'm really just reading the data in and
+getting it into an appropriate format.
+
+972
+00:46:38,130 --> 00:46:41,690
+And so this is where more of the
+writing Python code on your own
+
+973
+00:46:41,690 --> 00:46:43,820
+comes in terms of
+manipulating this data,
+
+974
+00:46:43,820 --> 00:46:46,010
+massaging the data
+into a format that will
+
+975
+00:46:46,010 --> 00:46:48,290
+be understood by a
+machine learning library
+
+976
+00:46:48,290 --> 00:46:50,890
+like scikit-learn or like TensorFlow.
+
+977
+00:46:50,890 --> 00:46:54,710
+And so here I separate it into
+a training and a testing set.
+
+978
+00:46:54,710 --> 00:46:59,030
+And now what I'm doing down below
+is I'm creating a neural network.
+
+979
+00:46:59,030 --> 00:47:01,490
+Here I'm using tf, which
+stands for TensorFlow.
+
+980
+00:47:01,490 --> 00:47:04,385
+Up above I said, import
+TensorFlow as tf.
+
+981
+00:47:04,385 --> 00:47:06,720
+So you have just an abbreviation
+that we'll often use,
+
+982
+00:47:06,720 --> 00:47:09,178
+so we don't need to write out
+TensorFlow every time we want
+
+983
+00:47:09,178 --> 00:47:11,570
+to use anything inside of the library.
+
+984
+00:47:11,570 --> 00:47:13,910
+I'm using tf.keras.
+
+985
+00:47:13,910 --> 00:47:16,340
+Keras is an API, a set
+of functions that we
+
+986
+00:47:16,340 --> 00:47:20,748
+can use in order to manipulate
+neural networks inside of TensorFlow,
+
+987
+00:47:20,748 --> 00:47:22,790
+and it turns out there
+are other machine learning
+
+988
+00:47:22,790 --> 00:47:25,442
+libraries that also use the Kersa API.
+
+989
+00:47:25,442 --> 00:47:27,650
+But here, I'm saying, all
+right, go ahead and give me
+
+990
+00:47:27,650 --> 00:47:31,220
+a model that is a sequential model--
+a sequential neural network--
+
+991
+00:47:31,220 --> 00:47:33,750
+meaning one layer after another.
+
+992
+00:47:33,750 --> 00:47:37,700
+And now I'm going to add to that
+model what layers I want inside
+
+993
+00:47:37,700 --> 00:47:38,910
+of my neural network.
+
+994
+00:47:38,910 --> 00:47:40,820
+So here I'm saying, model.add.
+
+995
+00:47:40,820 --> 00:47:43,160
+Go ahead and add a dense layer--
+
+996
+00:47:43,160 --> 00:47:45,530
+and when we say a dense
+layer, we mean a layer that
+
+997
+00:47:45,530 --> 00:47:48,290
+is just each of the
+nodes inside of the layer
+
+998
+00:47:48,290 --> 00:47:50,970
+is going to be connected to
+each from the previous layer,
+
+999
+00:47:50,970 --> 00:47:54,460
+so we have a densely connected layer.
+
+1000
+00:47:54,460 --> 00:47:56,910
+This layer is going to have
+eight units inside of it.
+
+1001
+00:47:56,910 --> 00:48:00,090
+So it's going to be a hidden layer
+inside of a neural network with eight
+
+1002
+00:48:00,090 --> 00:48:02,460
+different units, eight
+artificial neurons, each of which
+
+1003
+00:48:02,460 --> 00:48:03,830
+might learn something different.
+
+1004
+00:48:03,830 --> 00:48:05,760
+And I just sort of
+chose eight arbitrarily.
+
+1005
+00:48:05,760 --> 00:48:09,510
+You could choose a different number
+of hidden nodes inside of the layer.
+
+1006
+00:48:09,510 --> 00:48:12,270
+And as we saw before, depending
+on the number of units
+
+1007
+00:48:12,270 --> 00:48:15,240
+there are inside of your
+head and layer, more units
+
+1008
+00:48:15,240 --> 00:48:17,170
+means you can learn
+more complex functions,
+
+1009
+00:48:17,170 --> 00:48:20,340
+so maybe you can more accurately
+model the training data,
+
+1010
+00:48:20,340 --> 00:48:21,450
+but it comes at a cost.
+
+1011
+00:48:21,450 --> 00:48:24,480
+More units means more weights that
+you need to figure out how to update,
+
+1012
+00:48:24,480 --> 00:48:27,030
+so it might be more expensive
+to do that calculation.
+
+1013
+00:48:27,030 --> 00:48:30,900
+And you also run the risk of overfitting
+on the data if you have too many units,
+
+1014
+00:48:30,900 --> 00:48:33,420
+and you learn to just
+overfit on the training data.
+
+1015
+00:48:33,420 --> 00:48:34,390
+That's not good either.
+
+1016
+00:48:34,390 --> 00:48:36,848
+So there is a balance, and
+there's often a testing process,
+
+1017
+00:48:36,848 --> 00:48:40,350
+where you'll train on some data
+and maybe validate how well you're
+
+1018
+00:48:40,350 --> 00:48:41,970
+doing on a separate set of data--
+
+1019
+00:48:41,970 --> 00:48:45,555
+often called a validation set-- to see,
+all right, which setting of parameters,
+
+1020
+00:48:45,555 --> 00:48:47,430
+how many layers should
+I have, how many units
+
+1021
+00:48:47,430 --> 00:48:49,230
+should be in each layer,
+which one of those
+
+1022
+00:48:49,230 --> 00:48:51,450
+performs the best on the validation set?
+
+1023
+00:48:51,450 --> 00:48:55,410
+So you can do some testing to figure out
+what these hyperparameters, so-called,
+
+1024
+00:48:55,410 --> 00:48:57,600
+should be equal to.
+
+1025
+00:48:57,600 --> 00:49:02,010
+Next I specify what the input_shape is,
+meaning what does my input look like?
+
+1026
+00:49:02,010 --> 00:49:04,560
+My input has four values,
+and so the input shape
+
+1027
+00:49:04,560 --> 00:49:07,650
+is just 4, because we have four inputs.
+
+1028
+00:49:07,650 --> 00:49:09,960
+And then I specify what
+the activation function is.
+
+1029
+00:49:09,960 --> 00:49:12,043
+And the activation function,
+again, we can choose.
+
+1030
+00:49:12,043 --> 00:49:14,160
+There a number of different
+activation functions.
+
+1031
+00:49:14,160 --> 00:49:17,940
+Here I'm using relu, which
+you might recall from earlier.
+
+1032
+00:49:17,940 --> 00:49:20,410
+And then I'll add an output layer.
+
+1033
+00:49:20,410 --> 00:49:21,660
+So I have my hidden layer.
+
+1034
+00:49:21,660 --> 00:49:23,820
+Now I'm adding one more
+layer that will just
+
+1035
+00:49:23,820 --> 00:49:26,700
+have one unit, because all I
+want to do is predict something
+
+1036
+00:49:26,700 --> 00:49:29,350
+like counterfeit bill or authentic bill.
+
+1037
+00:49:29,350 --> 00:49:31,050
+So I just need a single unit.
+
+1038
+00:49:31,050 --> 00:49:33,240
+And the activation function
+I'm going to use here
+
+1039
+00:49:33,240 --> 00:49:35,370
+is that sigmoid
+activation function, which
+
+1040
+00:49:35,370 --> 00:49:39,300
+again was that S-shaped curve that
+just gave us like a probability of,
+
+1041
+00:49:39,300 --> 00:49:43,380
+what is the probability that this
+is a counterfeit bill as opposed
+
+1042
+00:49:43,380 --> 00:49:45,150
+to an authentic bill?
+
+1043
+00:49:45,150 --> 00:49:48,750
+So that then is the structure of my
+neural network-- sequential neural
+
+1044
+00:49:48,750 --> 00:49:52,200
+network that has one hidden layer
+with eight units inside of it,
+
+1045
+00:49:52,200 --> 00:49:55,760
+and then one output layer that just
+has a single unit inside of it.
+
+1046
+00:49:55,760 --> 00:49:57,510
+And I can choose how
+many units there are.
+
+1047
+00:49:57,510 --> 00:49:59,670
+I can choose the activation function.
+
+1048
+00:49:59,670 --> 00:50:02,970
+Then I'm going to compile this model.
+
+1049
+00:50:02,970 --> 00:50:06,718
+TensorFlow gives you a choice of how
+you would like to optimize the weights--
+
+1050
+00:50:06,718 --> 00:50:09,010
+there are various different
+algorithms for doing that--
+
+1051
+00:50:09,010 --> 00:50:11,135
+what type of loss function
+you want to use-- again,
+
+1052
+00:50:11,135 --> 00:50:12,840
+many different options for doing that--
+
+1053
+00:50:12,840 --> 00:50:14,880
+and then how I want
+to evaluate my model.
+
+1054
+00:50:14,880 --> 00:50:16,050
+Well, I care about accuracy.
+
+1055
+00:50:16,050 --> 00:50:20,670
+I care about how many of my points
+am I able to classify correctly
+
+1056
+00:50:20,670 --> 00:50:23,330
+versus not correctly of
+counterfeit or not counterfeit,
+
+1057
+00:50:23,330 --> 00:50:28,650
+and I would like it to report to me
+how accurate my model is performing.
+
+1058
+00:50:28,650 --> 00:50:31,110
+Then, now that I've
+defined that model, I
+
+1059
+00:50:31,110 --> 00:50:34,260
+call model.fit to say, go
+ahead and train the model.
+
+1060
+00:50:34,260 --> 00:50:38,230
+Train it on all the training data,
+plus all of the training labels--
+
+1061
+00:50:38,230 --> 00:50:41,100
+so labels for each of those
+pieces of training data--
+
+1062
+00:50:41,100 --> 00:50:43,860
+and I'm saying run it for
+20 epochs, meaning go ahead
+
+1063
+00:50:43,860 --> 00:50:46,830
+and go through each of these
+training points 20 times effectively,
+
+1064
+00:50:46,830 --> 00:50:50,220
+go through the data 20 times and
+keep trying to update the weights.
+
+1065
+00:50:50,220 --> 00:50:52,440
+If I did it for more, I
+could train for even longer
+
+1066
+00:50:52,440 --> 00:50:55,050
+and maybe get a more
+accurate result. But then
+
+1067
+00:50:55,050 --> 00:50:58,380
+after I fit in on all the data,
+I'll go ahead and just test it.
+
+1068
+00:50:58,380 --> 00:51:01,050
+I'll evaluate my model
+using model.evaluate,
+
+1069
+00:51:01,050 --> 00:51:03,480
+built into TensorFlow, that
+is just going to tell me,
+
+1070
+00:51:03,480 --> 00:51:05,907
+how well do I perform
+on the testing data?
+
+1071
+00:51:05,907 --> 00:51:07,740
+So ultimately, this is
+just going to give me
+
+1072
+00:51:07,740 --> 00:51:13,150
+some numbers that tell me how well
+we did in this particular case.
+
+1073
+00:51:13,150 --> 00:51:15,300
+So now what I'm going to
+do is go into banknotes
+
+1074
+00:51:15,300 --> 00:51:17,697
+and go ahead and run banknotes.py.
+
+1075
+00:51:17,697 --> 00:51:19,530
+And what's going to
+happen now is it's going
+
+1076
+00:51:19,530 --> 00:51:21,630
+to read in all of that trading data.
+
+1077
+00:51:21,630 --> 00:51:24,600
+It's going to generate a neural
+network with all my inputs,
+
+1078
+00:51:24,600 --> 00:51:27,750
+my eight hidden layers, or eight
+hidden units inside my layer,
+
+1079
+00:51:27,750 --> 00:51:30,630
+and then an output unit, and now
+what it's doing is it's training.
+
+1080
+00:51:30,630 --> 00:51:32,880
+It's training 20 times,
+and each time, you
+
+1081
+00:51:32,880 --> 00:51:35,940
+can see how my accuracy is
+increasing on my training data.
+
+1082
+00:51:35,940 --> 00:51:38,950
+It starts off, the very first
+time, not very accurate,
+
+1083
+00:51:38,950 --> 00:51:42,660
+though better than random,
+something like 79% of the time,
+
+1084
+00:51:42,660 --> 00:51:45,730
+it's able to accurately
+classify one bill from another.
+
+1085
+00:51:45,730 --> 00:51:49,350
+But as I keep training, notice this
+accuracy value improves and improves
+
+1086
+00:51:49,350 --> 00:51:52,590
+and improves, until after I've
+trained through all of the data points
+
+1087
+00:51:52,590 --> 00:51:59,220
+20 times, it looks like my accuracy
+is above 99% on the training data.
+
+1088
+00:51:59,220 --> 00:52:02,530
+And here's where I tested it on
+a whole bunch of testing data.
+
+1089
+00:52:02,530 --> 00:52:07,170
+And it looks like in this case,
+I was also like 99.8% accurate.
+
+1090
+00:52:07,170 --> 00:52:09,970
+So just using that, I was able
+to generate a neural network that
+
+1091
+00:52:09,970 --> 00:52:12,490
+can detect counterfeit
+bills from authentic bills
+
+1092
+00:52:12,490 --> 00:52:16,030
+based on this input data
+99.8% of the time, at least
+
+1093
+00:52:16,030 --> 00:52:17,700
+based on this particular testing data.
+
+1094
+00:52:17,700 --> 00:52:19,450
+And I might want to
+test it with more data
+
+1095
+00:52:19,450 --> 00:52:21,890
+as well, just to be
+confident about that.
+
+1096
+00:52:21,890 --> 00:52:24,743
+But this is really the value of
+using a machine learning library
+
+1097
+00:52:24,743 --> 00:52:27,160
+like TensorFlow, and there are
+others available for Python
+
+1098
+00:52:27,160 --> 00:52:30,040
+and other languages as
+well, but all I have to do
+
+1099
+00:52:30,040 --> 00:52:33,400
+is define the structure of the
+network and define the data
+
+1100
+00:52:33,400 --> 00:52:36,120
+that I'm going to pass
+into the network, and then
+
+1101
+00:52:36,120 --> 00:52:38,560
+TensorFlow runs the
+backpropagation algorithm
+
+1102
+00:52:38,560 --> 00:52:40,780
+for learning what all of
+those weights should be,
+
+1103
+00:52:40,780 --> 00:52:44,410
+for figuring out how to train
+this neural network to be able to,
+
+1104
+00:52:44,410 --> 00:52:48,070
+as accurately as possible, figure
+out what the output values should
+
+1105
+00:52:48,070 --> 00:52:50,610
+be there as well.
+
+1106
+00:52:50,610 --> 00:52:55,130
+And so this then was a look at what it
+is that neural networks can do, just
+
+1107
+00:52:55,130 --> 00:52:58,380
+using these sequences of
+layer after layer after layer,
+
+1108
+00:52:58,380 --> 00:53:01,970
+and you can begin to imagine applying
+these to much more general problems.
+
+1109
+00:53:01,970 --> 00:53:05,690
+And one big problem in computing, and
+artificial intelligence more generally,
+
+1110
+00:53:05,690 --> 00:53:08,000
+is the problem of computer vision.
+
+1111
+00:53:08,000 --> 00:53:10,580
+Computer vision is all
+about computational methods
+
+1112
+00:53:10,580 --> 00:53:14,313
+for analyzing and understanding
+images, that you might have pictures
+
+1113
+00:53:14,313 --> 00:53:16,730
+that you want the computer to
+figure out how to deal with,
+
+1114
+00:53:16,730 --> 00:53:19,910
+how to process those images,
+and figure out how to produce
+
+1115
+00:53:19,910 --> 00:53:21,710
+some sort of useful result out of this.
+
+1116
+00:53:21,710 --> 00:53:24,140
+You've seen this in the context
+of social media websites
+
+1117
+00:53:24,140 --> 00:53:27,093
+that are able to look at a photo
+that contains a whole bunch of faces,
+
+1118
+00:53:27,093 --> 00:53:29,260
+and it's able to figure out
+what's a picture of whom
+
+1119
+00:53:29,260 --> 00:53:32,060
+and label those and tag them
+with appropriate people.
+
+1120
+00:53:32,060 --> 00:53:34,130
+This is becoming
+increasingly relevant as we
+
+1121
+00:53:34,130 --> 00:53:36,600
+begin to discuss self-driving cars.
+
+1122
+00:53:36,600 --> 00:53:38,360
+These cars now have
+cameras, and we would
+
+1123
+00:53:38,360 --> 00:53:40,940
+like for the computer to have
+some sort of algorithm that
+
+1124
+00:53:40,940 --> 00:53:43,490
+looks at the images
+and figures out, what
+
+1125
+00:53:43,490 --> 00:53:47,940
+color is the light, what cars are around
+us and in what direction, for example.
+
+1126
+00:53:47,940 --> 00:53:50,810
+And so computer vision is
+all about taking an image
+
+1127
+00:53:50,810 --> 00:53:53,000
+and figuring out what
+sort of computation--
+
+1128
+00:53:53,000 --> 00:53:55,640
+what sort of calculation--
+we can do with that image.
+
+1129
+00:53:55,640 --> 00:53:59,480
+It's also relevant in the context of
+something like handwriting recognition.
+
+1130
+00:53:59,480 --> 00:54:02,540
+This, what you're looking at, is
+an example of the MNIST dataset--
+
+1131
+00:54:02,540 --> 00:54:04,700
+it's a big dataset just
+of handwritten digits--
+
+1132
+00:54:04,700 --> 00:54:08,840
+that we could use to, ideally,
+try and figure out how to predict,
+
+1133
+00:54:08,840 --> 00:54:12,380
+given someone's handwriting, given a
+photo of a digit that they have drawn,
+
+1134
+00:54:12,380 --> 00:54:17,180
+can you predict whether it's a 0, 1,
+2, 3, 4, 5, 6, 7, 8, or 9, for example.
+
+1135
+00:54:17,180 --> 00:54:19,850
+So this sort of handwriting
+recognition is yet another task
+
+1136
+00:54:19,850 --> 00:54:23,300
+that we might want to use computer
+vision tasks and tools to be
+
+1137
+00:54:23,300 --> 00:54:24,480
+able to apply it towards.
+
+1138
+00:54:24,480 --> 00:54:27,470
+This might be a task
+that we might care about.
+
+1139
+00:54:27,470 --> 00:54:30,140
+So how then can we use
+neural networks to be
+
+1140
+00:54:30,140 --> 00:54:31,850
+able to solve a problem like this?
+
+1141
+00:54:31,850 --> 00:54:34,340
+Well, neural networks rely
+upon some sort of input,
+
+1142
+00:54:34,340 --> 00:54:36,350
+where that input is just numerical data.
+
+1143
+00:54:36,350 --> 00:54:38,630
+We have a whole bunch of
+units, where each one of them
+
+1144
+00:54:38,630 --> 00:54:40,820
+just represents some sort of number.
+
+1145
+00:54:40,820 --> 00:54:43,670
+And so in the context of something
+like handwriting recognition,
+
+1146
+00:54:43,670 --> 00:54:45,920
+or in the context of
+just an image, you might
+
+1147
+00:54:45,920 --> 00:54:50,240
+imagine that an image is really just
+a grid of pixels, a grid of dots,
+
+1148
+00:54:50,240 --> 00:54:53,660
+where each dot has some sort
+of color, and in the context
+
+1149
+00:54:53,660 --> 00:54:55,520
+of something like
+handwriting recognition,
+
+1150
+00:54:55,520 --> 00:54:57,478
+you might imagine that
+if you just fill in each
+
+1151
+00:54:57,478 --> 00:55:00,740
+of these dots in a particular
+way, you can generate a 2 or an 8,
+
+1152
+00:55:00,740 --> 00:55:05,420
+for example, based on which dots happen
+to be shaded in and which dots are not.
+
+1153
+00:55:05,420 --> 00:55:09,140
+And we can represent each of these
+pixel values just using numbers.
+
+1154
+00:55:09,140 --> 00:55:14,220
+So for a particular pixel, for example,
+0 might represent entirely black.
+
+1155
+00:55:14,220 --> 00:55:16,060
+Depending on how you're
+representing color,
+
+1156
+00:55:16,060 --> 00:55:20,740
+it's often common to represent
+color values on a 0-to-255 range,
+
+1157
+00:55:20,740 --> 00:55:24,890
+so that you can represent a color using
+eight bits for a particular value,
+
+1158
+00:55:24,890 --> 00:55:27,240
+like how much white is in the image?
+
+1159
+00:55:27,240 --> 00:55:32,180
+So 0 might represent all black,
+255 might represent entirely white
+
+1160
+00:55:32,180 --> 00:55:35,870
+as a pixel, and somewhere in between
+might represent some shade of gray,
+
+1161
+00:55:35,870 --> 00:55:36,890
+for example.
+
+1162
+00:55:36,890 --> 00:55:40,250
+But you might imagine not just having a
+single slider that determines how much
+
+1163
+00:55:40,250 --> 00:55:42,920
+white is in the image, but
+if you had a color image,
+
+1164
+00:55:42,920 --> 00:55:45,870
+you might imagine three different
+numerical values-- a red, green,
+
+1165
+00:55:45,870 --> 00:55:46,820
+and blue value--
+
+1166
+00:55:46,820 --> 00:55:49,490
+where the red value controls
+how much red is in the image,
+
+1167
+00:55:49,490 --> 00:55:52,520
+we have one value for controlling
+how much green is in the pixel,
+
+1168
+00:55:52,520 --> 00:55:55,290
+and one value for how much
+blue is in the pixel as well.
+
+1169
+00:55:55,290 --> 00:55:58,970
+And depending on how it is that you set
+these values of red, green, and blue,
+
+1170
+00:55:58,970 --> 00:56:00,840
+you can get a different color.
+
+1171
+00:56:00,840 --> 00:56:04,460
+And so any pixel can really
+be represented in this case
+
+1172
+00:56:04,460 --> 00:56:06,050
+by three numerical values--
+
+1173
+00:56:06,050 --> 00:56:09,510
+a red value, a green
+value, and a blue value.
+
+1174
+00:56:09,510 --> 00:56:11,450
+And if you take a whole
+bunch of these pixels,
+
+1175
+00:56:11,450 --> 00:56:15,230
+assemble them together inside
+of a grid of pixels, then
+
+1176
+00:56:15,230 --> 00:56:17,760
+you really just have a whole
+bunch of numerical values
+
+1177
+00:56:17,760 --> 00:56:21,863
+that you can use in order to perform
+some sort of prediction task.
+
+1178
+00:56:21,863 --> 00:56:24,530
+And so what you might imagine
+doing is using the same techniques
+
+1179
+00:56:24,530 --> 00:56:25,790
+we talked about before.
+
+1180
+00:56:25,790 --> 00:56:30,890
+Just design a neural network with a lot
+of inputs, that for each of the pixels,
+
+1181
+00:56:30,890 --> 00:56:34,070
+we might have one or three different
+inputs in the case of a color image--
+
+1182
+00:56:34,070 --> 00:56:38,240
+a different input-- that is just
+connected to a deep neural network,
+
+1183
+00:56:38,240 --> 00:56:38,830
+for example.
+
+1184
+00:56:38,830 --> 00:56:40,880
+And this deep neural
+network might take all
+
+1185
+00:56:40,880 --> 00:56:45,700
+of the pixels inside of the image
+of what digit a person drew,
+
+1186
+00:56:45,700 --> 00:56:49,910
+and the output might be like 10
+neurons that classify it as a 0 or a 1
+
+1187
+00:56:49,910 --> 00:56:55,620
+or 2 or 3, or just tells us in some
+way what that digit happens to be.
+
+1188
+00:56:55,620 --> 00:56:57,910
+Now there are a couple of
+drawbacks to this approach.
+
+1189
+00:56:57,910 --> 00:57:01,540
+The first drawback to the approach
+is just the size of this input array,
+
+1190
+00:57:01,540 --> 00:57:03,422
+that we have a whole bunch of inputs.
+
+1191
+00:57:03,422 --> 00:57:05,880
+If we have a big image, that
+is a lot of different channels
+
+1192
+00:57:05,880 --> 00:57:08,790
+we're looking at-- a lot of inputs,
+and therefore, a lot of weights
+
+1193
+00:57:08,790 --> 00:57:10,690
+that we have to calculate.
+
+1194
+00:57:10,690 --> 00:57:14,420
+And a second problem is the fact
+that by flattening everything
+
+1195
+00:57:14,420 --> 00:57:16,760
+into just the structure
+of all the pixels,
+
+1196
+00:57:16,760 --> 00:57:20,720
+we've lost access to a lot of the
+information about the structure
+
+1197
+00:57:20,720 --> 00:57:22,670
+of the image that's
+relevant, that really,
+
+1198
+00:57:22,670 --> 00:57:25,040
+when a person looks at
+an image, they're looking
+
+1199
+00:57:25,040 --> 00:57:26,667
+at particular features of that image.
+
+1200
+00:57:26,667 --> 00:57:27,750
+They're looking at curves.
+
+1201
+00:57:27,750 --> 00:57:28,610
+They're looking at shapes.
+
+1202
+00:57:28,610 --> 00:57:30,470
+They're looking at what
+things can you identify
+
+1203
+00:57:30,470 --> 00:57:33,387
+in different regions of the image,
+and maybe put those things together
+
+1204
+00:57:33,387 --> 00:57:36,950
+in order to get a better picture of
+what the overall image was about.
+
+1205
+00:57:36,950 --> 00:57:40,940
+And by just turning it into a pixel
+values for each of the pixels,
+
+1206
+00:57:40,940 --> 00:57:43,230
+sure, you might be able
+to learn that structure,
+
+1207
+00:57:43,230 --> 00:57:45,360
+but it might be challenging
+in order to do so.
+
+1208
+00:57:45,360 --> 00:57:48,890
+It might be helpful to take advantage
+of the fact that you can use properties
+
+1209
+00:57:48,890 --> 00:57:52,190
+of the image itself-- the fact that
+it's structured in a particular way--
+
+1210
+00:57:52,190 --> 00:57:56,150
+to be able to improve the way that
+we learn based on that image too.
+
+1211
+00:57:56,150 --> 00:57:59,210
+So in order to figure out how we can
+train our neural networks to better
+
+1212
+00:57:59,210 --> 00:58:02,510
+be able to deal with images, we'll
+introduce a couple of ideas--
+
+1213
+00:58:02,510 --> 00:58:06,350
+a couple of algorithms-- that we can
+apply that allow us to take the images
+
+1214
+00:58:06,350 --> 00:58:09,630
+and extract some useful
+information out of that image.
+
+1215
+00:58:09,630 --> 00:58:13,430
+And the first idea we'll introduce
+is the notion of image convolution.
+
+1216
+00:58:13,430 --> 00:58:16,940
+And what an image convolution is all
+about is it's about filtering an image,
+
+1217
+00:58:16,940 --> 00:58:20,330
+sort of extracting useful or
+relevant features out of the image.
+
+1218
+00:58:20,330 --> 00:58:25,220
+And the way we do that is by applying
+a particular filter that basically adds
+
+1219
+00:58:25,220 --> 00:58:28,700
+the value for every pixel with the
+values for all of the neighboring
+
+1220
+00:58:28,700 --> 00:58:29,780
+pixels to it.
+
+1221
+00:58:29,780 --> 00:58:32,750
+According to some sort of kernel
+matrix, which we'll see in a moment,
+
+1222
+00:58:32,750 --> 00:58:36,390
+it's going to allow us to weight these
+pixels in various different ways.
+
+1223
+00:58:36,390 --> 00:58:38,300
+And the goal of image
+convolution then is
+
+1224
+00:58:38,300 --> 00:58:41,720
+to extract some sort of interesting
+or useful features out of an image,
+
+1225
+00:58:41,720 --> 00:58:45,080
+to be able to take a pixel, and
+based on its neighboring pixels,
+
+1226
+00:58:45,080 --> 00:58:48,260
+maybe predict some sort of
+valuable information, something
+
+1227
+00:58:48,260 --> 00:58:50,870
+like taking a pixel and looking
+at its neighboring pixels,
+
+1228
+00:58:50,870 --> 00:58:52,310
+you might be able to
+predict whether or not
+
+1229
+00:58:52,310 --> 00:58:54,143
+there's some sort of
+curve inside the image,
+
+1230
+00:58:54,143 --> 00:58:57,200
+or whether it's forming the outline
+of a particular line or a shape,
+
+1231
+00:58:57,200 --> 00:59:00,050
+for example, and that
+might be useful if you're
+
+1232
+00:59:00,050 --> 00:59:02,600
+trying to use all of these
+various different features
+
+1233
+00:59:02,600 --> 00:59:06,840
+to combine them to say something
+meaningful about an image as a whole.
+
+1234
+00:59:06,840 --> 00:59:08,840
+So how then does image convolution work?
+
+1235
+00:59:08,840 --> 00:59:11,870
+Well, we start with a kernel
+matrix, and the kernel matrix
+
+1236
+00:59:11,870 --> 00:59:13,160
+looks something like this.
+
+1237
+00:59:13,160 --> 00:59:15,260
+And the idea of this
+is that given a pixel--
+
+1238
+00:59:15,260 --> 00:59:16,820
+that would be the middle pixel--
+
+1239
+00:59:16,820 --> 00:59:21,200
+we're going to multiply each of the
+neighboring pixels by these values
+
+1240
+00:59:21,200 --> 00:59:25,362
+in order to get some sort of result by
+summing up all of the numbers together.
+
+1241
+00:59:25,362 --> 00:59:28,070
+So if I take this kernel, which
+you can think of is like a filter
+
+1242
+00:59:28,070 --> 00:59:30,020
+that I'm going to apply to the image.
+
+1243
+00:59:30,020 --> 00:59:32,090
+And let's say that I take this image.
+
+1244
+00:59:32,090 --> 00:59:33,800
+This is a four-by-four image.
+
+1245
+00:59:33,800 --> 00:59:37,250
+We'll think of it as just a black and
+white image, where each one is just
+
+1246
+00:59:37,250 --> 00:59:41,550
+a single pixel value, so somewhere
+between 0 and 255, for example.
+
+1247
+00:59:41,550 --> 00:59:44,450
+So we have a whole bunch of
+individual pixel values like this,
+
+1248
+00:59:44,450 --> 00:59:47,450
+and what I'd like to do
+is apply this kernel--
+
+1249
+00:59:47,450 --> 00:59:49,280
+this filter, so to speak--
+
+1250
+00:59:49,280 --> 00:59:50,485
+to this image.
+
+1251
+00:59:50,485 --> 00:59:53,360
+And the way I'll do that is, all
+right, the kernel is three-by-three.
+
+1252
+00:59:53,360 --> 00:59:56,940
+So you can imagine a five-by-five
+kernel or a larger kernel too.
+
+1253
+00:59:56,940 --> 01:00:01,460
+And I'll take it and just first apply
+it to the first three-by-three section
+
+1254
+01:00:01,460 --> 01:00:02,480
+of the image.
+
+1255
+01:00:02,480 --> 01:00:05,270
+And what I'll do is I'll take
+each of these pixel values
+
+1256
+01:00:05,270 --> 01:00:08,930
+and multiply it by its corresponding
+value in the filter matrix
+
+1257
+01:00:08,930 --> 01:00:11,970
+and add all of the results together.
+
+1258
+01:00:11,970 --> 01:00:19,040
+So here, for example, I'll say 10 times
+0, plus 20, times negative 1, plus 30,
+
+1259
+01:00:19,040 --> 01:00:22,408
+times 0, so on and so forth,
+doing all of this calculation.
+
+1260
+01:00:22,408 --> 01:00:24,200
+And at the end, if I
+take all these values,
+
+1261
+01:00:24,200 --> 01:00:26,990
+multiply them by their
+corresponding value in the kernel,
+
+1262
+01:00:26,990 --> 01:00:30,410
+add the results together, for this
+particular set of nine pixels,
+
+1263
+01:00:30,410 --> 01:00:33,540
+I get the value of 10 for example.
+
+1264
+01:00:33,540 --> 01:00:38,600
+And then what I'll do is I'll slide this
+three-by-three grid effectively over.
+
+1265
+01:00:38,600 --> 01:00:43,220
+Slide the kernel by one to look at
+the next three-by-three section.
+
+1266
+01:00:43,220 --> 01:00:45,330
+And here I'm just sliding
+it over by one pixel,
+
+1267
+01:00:45,330 --> 01:00:46,970
+but you might imagine a
+different slide length,
+
+1268
+01:00:46,970 --> 01:00:49,760
+or maybe I jump by multiple pixels
+at a time if you really wanted to.
+
+1269
+01:00:49,760 --> 01:00:51,110
+You have different options here.
+
+1270
+01:00:51,110 --> 01:00:54,650
+But here I'm just sliding over, looking
+at the next three-by-three section.
+
+1271
+01:00:54,650 --> 01:00:59,450
+And I'll do the same math 20 times 0,
+plus 30, times a negative 1, plus 40,
+
+1272
+01:00:59,450 --> 01:01:03,950
+times 0, plus 20 times negative 1,
+so on and so forth, plus 30 times 5.
+
+1273
+01:01:03,950 --> 01:01:05,990
+And what I end up
+getting is the number 20.
+
+1274
+01:01:05,990 --> 01:01:09,260
+Then you can imagine shifting over
+to this one, doing the same thing,
+
+1275
+01:01:09,260 --> 01:01:11,510
+calculating like the
+number 40, for example,
+
+1276
+01:01:11,510 --> 01:01:15,670
+and then doing the same thing here
+and calculating a value there as well.
+
+1277
+01:01:15,670 --> 01:01:19,350
+And so what we have now is
+what we'll call a feature map.
+
+1278
+01:01:19,350 --> 01:01:22,340
+We have taken this
+kernel, applied it to each
+
+1279
+01:01:22,340 --> 01:01:25,040
+of these various different
+regions, and what we get
+
+1280
+01:01:25,040 --> 01:01:29,505
+is some representation of a
+filtered version of that image.
+
+1281
+01:01:29,505 --> 01:01:32,630
+And so to give a more concrete example
+of why it is that this kind of thing
+
+1282
+01:01:32,630 --> 01:01:35,360
+could be useful, let's
+take this kernel matrix,
+
+1283
+01:01:35,360 --> 01:01:39,080
+for example, which is quite a famous
+one, that has an 8 in the middle
+
+1284
+01:01:39,080 --> 01:01:42,380
+and then all of the neighboring
+pixels that get a negative 1.
+
+1285
+01:01:42,380 --> 01:01:44,420
+And let's imagine we
+wanted to apply that
+
+1286
+01:01:44,420 --> 01:01:48,020
+to a three-by-three part of
+an image that looks like this,
+
+1287
+01:01:48,020 --> 01:01:50,160
+where all the values are the same.
+
+1288
+01:01:50,160 --> 01:01:52,310
+They're all 20, for instance.
+
+1289
+01:01:52,310 --> 01:01:56,240
+Well, in this case, if you do 20
+times 8, and then subtract 20,
+
+1290
+01:01:56,240 --> 01:01:58,910
+subtract 20, subtract 20, for
+each of the eight neighbors,
+
+1291
+01:01:58,910 --> 01:02:02,130
+well, the result of that is
+you just get that expression,
+
+1292
+01:02:02,130 --> 01:02:03,440
+which comes out to be 0.
+
+1293
+01:02:03,440 --> 01:02:07,250
+You multiply 20 by 8, but
+then you subtracted 28 times
+
+1294
+01:02:07,250 --> 01:02:08,960
+according to that particular kernel.
+
+1295
+01:02:08,960 --> 01:02:11,150
+The result of all of that is just 0.
+
+1296
+01:02:11,150 --> 01:02:15,170
+So the takeaway here is that when a
+lot of the pixels are the same value,
+
+1297
+01:02:15,170 --> 01:02:18,050
+we end up getting a value close to 0.
+
+1298
+01:02:18,050 --> 01:02:21,440
+If, though, we had something like
+this, 20s along this first row,
+
+1299
+01:02:21,440 --> 01:02:24,470
+then 50s in the second row,
+and 50s in the third row, well,
+
+1300
+01:02:24,470 --> 01:02:26,530
+then when you do this
+same kind of math--
+
+1301
+01:02:26,530 --> 01:02:29,930
+20 times negative 1, 20 times
+negative 1, so on and so forth--
+
+1302
+01:02:29,930 --> 01:02:34,530
+then I get a higher value-- a value
+like 90, in this particular case.
+
+1303
+01:02:34,530 --> 01:02:37,520
+And so the more general
+idea here is that
+
+1304
+01:02:37,520 --> 01:02:40,520
+by applying this kernel,
+negative 1s, 8 in the middle,
+
+1305
+01:02:40,520 --> 01:02:45,800
+and then negative 1s, what I get
+is when this middle value is very
+
+1306
+01:02:45,800 --> 01:02:47,960
+different from the neighboring values--
+
+1307
+01:02:47,960 --> 01:02:50,240
+like 50 is greater than these 20s--
+
+1308
+01:02:50,240 --> 01:02:53,150
+then you'll end up with
+a value higher than 0.
+
+1309
+01:02:53,150 --> 01:02:55,490
+Like if this number is
+higher than its neighbors,
+
+1310
+01:02:55,490 --> 01:02:59,240
+you end up getting a bigger output,
+but if this value is the same as all
+
+1311
+01:02:59,240 --> 01:03:02,660
+of its neighbors, then you get a
+lower output, something like 0.
+
+1312
+01:03:02,660 --> 01:03:04,580
+And it turns out that
+this sort of filter
+
+1313
+01:03:04,580 --> 01:03:08,440
+can therefore be used in something
+like detecting edges in an image,
+
+1314
+01:03:08,440 --> 01:03:11,870
+or want to detect like the boundaries
+between various different objects
+
+1315
+01:03:11,870 --> 01:03:12,890
+inside of an image.
+
+1316
+01:03:12,890 --> 01:03:15,950
+I might use a filter like
+this, which is able to tell
+
+1317
+01:03:15,950 --> 01:03:19,970
+whether the value of this pixel
+is different from the values
+
+1318
+01:03:19,970 --> 01:03:23,630
+of the neighboring pixel-- if it's like
+greater than the values of the pixels
+
+1319
+01:03:23,630 --> 01:03:25,390
+that happened to surround it.
+
+1320
+01:03:25,390 --> 01:03:28,250
+And so we can use this in
+terms of image filtering.
+
+1321
+01:03:28,250 --> 01:03:30,290
+And so I'll show you an example of that.
+
+1322
+01:03:30,290 --> 01:03:38,150
+I have here, in filter.py, a file that
+uses Python's image library, or PIL,
+
+1323
+01:03:38,150 --> 01:03:40,160
+to do some image filtering.
+
+1324
+01:03:40,160 --> 01:03:41,840
+I go ahead and open an image.
+
+1325
+01:03:41,840 --> 01:03:45,102
+And then all I'm going to do is
+apply a kernel to that image.
+
+1326
+01:03:45,102 --> 01:03:47,810
+It's going to be a three-by-three
+kernel, the same kind of kernel
+
+1327
+01:03:47,810 --> 01:03:49,390
+we saw before.
+
+1328
+01:03:49,390 --> 01:03:50,790
+And here is the kernel.
+
+1329
+01:03:50,790 --> 01:03:53,312
+This is just a list
+representation of the same matrix
+
+1330
+01:03:53,312 --> 01:03:55,020
+that I showed you a
+moment ago, with it's
+
+1331
+01:03:55,020 --> 01:03:56,900
+negative 1, negative 1, negative 1.
+
+1332
+01:03:56,900 --> 01:03:59,750
+The second row is
+negative 1, 8, negative 1.
+
+1333
+01:03:59,750 --> 01:04:01,880
+The third row is all negative 1s.
+
+1334
+01:04:01,880 --> 01:04:06,670
+And then at the end, I'm going to go
+ahead and show the filtered image.
+
+1335
+01:04:06,670 --> 01:04:12,340
+So if, for example, I go
+into convolution directory
+
+1336
+01:04:12,340 --> 01:04:15,300
+and I open up an image
+like bridge.png, this
+
+1337
+01:04:15,300 --> 01:04:21,270
+is what an input image might look like,
+just an image of a bridge over a river.
+
+1338
+01:04:21,270 --> 01:04:26,360
+Now I'm going to go ahead and run
+this filter program on the bridge.
+
+1339
+01:04:26,360 --> 01:04:28,820
+And what I get is this image here.
+
+1340
+01:04:28,820 --> 01:04:32,000
+Just by taking the original
+image and applying that filter
+
+1341
+01:04:32,000 --> 01:04:35,000
+to each three-by-three
+grid, I've extracted
+
+1342
+01:04:35,000 --> 01:04:38,390
+all of the boundaries, all of the
+edges inside the image that separate
+
+1343
+01:04:38,390 --> 01:04:40,110
+one part of the image from another.
+
+1344
+01:04:40,110 --> 01:04:42,740
+So here I've got a
+representation of boundaries
+
+1345
+01:04:42,740 --> 01:04:45,040
+between particular parts of the image.
+
+1346
+01:04:45,040 --> 01:04:47,600
+And you might imagine that if
+a machine learning algorithm is
+
+1347
+01:04:47,600 --> 01:04:50,780
+trying to learn like what an
+image is of, a filter like this
+
+1348
+01:04:50,780 --> 01:04:51,860
+could be pretty useful.
+
+1349
+01:04:51,860 --> 01:04:55,400
+Maybe the machine learning
+algorithm doesn't care about all
+
+1350
+01:04:55,400 --> 01:04:57,200
+of the details of the image.
+
+1351
+01:04:57,200 --> 01:04:59,210
+It just cares about
+certain useful features.
+
+1352
+01:04:59,210 --> 01:05:01,370
+It cares about particular
+shapes that are
+
+1353
+01:05:01,370 --> 01:05:04,020
+able to help it determine
+that based on the image,
+
+1354
+01:05:04,020 --> 01:05:06,540
+this is going to be a
+bridge, for example.
+
+1355
+01:05:06,540 --> 01:05:08,840
+And so this type of idea
+of image convolution
+
+1356
+01:05:08,840 --> 01:05:11,570
+can allow us to apply
+filters to images that
+
+1357
+01:05:11,570 --> 01:05:15,970
+allow us to extract useful results
+out of those images-- taking an image
+
+1358
+01:05:15,970 --> 01:05:18,640
+and extracting its edges, for example.
+
+1359
+01:05:18,640 --> 01:05:20,480
+You might imagine many
+other filters that
+
+1360
+01:05:20,480 --> 01:05:23,820
+could be applied to an image that are
+able to extract particular values as
+
+1361
+01:05:23,820 --> 01:05:24,320
+well.
+
+1362
+01:05:24,320 --> 01:05:27,620
+And a filter might have separate kernels
+for the red values, the green values,
+
+1363
+01:05:27,620 --> 01:05:30,140
+and the blue values that are
+all summed together at the end,
+
+1364
+01:05:30,140 --> 01:05:32,750
+such that you could have
+particular filters looking for,
+
+1365
+01:05:32,750 --> 01:05:34,457
+is there red in this part of the image?
+
+1366
+01:05:34,457 --> 01:05:36,290
+Are there green in other
+parts of the image?
+
+1367
+01:05:36,290 --> 01:05:39,800
+You can begin to assemble these
+relevant and useful filters that are
+
+1368
+01:05:39,800 --> 01:05:43,050
+able to do these calculations as well.
+
+1369
+01:05:43,050 --> 01:05:45,990
+So that then was the idea of
+image convolution-- applying
+
+1370
+01:05:45,990 --> 01:05:48,990
+some sort of filter to an
+image to be able to extract
+
+1371
+01:05:48,990 --> 01:05:51,480
+some useful features out of that image.
+
+1372
+01:05:51,480 --> 01:05:54,600
+But all the while, these
+images are still pretty big.
+
+1373
+01:05:54,600 --> 01:05:56,730
+There's a lot of pixels
+involved in the image.
+
+1374
+01:05:56,730 --> 01:05:59,310
+And realistically speaking, if
+you've got a really big image,
+
+1375
+01:05:59,310 --> 01:06:01,030
+that poses a couple of problems.
+
+1376
+01:06:01,030 --> 01:06:03,810
+One, it means a lot of input
+going into the neural network,
+
+1377
+01:06:03,810 --> 01:06:07,050
+but two, it also means
+that we really have
+
+1378
+01:06:07,050 --> 01:06:11,715
+to care about what's in each particular
+pixel, whereas realistically we often,
+
+1379
+01:06:11,715 --> 01:06:13,590
+if you're looking at an
+image, you don't care
+
+1380
+01:06:13,590 --> 01:06:16,030
+whether it's something is
+in one particular pixel
+
+1381
+01:06:16,030 --> 01:06:18,030
+versus the pixel immediately
+to the right of it.
+
+1382
+01:06:18,030 --> 01:06:19,598
+They're pretty close together.
+
+1383
+01:06:19,598 --> 01:06:21,390
+You really just care
+about whether there is
+
+1384
+01:06:21,390 --> 01:06:24,450
+a particular feature in
+some region of the image,
+
+1385
+01:06:24,450 --> 01:06:28,300
+and maybe you don't care about
+exactly which pixel it happens to be.
+
+1386
+01:06:28,300 --> 01:06:30,660
+And so there's a technique
+we can use known as pooling.
+
+1387
+01:06:30,660 --> 01:06:34,650
+And what pooling is, is it means
+reducing the size of an input
+
+1388
+01:06:34,650 --> 01:06:37,340
+by sampling from regions
+inside of the input.
+
+1389
+01:06:37,340 --> 01:06:40,890
+So we're going to take a big image
+and turn it into a smaller image
+
+1390
+01:06:40,890 --> 01:06:41,880
+by using pooling.
+
+1391
+01:06:41,880 --> 01:06:44,550
+And in particular, one of the
+most popular types of pooling
+
+1392
+01:06:44,550 --> 01:06:45,870
+is called max-pooling.
+
+1393
+01:06:45,870 --> 01:06:50,550
+And what max-pooling does is it pools
+just by choosing the maximum value
+
+1394
+01:06:50,550 --> 01:06:52,390
+in a particular region.
+
+1395
+01:06:52,390 --> 01:06:55,470
+So, for example, let's imagine
+I had this four-by-four image,
+
+1396
+01:06:55,470 --> 01:06:57,360
+but I wanted to reduce its dimensions.
+
+1397
+01:06:57,360 --> 01:07:01,310
+I wanted to make an a smaller image, so
+that I have fewer inputs to work with.
+
+1398
+01:07:01,310 --> 01:07:05,070
+Well, what I could do is I
+could apply a two-by-two max
+
+1399
+01:07:05,070 --> 01:07:07,410
+pool, where the idea
+would be that I'm going
+
+1400
+01:07:07,410 --> 01:07:09,990
+to first look at this
+two-by-two region and say, what
+
+1401
+01:07:09,990 --> 01:07:11,940
+is the maximum value in that region?
+
+1402
+01:07:11,940 --> 01:07:13,290
+Well, it's the number 50.
+
+1403
+01:07:13,290 --> 01:07:15,353
+So we'll go ahead and
+just use the number 50.
+
+1404
+01:07:15,353 --> 01:07:17,270
+And then we'll look at
+this two-by-two region.
+
+1405
+01:07:17,270 --> 01:07:18,940
+What is the maximum value here?
+
+1406
+01:07:18,940 --> 01:07:19,740
+110.
+
+1407
+01:07:19,740 --> 01:07:21,210
+So that's going to be my value.
+
+1408
+01:07:21,210 --> 01:07:23,420
+Likewise here, the maximum
+value looks like 20.
+
+1409
+01:07:23,420 --> 01:07:24,710
+Go ahead and put that there.
+
+1410
+01:07:24,710 --> 01:07:27,030
+Then for this last
+region, the maximum value
+
+1411
+01:07:27,030 --> 01:07:29,510
+was 40, so we'll go ahead and use that.
+
+1412
+01:07:29,510 --> 01:07:33,290
+And what I have now is
+a smaller representation
+
+1413
+01:07:33,290 --> 01:07:36,260
+of this same original
+image that I obtained just
+
+1414
+01:07:36,260 --> 01:07:40,680
+by picking the maximum value
+from each of these regions.
+
+1415
+01:07:40,680 --> 01:07:43,880
+So again, the advantages
+here are now I only
+
+1416
+01:07:43,880 --> 01:07:46,730
+have to deal with a two-by-two
+input instead of a four-by-four,
+
+1417
+01:07:46,730 --> 01:07:49,910
+and you can imagine shrinking
+the size of an image even more.
+
+1418
+01:07:49,910 --> 01:07:52,880
+But in addition to that,
+I'm now able to make
+
+1419
+01:07:52,880 --> 01:07:57,500
+my analysis independent of
+whether a particular value was
+
+1420
+01:07:57,500 --> 01:07:59,030
+in this pixel or this pixel.
+
+1421
+01:07:59,030 --> 01:08:01,490
+I don't care if the 50 was here or here.
+
+1422
+01:08:01,490 --> 01:08:03,980
+As long as it was
+generally in this region,
+
+1423
+01:08:03,980 --> 01:08:06,000
+I'll still get access to that value.
+
+1424
+01:08:06,000 --> 01:08:10,190
+So it makes our algorithms a
+little bit more robust as well.
+
+1425
+01:08:10,190 --> 01:08:11,750
+So that then is pooling--
+
+1426
+01:08:11,750 --> 01:08:13,940
+taking the size of the
+image and reducing it
+
+1427
+01:08:13,940 --> 01:08:18,390
+a little bit by just sampling from
+particular regions inside of the image.
+
+1428
+01:08:18,390 --> 01:08:22,310
+And now we can put all of these ideas
+together-- pooling, image convolution,
+
+1429
+01:08:22,310 --> 01:08:26,060
+neural networks-- all together into
+another type of neural network called
+
+1430
+01:08:26,060 --> 01:08:30,500
+a convolutional neural network, or a
+CNN, which is a neural network that
+
+1431
+01:08:30,500 --> 01:08:35,479
+uses this convolution step, usually
+in the context of analyzing an image,
+
+1432
+01:08:35,479 --> 01:08:36,752
+for example.
+
+1433
+01:08:36,752 --> 01:08:39,710
+And so the way that a convolutional
+neural own network works is that we
+
+1434
+01:08:39,710 --> 01:08:43,189
+start with some sort of input
+image-- some grid of pixels--
+
+1435
+01:08:43,189 --> 01:08:46,580
+but rather than immediately put
+that into the neural network layers
+
+1436
+01:08:46,580 --> 01:08:50,120
+that we've seen before, we'll start
+by applying a convolution step, where
+
+1437
+01:08:50,120 --> 01:08:54,170
+the convolution step involves applying
+a number of different image filters
+
+1438
+01:08:54,170 --> 01:08:56,689
+to our original image
+in order to get what
+
+1439
+01:08:56,689 --> 01:09:00,750
+we call a feature map, the result
+of applying some filter to an image.
+
+1440
+01:09:00,750 --> 01:09:02,750
+And we could do this once,
+but in general, we'll
+
+1441
+01:09:02,750 --> 01:09:06,020
+do this multiple times getting a
+whole bunch of different feature
+
+1442
+01:09:06,020 --> 01:09:09,859
+maps, each of which might extract
+some different relevant feature out
+
+1443
+01:09:09,859 --> 01:09:12,710
+of the image, some different
+important characteristic of the image
+
+1444
+01:09:12,710 --> 01:09:16,760
+that we might care about using in order
+to calculate what the result should be.
+
+1445
+01:09:16,760 --> 01:09:19,790
+And in the same way to when
+we train neural networks,
+
+1446
+01:09:19,790 --> 01:09:23,270
+we can train neural networks to learn
+the weights between particular units
+
+1447
+01:09:23,270 --> 01:09:24,770
+inside of the neural networks.
+
+1448
+01:09:24,770 --> 01:09:28,160
+We can also train neural networks to
+learn what those filters should be--
+
+1449
+01:09:28,160 --> 01:09:30,170
+what the values of the
+filters should be--
+
+1450
+01:09:30,170 --> 01:09:33,620
+in order to get the most useful,
+most relevant information out
+
+1451
+01:09:33,620 --> 01:09:37,069
+of the original image just by figuring
+out what setting of those filter
+
+1452
+01:09:37,069 --> 01:09:39,380
+values-- the values
+inside of that kernel--
+
+1453
+01:09:39,380 --> 01:09:44,060
+results in minimizing the loss
+function and minimizing how poorly
+
+1454
+01:09:44,060 --> 01:09:48,200
+our hypothesis actually performs
+in figuring out the classification
+
+1455
+01:09:48,200 --> 01:09:50,720
+of a particular image, for example.
+
+1456
+01:09:50,720 --> 01:09:52,880
+So we first apply this convolution step.
+
+1457
+01:09:52,880 --> 01:09:55,520
+Get a whole bunch of these
+various different feature maps.
+
+1458
+01:09:55,520 --> 01:09:57,450
+But these feature maps are quite large.
+
+1459
+01:09:57,450 --> 01:10:00,200
+There is a lot of pixel
+values that happen to be here.
+
+1460
+01:10:00,200 --> 01:10:03,440
+And so a logical next step
+to take is a pooling step,
+
+1461
+01:10:03,440 --> 01:10:06,800
+where we reduce the size of these
+images by using max-pooling,
+
+1462
+01:10:06,800 --> 01:10:10,360
+for example, extracting the maximum
+value from any particular region.
+
+1463
+01:10:10,360 --> 01:10:12,110
+There are other pooling
+methods that exist
+
+1464
+01:10:12,110 --> 01:10:13,610
+as well, depending on the situation.
+
+1465
+01:10:13,610 --> 01:10:15,800
+You could use something
+like average-pooling,
+
+1466
+01:10:15,800 --> 01:10:18,230
+where instead of taking the
+maximum value from a region,
+
+1467
+01:10:18,230 --> 01:10:22,010
+you take the average value from a
+region, which has it uses as well.
+
+1468
+01:10:22,010 --> 01:10:26,030
+But in effect, what pooling will do
+is it will take these feature maps
+
+1469
+01:10:26,030 --> 01:10:28,190
+and reduce their dimensions,
+so that we end up
+
+1470
+01:10:28,190 --> 01:10:30,677
+with smaller grids with fewer pixels.
+
+1471
+01:10:30,677 --> 01:10:33,010
+And this then is going to be
+easier for us to deal with.
+
+1472
+01:10:33,010 --> 01:10:35,600
+It's going to mean fewer inputs
+that we have to worry about,
+
+1473
+01:10:35,600 --> 01:10:38,900
+and it's also going to mean we're
+more resilient, more robust,
+
+1474
+01:10:38,900 --> 01:10:42,510
+against potential movements of
+particular values just by one pixel,
+
+1475
+01:10:42,510 --> 01:10:46,280
+when ultimately, we really don't care
+about those one pixel differences that
+
+1476
+01:10:46,280 --> 01:10:49,020
+might arise in the original image.
+
+1477
+01:10:49,020 --> 01:10:52,700
+Now after we've done this pooling step,
+now we have a whole bunch of values
+
+1478
+01:10:52,700 --> 01:10:55,260
+that we can then
+flatten out and just put
+
+1479
+01:10:55,260 --> 01:10:57,310
+into a more traditional neural network.
+
+1480
+01:10:57,310 --> 01:10:59,060
+So we go ahead and
+flatten it, and then we
+
+1481
+01:10:59,060 --> 01:11:01,010
+end up with a traditional
+neural network that
+
+1482
+01:11:01,010 --> 01:11:05,210
+has one input for each of these values
+in each of these resulting feature
+
+1483
+01:11:05,210 --> 01:11:10,130
+maps after we do the convolution
+and after we do the pooling step.
+
+1484
+01:11:10,130 --> 01:11:13,460
+And so this then is the general
+structure of a convolutional network.
+
+1485
+01:11:13,460 --> 01:11:15,980
+We begin with the image,
+apply convolution,
+
+1486
+01:11:15,980 --> 01:11:18,800
+apply pooling, flatten the
+results, and then put that
+
+1487
+01:11:18,800 --> 01:11:22,190
+into a more traditional neural network
+that might itself have hidden layers.
+
+1488
+01:11:22,190 --> 01:11:24,290
+You can have deep
+convolutional networks that
+
+1489
+01:11:24,290 --> 01:11:28,490
+have hidden layers in between this
+flattened layer and the eventual output
+
+1490
+01:11:28,490 --> 01:11:32,220
+to be able to calculate various
+different features of those values.
+
+1491
+01:11:32,220 --> 01:11:36,030
+But this then can help us to be
+able to use convolution and pooling,
+
+1492
+01:11:36,030 --> 01:11:38,480
+to use our knowledge about
+the structure of an image,
+
+1493
+01:11:38,480 --> 01:11:42,020
+to be able to get better results, to
+be able to train our networks faster
+
+1494
+01:11:42,020 --> 01:11:46,080
+in order to better capture
+particular parts of the image.
+
+1495
+01:11:46,080 --> 01:11:49,370
+And there's no reason necessarily why
+you can only use these steps once.
+
+1496
+01:11:49,370 --> 01:11:53,570
+In fact, in practice, you'll often use
+convolution and pooling multiple times
+
+1497
+01:11:53,570 --> 01:11:55,170
+in multiple different steps.
+
+1498
+01:11:55,170 --> 01:11:58,310
+So what you might imagine doing
+is starting with an image,
+
+1499
+01:11:58,310 --> 01:12:00,980
+first applying convolution
+to get a whole bunch of maps,
+
+1500
+01:12:00,980 --> 01:12:04,070
+then applying pooling, then
+applying convolution again,
+
+1501
+01:12:04,070 --> 01:12:06,760
+because these maps are still pretty big.
+
+1502
+01:12:06,760 --> 01:12:10,330
+You can apply convolution to try
+and extract relevant features
+
+1503
+01:12:10,330 --> 01:12:13,120
+out of this result.
+Then take those results,
+
+1504
+01:12:13,120 --> 01:12:16,570
+apply pooling in order to reduce
+their dimensions, and then take that
+
+1505
+01:12:16,570 --> 01:12:19,900
+and feed it into a neural network
+that maybe has fewer inputs.
+
+1506
+01:12:19,900 --> 01:12:22,810
+So here, I have two different
+convolution and pooling steps.
+
+1507
+01:12:22,810 --> 01:12:25,540
+I do convolution and
+pooling once, and then I
+
+1508
+01:12:25,540 --> 01:12:29,380
+do convolution and pooling a
+second time, each time extracting
+
+1509
+01:12:29,380 --> 01:12:32,200
+useful features from the layer
+before it, each time using
+
+1510
+01:12:32,200 --> 01:12:36,010
+pooling to reduce the dimensions of
+what you're ultimately looking at.
+
+1511
+01:12:36,010 --> 01:12:39,880
+And the goal now of this sort of
+model is that in each of these steps,
+
+1512
+01:12:39,880 --> 01:12:43,090
+you can begin to learn
+different types of features
+
+1513
+01:12:43,090 --> 01:12:45,430
+of the original image, that
+maybe in the first step
+
+1514
+01:12:45,430 --> 01:12:49,180
+you learn very low-level features, just
+learn and look for features like edges
+
+1515
+01:12:49,180 --> 01:12:53,770
+and curves and shapes, because based
+on pixels in their neighboring values,
+
+1516
+01:12:53,770 --> 01:12:55,937
+you can figure out, all
+right, what are the edges?
+
+1517
+01:12:55,937 --> 01:12:56,770
+What are the curves?
+
+1518
+01:12:56,770 --> 01:12:59,810
+What are the various different
+shapes that might be present there?
+
+1519
+01:12:59,810 --> 01:13:02,470
+But then once you have a
+mapping that just represents
+
+1520
+01:13:02,470 --> 01:13:04,930
+where the edges and curves
+and shapes happen to be,
+
+1521
+01:13:04,930 --> 01:13:07,120
+you can imagine applying
+the same sort of process
+
+1522
+01:13:07,120 --> 01:13:10,480
+again to begin to look for higher-level
+features-- look for objects,
+
+1523
+01:13:10,480 --> 01:13:13,450
+maybe look for people's
+eyes in facial recognition,
+
+1524
+01:13:13,450 --> 01:13:17,020
+for example, maybe look at more
+complex shapes like the curves
+
+1525
+01:13:17,020 --> 01:13:20,470
+on a particular number if you're trying
+to recognize a digit in a handwriting
+
+1526
+01:13:20,470 --> 01:13:22,375
+recognition sort of scenario.
+
+1527
+01:13:22,375 --> 01:13:24,250
+And then after all of
+that, now that you have
+
+1528
+01:13:24,250 --> 01:13:27,227
+these results that represent
+these higher-level features,
+
+1529
+01:13:27,227 --> 01:13:29,560
+you can pass them into a
+neural network, which is really
+
+1530
+01:13:29,560 --> 01:13:33,430
+just a deep neural network that looks
+like this, where you might imagine
+
+1531
+01:13:33,430 --> 01:13:37,120
+making a binary classification, or
+classifying into multiple categories,
+
+1532
+01:13:37,120 --> 01:13:42,130
+or performing various different
+tasks on this sort of model.
+
+1533
+01:13:42,130 --> 01:13:45,340
+So convolutional neural networks can
+be quite powerful and quite popular
+
+1534
+01:13:45,340 --> 01:13:47,383
+when it comes to trying
+to analyze images.
+
+1535
+01:13:47,383 --> 01:13:48,550
+We don't strictly need them.
+
+1536
+01:13:48,550 --> 01:13:52,780
+We could have just used a vanilla neural
+network that just operates with layer
+
+1537
+01:13:52,780 --> 01:13:54,318
+after layer as we've seen before.
+
+1538
+01:13:54,318 --> 01:13:56,110
+But these convolutional
+neural networks can
+
+1539
+01:13:56,110 --> 01:13:58,675
+be quite helpful, in particular,
+because of the way they
+
+1540
+01:13:58,675 --> 01:14:00,550
+model the way a human
+might look at an image,
+
+1541
+01:14:00,550 --> 01:14:03,040
+that instead of a human
+looking at every single pixel
+
+1542
+01:14:03,040 --> 01:14:06,428
+simultaneously and trying to involve all
+of them by multiplying them together,
+
+1543
+01:14:06,428 --> 01:14:08,470
+you might imagine that
+what convolution is really
+
+1544
+01:14:08,470 --> 01:14:11,860
+doing is looking at various
+different regions of the image
+
+1545
+01:14:11,860 --> 01:14:14,770
+and extracting relevant
+information and features out
+
+1546
+01:14:14,770 --> 01:14:17,410
+of those parts of the image
+the same way that a human might
+
+1547
+01:14:17,410 --> 01:14:20,950
+have visual receptors that are looking
+at particular parts of what they see,
+
+1548
+01:14:20,950 --> 01:14:23,440
+and using those, combining
+them, to figure out
+
+1549
+01:14:23,440 --> 01:14:28,140
+what meaning they can draw from all
+of those various different inputs.
+
+1550
+01:14:28,140 --> 01:14:31,480
+And so you might imagine applying
+this to a situation like handwriting
+
+1551
+01:14:31,480 --> 01:14:32,500
+recognition.
+
+1552
+01:14:32,500 --> 01:14:35,050
+So we'll go ahead and see
+an example of that now.
+
+1553
+01:14:35,050 --> 01:14:37,705
+I'll go ahead and open
+up handwriting.py.
+
+1554
+01:14:37,705 --> 01:14:41,800
+Again, what we do here is
+we first import TensorFlow.
+
+1555
+01:14:41,800 --> 01:14:45,430
+And then, TensorFlow, it
+turns out, has a few datasets
+
+1556
+01:14:45,430 --> 01:14:47,440
+that are built in--
+built into the library
+
+1557
+01:14:47,440 --> 01:14:49,120
+that you can just immediately access.
+
+1558
+01:14:49,120 --> 01:14:51,910
+And one of the most famous
+datasets in machine learning
+
+1559
+01:14:51,910 --> 01:14:55,720
+is the MNIST dataset, which is just
+a dataset of a whole bunch of samples
+
+1560
+01:14:55,720 --> 01:14:57,310
+of people's handwritten digits.
+
+1561
+01:14:57,310 --> 01:14:59,980
+I showed you a slide of
+that a little while ago.
+
+1562
+01:14:59,980 --> 01:15:03,010
+And what we can do is just
+immediately access that dataset,
+
+1563
+01:15:03,010 --> 01:15:06,520
+which is built into the library, so that
+if I want to do something like train
+
+1564
+01:15:06,520 --> 01:15:10,810
+on a whole bunch of digits, I can just
+use the dataset that is provided to me.
+
+1565
+01:15:10,810 --> 01:15:14,170
+Of course, if I had my own
+dataset of handwritten images,
+
+1566
+01:15:14,170 --> 01:15:15,640
+I can apply the same idea.
+
+1567
+01:15:15,640 --> 01:15:19,620
+I'd first just need to take those images
+and turn them into an array of pixels,
+
+1568
+01:15:19,620 --> 01:15:22,120
+because that's the way that
+these are going to be formatted.
+
+1569
+01:15:22,120 --> 01:15:24,037
+They're going to be
+formatted as, effectively,
+
+1570
+01:15:24,037 --> 01:15:26,770
+an array of individual pixels.
+
+1571
+01:15:26,770 --> 01:15:29,330
+And now there's a bit of
+reshaping I need to do,
+
+1572
+01:15:29,330 --> 01:15:31,640
+just turning the data into
+a format that I can put
+
+1573
+01:15:31,640 --> 01:15:33,360
+into my convolutional neural network.
+
+1574
+01:15:33,360 --> 01:15:37,970
+So this is doing things like taking all
+the values and dividing them by 255.
+
+1575
+01:15:37,970 --> 01:15:41,700
+If you remember, these color
+values tend to range from 0 to 255.
+
+1576
+01:15:41,700 --> 01:15:45,110
+So I can divide them by 255, just
+to put them into a 0-to-1 range,
+
+1577
+01:15:45,110 --> 01:15:48,320
+which might be a little
+bit easier to train on .
+
+1578
+01:15:48,320 --> 01:15:51,140
+And then doing various other
+modifications to the data, just
+
+1579
+01:15:51,140 --> 01:15:53,270
+to get it into a nice usable format.
+
+1580
+01:15:53,270 --> 01:15:55,670
+But here's the interesting
+and important part.
+
+1581
+01:15:55,670 --> 01:15:59,920
+Here is where I create the
+convolutional neural network-- the CNN--
+
+1582
+01:15:59,920 --> 01:16:02,970
+where here I'm saying, go ahead
+and use a sequential model.
+
+1583
+01:16:02,970 --> 01:16:06,570
+And before I could use model.add to say
+add a layer, add a layer, add a layer,
+
+1584
+01:16:06,570 --> 01:16:08,570
+another way I could define
+it is just by passing
+
+1585
+01:16:08,570 --> 01:16:12,860
+as input to the sequential neural
+network a list of all of the layers
+
+1586
+01:16:12,860 --> 01:16:14,750
+that I want.
+
+1587
+01:16:14,750 --> 01:16:17,642
+And so here, the very
+first layer in my model
+
+1588
+01:16:17,642 --> 01:16:19,350
+is a convolutional
+layer, where I'm first
+
+1589
+01:16:19,350 --> 01:16:22,050
+going to apply convolution to my image.
+
+1590
+01:16:22,050 --> 01:16:26,520
+I'm going to use 13 different filters,
+so my model is going to learn--
+
+1591
+01:16:26,520 --> 01:16:28,680
+32, rather-- 32 different
+filters that I would
+
+1592
+01:16:28,680 --> 01:16:31,920
+like to learn on the input
+image, where each filter is
+
+1593
+01:16:31,920 --> 01:16:33,950
+going to be a three-by-three kernel.
+
+1594
+01:16:33,950 --> 01:16:36,010
+So we saw those
+three-by-three kernels before,
+
+1595
+01:16:36,010 --> 01:16:39,270
+where we could multiply each value
+in a three-by-three grid by value,
+
+1596
+01:16:39,270 --> 01:16:41,620
+multiply it and add all
+the results together.
+
+1597
+01:16:41,620 --> 01:16:46,300
+So here I'm going to learn 32 different
+of these three-by-three filters.
+
+1598
+01:16:46,300 --> 01:16:48,740
+I can again specify my
+activation function.
+
+1599
+01:16:48,740 --> 01:16:51,320
+And I specify what my input shape is.
+
+1600
+01:16:51,320 --> 01:16:53,630
+My input shape in the
+banknotes case was just 4.
+
+1601
+01:16:53,630 --> 01:16:55,130
+I had four inputs.
+
+1602
+01:16:55,130 --> 01:17:00,502
+My input shape here is going to be 28,
+comma, 28, comma 1, because for each
+
+1603
+01:17:00,502 --> 01:17:02,210
+of these handwritten
+digits, it turns out
+
+1604
+01:17:02,210 --> 01:17:05,060
+that the MNIST dataset
+organizes their data.
+
+1605
+01:17:05,060 --> 01:17:07,740
+Each image is a 28-by-28 pixel grid.
+
+1606
+01:17:07,740 --> 01:17:11,690
+They're going to be a 28-by-28 pixel
+grid, and each one of those images only
+
+1607
+01:17:11,690 --> 01:17:13,387
+has one channel value.
+
+1608
+01:17:13,387 --> 01:17:15,470
+These handwritten digits
+are just black and white,
+
+1609
+01:17:15,470 --> 01:17:17,960
+so it's just a single
+color value representing
+
+1610
+01:17:17,960 --> 01:17:19,450
+how much black or how much white.
+
+1611
+01:17:19,450 --> 01:17:22,700
+You might imagine that in a color image,
+if you were doing this sort of thing,
+
+1612
+01:17:22,700 --> 01:17:24,710
+you might have three
+different channels-- a red,
+
+1613
+01:17:24,710 --> 01:17:26,600
+a green, and a blue
+channel, for example.
+
+1614
+01:17:26,600 --> 01:17:30,020
+But in the case of just handwriting
+recognition and recognizing a digit,
+
+1615
+01:17:30,020 --> 01:17:33,640
+we're just going to use a single value
+for shaded-in in or not shaded-in,
+
+1616
+01:17:33,640 --> 01:17:37,270
+and it might range, but it's
+just a single color value.
+
+1617
+01:17:37,270 --> 01:17:40,800
+And that then is the very first
+layer of our neural network,
+
+1618
+01:17:40,800 --> 01:17:43,327
+a convolutional layer
+that will take the input
+
+1619
+01:17:43,327 --> 01:17:45,160
+and learn a whole bunch
+of different filters
+
+1620
+01:17:45,160 --> 01:17:49,356
+that we can apply to the input
+to extract meaningful features.
+
+1621
+01:17:49,356 --> 01:17:52,900
+The next step is going to be a
+max-pooling layer, also built
+
+1622
+01:17:52,900 --> 01:17:55,060
+right into TensorFlow,
+where this is going
+
+1623
+01:17:55,060 --> 01:17:58,840
+to be a layer that is going to
+use a pool size of two by two,
+
+1624
+01:17:58,840 --> 01:18:01,830
+meaning we're going to look at
+two-by-two regions inside of the image,
+
+1625
+01:18:01,830 --> 01:18:03,910
+and just extract the maximum value.
+
+1626
+01:18:03,910 --> 01:18:06,050
+Again, we've seen why
+this can be helpful.
+
+1627
+01:18:06,050 --> 01:18:09,040
+It'll help to reduce
+the size of our input.
+
+1628
+01:18:09,040 --> 01:18:12,130
+Once we've done that, we'll go ahead
+and flatten all of the units just
+
+1629
+01:18:12,130 --> 01:18:14,500
+into a single layer
+that we can then pass
+
+1630
+01:18:14,500 --> 01:18:16,300
+into the rest of the neural network.
+
+1631
+01:18:16,300 --> 01:18:18,970
+And now, here's the rest
+of the whole network.
+
+1632
+01:18:18,970 --> 01:18:22,790
+Here, I'm saying, let's add a hidden
+layer to my neural network with 128
+
+1633
+01:18:22,790 --> 01:18:26,560
+units-- so a whole bunch of hidden
+units inside of the hidden layer--
+
+1634
+01:18:26,560 --> 01:18:30,117
+and just to prevent overfitting,
+I can add a dropout to that-- say,
+
+1635
+01:18:30,117 --> 01:18:30,700
+you know what?
+
+1636
+01:18:30,700 --> 01:18:34,630
+When you're training, randomly drop
+out half from this hidden layer,
+
+1637
+01:18:34,630 --> 01:18:38,200
+just to make sure we don't become
+over-reliant on any particular node.
+
+1638
+01:18:38,200 --> 01:18:41,560
+We begin to really generalize and
+stop ourselves from overfitting.
+
+1639
+01:18:41,560 --> 01:18:44,380
+So TensorFlow allows us,
+just by adding a single line,
+
+1640
+01:18:44,380 --> 01:18:47,650
+to add dropout into our model as
+well, such that when it's training,
+
+1641
+01:18:47,650 --> 01:18:50,080
+it will perform this
+dropout step in order
+
+1642
+01:18:50,080 --> 01:18:54,640
+to help make sure that we don't
+overfit on this particular data.
+
+1643
+01:18:54,640 --> 01:18:57,620
+And then finally, I add an output layer.
+
+1644
+01:18:57,620 --> 01:18:59,980
+The output layer is going
+to have 10 units, one
+
+1645
+01:18:59,980 --> 01:19:03,310
+for each category, that I would
+like to classify digits into,
+
+1646
+01:19:03,310 --> 01:19:06,230
+so 0 through 9, 10 different categories.
+
+1647
+01:19:06,230 --> 01:19:08,700
+And the activation function
+I'm going to use here
+
+1648
+01:19:08,700 --> 01:19:11,720
+is called the softmax
+activation function.
+
+1649
+01:19:11,720 --> 01:19:14,450
+And in short, what the softmax
+activation function is going to do
+
+1650
+01:19:14,450 --> 01:19:16,510
+is it's going to take
+the output and turn it
+
+1651
+01:19:16,510 --> 01:19:18,440
+into a probability distribution.
+
+1652
+01:19:18,440 --> 01:19:20,330
+So ultimately, it's
+going to tell me, what
+
+1653
+01:19:20,330 --> 01:19:24,910
+did we estimate the probability is
+that this is a 2 versus a 3 versus a 4,
+
+1654
+01:19:24,910 --> 01:19:29,180
+and so it will turn it into that
+probability distribution for me.
+
+1655
+01:19:29,180 --> 01:19:31,390
+Next up, I'll go ahead
+and compile my model
+
+1656
+01:19:31,390 --> 01:19:34,420
+and fit it on all of my training data.
+
+1657
+01:19:34,420 --> 01:19:38,530
+And then I can evaluate how well
+the neural network performs.
+
+1658
+01:19:38,530 --> 01:19:40,540
+And then I've added
+to my Python program,
+
+1659
+01:19:40,540 --> 01:19:43,430
+if I've provided a command line
+argument, like the name of a file,
+
+1660
+01:19:43,430 --> 01:19:46,300
+I'm going to go ahead and
+save the model to a file.
+
+1661
+01:19:46,300 --> 01:19:47,900
+And so this can be quite useful too.
+
+1662
+01:19:47,900 --> 01:19:49,608
+Once you've done the
+training step, which
+
+1663
+01:19:49,608 --> 01:19:51,970
+could take some time, in
+terms of taking all the time--
+
+1664
+01:19:51,970 --> 01:19:55,510
+going through the data; running
+backpropagation with gradient descent;
+
+1665
+01:19:55,510 --> 01:19:57,790
+to be able to say, all
+right, how should we adjust
+
+1666
+01:19:57,790 --> 01:19:59,540
+the weight to this particular model--
+
+1667
+01:19:59,540 --> 01:20:01,600
+you end up calculating
+values for these weights,
+
+1668
+01:20:01,600 --> 01:20:03,790
+calculating values for
+these filters, and you'd
+
+1669
+01:20:03,790 --> 01:20:06,560
+like to remember that information,
+so you can use it later.
+
+1670
+01:20:06,560 --> 01:20:10,223
+And so TensorFlow allows us to
+just save a model to a file,
+
+1671
+01:20:10,223 --> 01:20:12,640
+such that later if we want to
+use the model we've learned,
+
+1672
+01:20:12,640 --> 01:20:16,030
+use the weights that we've learned,
+to make some sort of new prediction
+
+1673
+01:20:16,030 --> 01:20:19,550
+we can just use the model
+that already exists.
+
+1674
+01:20:19,550 --> 01:20:22,570
+So what we're doing here is after
+we've done all the calculation,
+
+1675
+01:20:22,570 --> 01:20:26,050
+we go ahead and save the
+model to a file, such
+
+1676
+01:20:26,050 --> 01:20:28,220
+that we can use it a little bit later.
+
+1677
+01:20:28,220 --> 01:20:35,837
+So for example, if I go into digits,
+I'm going to run handwriting.py.
+
+1678
+01:20:35,837 --> 01:20:36,920
+I won't save it this time.
+
+1679
+01:20:36,920 --> 01:20:39,135
+We'll just run it and go
+ahead and see what happens.
+
+1680
+01:20:39,135 --> 01:20:41,260
+What will happen is we need
+to go through the model
+
+1681
+01:20:41,260 --> 01:20:44,710
+in order to train on all of these
+samples of handwritten digits.
+
+1682
+01:20:44,710 --> 01:20:47,500
+So the MNIST dataset gives
+us thousands and thousands
+
+1683
+01:20:47,500 --> 01:20:50,050
+of sample handwritten
+digits in the same format
+
+1684
+01:20:50,050 --> 01:20:51,800
+that we can use in order to train.
+
+1685
+01:20:51,800 --> 01:20:54,363
+And so now what you're seeing
+is this training process,
+
+1686
+01:20:54,363 --> 01:20:56,530
+and unlike the banknotes
+case, where there was much,
+
+1687
+01:20:56,530 --> 01:20:58,160
+much fewer data points--
+
+1688
+01:20:58,160 --> 01:20:59,680
+the data was very, very simple--
+
+1689
+01:20:59,680 --> 01:21:03,110
+here, the data is more complex, and
+this training process takes time.
+
+1690
+01:21:03,110 --> 01:21:06,040
+And so this is another
+one of those cases where
+
+1691
+01:21:06,040 --> 01:21:09,472
+when training neural networks,
+this is why computational power is
+
+1692
+01:21:09,472 --> 01:21:11,680
+so important, that oftentimes,
+you see people wanting
+
+1693
+01:21:11,680 --> 01:21:15,070
+to use a sophisticated GPUs in
+order to more efficiently be
+
+1694
+01:21:15,070 --> 01:21:18,040
+able to do this sort of
+neural network we're training.
+
+1695
+01:21:18,040 --> 01:21:20,870
+It also speaks to the reason
+why more data can be helpful.
+
+1696
+01:21:20,870 --> 01:21:23,260
+The more sample data
+points you have, the better
+
+1697
+01:21:23,260 --> 01:21:25,040
+you can begin to do this training.
+
+1698
+01:21:25,040 --> 01:21:28,060
+So here we're going through
+60,000 different samples
+
+1699
+01:21:28,060 --> 01:21:29,400
+of handwritten digits.
+
+1700
+01:21:29,400 --> 01:21:31,820
+And I said that we're going
+to go through them 10 times.
+
+1701
+01:21:31,820 --> 01:21:34,780
+So we're going to go through the
+dataset 10 times, training each time,
+
+1702
+01:21:34,780 --> 01:21:37,360
+hopefully improving upon
+our weights with every time
+
+1703
+01:21:37,360 --> 01:21:38,900
+we run through this dataset.
+
+1704
+01:21:38,900 --> 01:21:41,770
+And we can see over here on
+the right what the accuracy is
+
+1705
+01:21:41,770 --> 01:21:44,860
+each time we go ahead and run
+this model, that the first time,
+
+1706
+01:21:44,860 --> 01:21:48,310
+it looks like we got an accuracy
+of about 92% of the digits
+
+1707
+01:21:48,310 --> 01:21:50,320
+correct based on this training set.
+
+1708
+01:21:50,320 --> 01:21:53,310
+We increased that to 96% or 97%.
+
+1709
+01:21:53,310 --> 01:21:56,110
+And every time we run
+this, we're going to see,
+
+1710
+01:21:56,110 --> 01:21:59,290
+hopefully, the accuracy improve,
+as we continue to try and use
+
+1711
+01:21:59,290 --> 01:22:02,440
+that gradient descent, that process
+of trying to run the algorithm
+
+1712
+01:22:02,440 --> 01:22:06,400
+to minimize the loss that we get
+in order to more accurately predict
+
+1713
+01:22:06,400 --> 01:22:07,840
+what the output should be.
+
+1714
+01:22:07,840 --> 01:22:11,210
+And what this process is doing is
+it's learning not only the weights,
+
+1715
+01:22:11,210 --> 01:22:13,660
+but it's learning the
+features to use-- the kernel
+
+1716
+01:22:13,660 --> 01:22:16,840
+matrix to use-- when performing
+that convolution step, because this
+
+1717
+01:22:16,840 --> 01:22:19,570
+is a convolutional neural network,
+where I'm first performing
+
+1718
+01:22:19,570 --> 01:22:23,380
+those convolutions, and then doing
+the more traditional neural network
+
+1719
+01:22:23,380 --> 01:22:24,260
+structure.
+
+1720
+01:22:24,260 --> 01:22:28,250
+This is going to learn all of
+those individual steps as well.
+
+1721
+01:22:28,250 --> 01:22:31,770
+So here, we see the TensorFlow provides
+me with some very nice output, telling
+
+1722
+01:22:31,770 --> 01:22:34,960
+me about how many seconds are left
+with each of these training runs,
+
+1723
+01:22:34,960 --> 01:22:37,610
+that allows me to see
+just how well we're doing.
+
+1724
+01:22:37,610 --> 01:22:39,970
+So we'll go ahead and see
+how this network performs.
+
+1725
+01:22:39,970 --> 01:22:42,520
+It looks like we've gone
+through the dataset seven times.
+
+1726
+01:22:42,520 --> 01:22:45,162
+We're going through an eighth time now.
+
+1727
+01:22:45,162 --> 01:22:47,120
+And at this point, the
+accuracy is pretty high.
+
+1728
+01:22:47,120 --> 01:22:50,950
+We saw we went from 92% up to 97%.
+
+1729
+01:22:50,950 --> 01:22:52,370
+Now it looks like 98%.
+
+1730
+01:22:52,370 --> 01:22:55,120
+And at this point, it seems like
+things are starting to level out.
+
+1731
+01:22:55,120 --> 01:22:57,550
+There's probably a limit to
+how accurate we can ultimately
+
+1732
+01:22:57,550 --> 01:22:59,615
+be without running the
+risk of overfitting.
+
+1733
+01:22:59,615 --> 01:23:02,740
+Of course, with enough nodes, you could
+just memorize the input and overfit
+
+1734
+01:23:02,740 --> 01:23:03,600
+upon them.
+
+1735
+01:23:03,600 --> 01:23:07,400
+But we'd like to avoid doing that
+and dropout will help us with this.
+
+1736
+01:23:07,400 --> 01:23:12,560
+But now, we see we're almost
+done finishing our training step.
+
+1737
+01:23:12,560 --> 01:23:13,950
+We're at 55,000.
+
+1738
+01:23:13,950 --> 01:23:14,450
+All right.
+
+1739
+01:23:14,450 --> 01:23:16,280
+We've finished training,
+and now it's going
+
+1740
+01:23:16,280 --> 01:23:18,920
+to go ahead and test for
+us on 10,000 samples.
+
+1741
+01:23:18,920 --> 01:23:23,630
+And it looks like on the testing
+set, we were 98.8% accurate.
+
+1742
+01:23:23,630 --> 01:23:25,640
+So we ended up doing
+pretty well, it seems,
+
+1743
+01:23:25,640 --> 01:23:28,940
+on this testing set to
+see how accurately can
+
+1744
+01:23:28,940 --> 01:23:31,980
+we predict these handwritten digits.
+
+1745
+01:23:31,980 --> 01:23:34,590
+And so what we could do then
+is actually test it out.
+
+1746
+01:23:34,590 --> 01:23:38,490
+I've written a program called
+recognition.py using PyGame.
+
+1747
+01:23:38,490 --> 01:23:40,350
+If you pass it a model
+that's been trained,
+
+1748
+01:23:40,350 --> 01:23:44,843
+and I pre-trained an example model
+using this input data, what we can do
+
+1749
+01:23:44,843 --> 01:23:46,760
+is see whether or not
+we've been able to train
+
+1750
+01:23:46,760 --> 01:23:50,510
+this convolutional neural network
+to be able to predict handwriting,
+
+1751
+01:23:50,510 --> 01:23:51,050
+for example.
+
+1752
+01:23:51,050 --> 01:23:54,080
+So I can try just like
+drawing a handwritten digit.
+
+1753
+01:23:54,080 --> 01:23:58,130
+I'll go ahead and draw like
+the number 2, for example.
+
+1754
+01:23:58,130 --> 01:23:59,295
+So there's my number 2.
+
+1755
+01:23:59,295 --> 01:24:00,170
+Again, this is messy.
+
+1756
+01:24:00,170 --> 01:24:03,170
+If you tried to imagine how would you
+write a program with just like ifs
+
+1757
+01:24:03,170 --> 01:24:05,390
+and thens to be able to do
+this sort of calculation,
+
+1758
+01:24:05,390 --> 01:24:06,830
+it would be tricky to do so.
+
+1759
+01:24:06,830 --> 01:24:08,810
+But here, I'll press
+Classify, and all right.
+
+1760
+01:24:08,810 --> 01:24:11,330
+It seems it was able to correctly
+classify that what I drew
+
+1761
+01:24:11,330 --> 01:24:12,383
+was the number 2.
+
+1762
+01:24:12,383 --> 01:24:13,550
+We'll go ahead and reset it.
+
+1763
+01:24:13,550 --> 01:24:14,092
+Try it again.
+
+1764
+01:24:14,092 --> 01:24:16,710
+We'll draw like an 8, for example.
+
+1765
+01:24:16,710 --> 01:24:19,040
+So here is an 8.
+
+1766
+01:24:19,040 --> 01:24:20,197
+I'll press Classify.
+
+1767
+01:24:20,197 --> 01:24:20,780
+And all right.
+
+1768
+01:24:20,780 --> 01:24:23,693
+It predicts that the digit
+that I drew was an 8.
+
+1769
+01:24:23,693 --> 01:24:25,610
+And the key here is this
+really begins to show
+
+1770
+01:24:25,610 --> 01:24:28,640
+the power of what the neural
+network is doing, somehow looking
+
+1771
+01:24:28,640 --> 01:24:31,190
+at various different features
+of these different pixels,
+
+1772
+01:24:31,190 --> 01:24:33,560
+figuring out what the
+relevant features are,
+
+1773
+01:24:33,560 --> 01:24:36,350
+and figuring out how to combine
+them to get a classification.
+
+1774
+01:24:36,350 --> 01:24:40,340
+And this would be a difficult task
+to provide explicit instructions
+
+1775
+01:24:40,340 --> 01:24:43,580
+to the computer on how to do, like
+to use a hole punch of if-thens
+
+1776
+01:24:43,580 --> 01:24:46,220
+to process all of these
+pixel values to figure out
+
+1777
+01:24:46,220 --> 01:24:48,800
+what the handwritten digit is,
+like everyone is going to draw
+
+1778
+01:24:48,800 --> 01:24:50,180
+their 8 a little bit differently.
+
+1779
+01:24:50,180 --> 01:24:52,680
+If I drew the 8 again, it would
+look a little bit different.
+
+1780
+01:24:52,680 --> 01:24:55,460
+And yet ideally, we want to
+train a network to be robust
+
+1781
+01:24:55,460 --> 01:24:59,360
+enough so that it begins to
+learn these patterns on its own.
+
+1782
+01:24:59,360 --> 01:25:02,040
+All I said was, here is the
+structure of the network,
+
+1783
+01:25:02,040 --> 01:25:04,610
+and here is the data on
+which to train the network,
+
+1784
+01:25:04,610 --> 01:25:06,620
+and the network learning
+algorithm just tries
+
+1785
+01:25:06,620 --> 01:25:08,960
+to figure out what is the
+optimal set of weights,
+
+1786
+01:25:08,960 --> 01:25:11,210
+what is the optimal
+set of filters to use,
+
+1787
+01:25:11,210 --> 01:25:13,520
+in order to be able
+to accurately classify
+
+1788
+01:25:13,520 --> 01:25:16,030
+a digit into one category or another.
+
+1789
+01:25:16,030 --> 01:25:20,850
+That's going to show the power of
+these convolutional neural networks.
+
+1790
+01:25:20,850 --> 01:25:25,280
+And so that then was a look at how we
+can use convolutional neural networks
+
+1791
+01:25:25,280 --> 01:25:30,320
+to begin to solve problems with regards
+to computer vision, the ability to take
+
+1792
+01:25:30,320 --> 01:25:32,015
+an image and begin to analyze it.
+
+1793
+01:25:32,015 --> 01:25:33,890
+And so this is the type
+of analysis you might
+
+1794
+01:25:33,890 --> 01:25:36,710
+imagine that's happening
+in self-driving cars that
+
+1795
+01:25:36,710 --> 01:25:40,910
+are able to figure out what filters to
+apply to an image to understand what it
+
+1796
+01:25:40,910 --> 01:25:44,300
+is that the computer is looking
+at, or the same type of idea that
+
+1797
+01:25:44,300 --> 01:25:46,760
+might be applied to facial
+recognition and social media
+
+1798
+01:25:46,760 --> 01:25:50,600
+to be able to determine how to
+recognize faces in an image as well.
+
+1799
+01:25:50,600 --> 01:25:53,180
+You can imagine a neural network
+that, instead of classifying
+
+1800
+01:25:53,180 --> 01:25:58,310
+into one of 10 different digits, could
+instead classify like, is this person A
+
+1801
+01:25:58,310 --> 01:26:01,730
+or is this person B, trying to
+tell those people apart just based
+
+1802
+01:26:01,730 --> 01:26:03,807
+on convolution.
+
+1803
+01:26:03,807 --> 01:26:06,890
+And so now what we'll take a look at
+is yet another type of neural network
+
+1804
+01:26:06,890 --> 01:26:09,290
+that can be quite popular
+for certain types of tasks.
+
+1805
+01:26:09,290 --> 01:26:13,160
+But to do so, we'll try to generalize
+and think about our neural network
+
+1806
+01:26:13,160 --> 01:26:16,920
+a little bit more abstractly, that here
+we have a sample deep neural network,
+
+1807
+01:26:16,920 --> 01:26:20,150
+where we have this input layer, a
+whole bunch of different hidden layers
+
+1808
+01:26:20,150 --> 01:26:22,850
+that are performing certain
+types of calculations,
+
+1809
+01:26:22,850 --> 01:26:26,090
+and then an output layer here that
+just generates some sort of output
+
+1810
+01:26:26,090 --> 01:26:28,370
+that we care about calculating.
+
+1811
+01:26:28,370 --> 01:26:32,780
+But we could imagine representing
+this a little more simply, like this.
+
+1812
+01:26:32,780 --> 01:26:36,110
+Here is just a more abstract
+representation of our neural network.
+
+1813
+01:26:36,110 --> 01:26:37,490
+We have some input.
+
+1814
+01:26:37,490 --> 01:26:41,090
+That might be like a vector of a whole
+bunch of different values as our input.
+
+1815
+01:26:41,090 --> 01:26:43,390
+That gets passed into
+a network to perform
+
+1816
+01:26:43,390 --> 01:26:46,190
+some sort of calculation or
+computation, and that network
+
+1817
+01:26:46,190 --> 01:26:48,350
+produces some sort of output.
+
+1818
+01:26:48,350 --> 01:26:50,043
+That output might be a single value.
+
+1819
+01:26:50,043 --> 01:26:51,960
+It might be a whole bunch
+of different values.
+
+1820
+01:26:51,960 --> 01:26:54,960
+But this is the general structure of
+the neural network that we've seen.
+
+1821
+01:26:54,960 --> 01:26:58,250
+There is some sort of input
+that gets fed into the network,
+
+1822
+01:26:58,250 --> 01:27:02,210
+and using that input, the network
+calculates what the output should be.
+
+1823
+01:27:02,210 --> 01:27:04,730
+And this sort of model
+for an all network
+
+1824
+01:27:04,730 --> 01:27:07,790
+is what we might call a
+feed-forward neural network.
+
+1825
+01:27:07,790 --> 01:27:11,760
+Feed-forward neural networks have
+connections only in one direction;
+
+1826
+01:27:11,760 --> 01:27:14,390
+they move from one layer to
+the next layer to the layer
+
+1827
+01:27:14,390 --> 01:27:18,530
+after that, such that the inputs pass
+through various different hidden layers
+
+1828
+01:27:18,530 --> 01:27:21,560
+and then ultimately produce
+some sort of output.
+
+1829
+01:27:21,560 --> 01:27:24,963
+So feed-forward neural networks
+are very helpful for solving
+
+1830
+01:27:24,963 --> 01:27:27,380
+these types of classification
+problems that we saw before.
+
+1831
+01:27:27,380 --> 01:27:28,760
+We have a whole bunch of input.
+
+1832
+01:27:28,760 --> 01:27:30,885
+We want to learn what
+setting of weights will allow
+
+1833
+01:27:30,885 --> 01:27:32,717
+us to calculate the output effectively.
+
+1834
+01:27:32,717 --> 01:27:35,300
+But there are some limitations
+on feed-forward neural networks
+
+1835
+01:27:35,300 --> 01:27:36,425
+that we'll see in a moment.
+
+1836
+01:27:36,425 --> 01:27:39,350
+In particular, the input
+needs to be of a fixed shape,
+
+1837
+01:27:39,350 --> 01:27:41,932
+like a fixed number of neurons
+are in the input layer,
+
+1838
+01:27:41,932 --> 01:27:43,640
+and there's a fixed
+shape for the output,
+
+1839
+01:27:43,640 --> 01:27:46,670
+like a fixed number of
+neurons in the output layer,
+
+1840
+01:27:46,670 --> 01:27:49,340
+and that has some
+limitations of its own.
+
+1841
+01:27:49,340 --> 01:27:51,457
+And a possible solution to this--
+
+1842
+01:27:51,457 --> 01:27:53,540
+and we'll see examples of
+the types of problems we
+
+1843
+01:27:53,540 --> 01:27:55,190
+can solve for this in just the second--
+
+1844
+01:27:55,190 --> 01:27:58,065
+is instead of just a feed-forward
+neural network where there are only
+
+1845
+01:27:58,065 --> 01:28:01,070
+connections in one direction,
+from left to right effectively,
+
+1846
+01:28:01,070 --> 01:28:05,390
+across the network, we can also
+imagine a recurrent neural network,
+
+1847
+01:28:05,390 --> 01:28:07,460
+where a recurrent
+neural network generates
+
+1848
+01:28:07,460 --> 01:28:13,680
+output that gets fed back into itself as
+input for future runs of that network.
+
+1849
+01:28:13,680 --> 01:28:15,800
+So whereas in a
+traditional neural network,
+
+1850
+01:28:15,800 --> 01:28:19,850
+we have inputs that get fed into the
+network that get fed into the output,
+
+1851
+01:28:19,850 --> 01:28:23,150
+and the only thing that determines the
+output is based on the original input
+
+1852
+01:28:23,150 --> 01:28:26,780
+and based on the calculation we
+do inside of the network itself,
+
+1853
+01:28:26,780 --> 01:28:29,780
+this goes in contrast with
+a recurrent neural network,
+
+1854
+01:28:29,780 --> 01:28:32,450
+where in a recurrent neural
+network, you can imagine output
+
+1855
+01:28:32,450 --> 01:28:35,810
+from the network feeding back
+to itself into the network
+
+1856
+01:28:35,810 --> 01:28:39,590
+again as input for the next time
+that you do the calculations
+
+1857
+01:28:39,590 --> 01:28:41,090
+inside of the network.
+
+1858
+01:28:41,090 --> 01:28:45,890
+What this allows is it allows the
+network to maintain some sort of state,
+
+1859
+01:28:45,890 --> 01:28:48,290
+to store some sort of
+information that can
+
+1860
+01:28:48,290 --> 01:28:51,930
+be used on future runs of the network.
+
+1861
+01:28:51,930 --> 01:28:54,170
+Previously, the network
+just defined some weights,
+
+1862
+01:28:54,170 --> 01:28:56,990
+and we passed inputs through the
+network, and it generated outputs,
+
+1863
+01:28:56,990 --> 01:29:00,710
+but the network wasn't saving any
+information based on those inputs
+
+1864
+01:29:00,710 --> 01:29:04,103
+to be able to remember for future
+iterations or for future runs.
+
+1865
+01:29:04,103 --> 01:29:06,020
+What a recurrent neural
+network will let us do
+
+1866
+01:29:06,020 --> 01:29:08,270
+is let the network
+store information that
+
+1867
+01:29:08,270 --> 01:29:12,470
+gets passed back in as input to the
+network again the next time we try
+
+1868
+01:29:12,470 --> 01:29:14,370
+and perform some sort of action.
+
+1869
+01:29:14,370 --> 01:29:18,990
+And this is particularly helpful
+when dealing with sequences of data.
+
+1870
+01:29:18,990 --> 01:29:21,620
+So we'll see a real-world example
+of this right now actually.
+
+1871
+01:29:21,620 --> 01:29:25,880
+Microsoft has developed an
+AI known as the CaptionBot,
+
+1872
+01:29:25,880 --> 01:29:28,370
+and what the CaptionBot
+does is it says, I
+
+1873
+01:29:28,370 --> 01:29:30,500
+can understand the
+content of any photograph,
+
+1874
+01:29:30,500 --> 01:29:32,583
+and I'll try to describe
+it as well as any human.
+
+1875
+01:29:32,583 --> 01:29:35,000
+I'll analyze your photo, but
+I won't store it or share it.
+
+1876
+01:29:35,000 --> 01:29:38,090
+And so what Microsoft CaptionBot
+seems to be claiming to do
+
+1877
+01:29:38,090 --> 01:29:41,630
+is it can take an image and
+figure out what's in the image
+
+1878
+01:29:41,630 --> 01:29:44,460
+and just give us a
+caption to describe it.
+
+1879
+01:29:44,460 --> 01:29:45,470
+So let's try it out.
+
+1880
+01:29:45,470 --> 01:29:48,255
+Here, for example, is an
+image of Harvard Square
+
+1881
+01:29:48,255 --> 01:29:51,380
+and some people walking in front of
+one of the buildings at Harvard Square.
+
+1882
+01:29:51,380 --> 01:29:53,720
+I'll go ahead and take
+the URL for that image,
+
+1883
+01:29:53,720 --> 01:29:57,520
+and I'll paste it into
+CaptionBot, then just press Go.
+
+1884
+01:29:57,520 --> 01:30:01,460
+So CaptionBot is analyzing
+the image, and then it says,
+
+1885
+01:30:01,460 --> 01:30:03,920
+I think it's a group of
+people walking in front
+
+1886
+01:30:03,920 --> 01:30:05,510
+of a building, which seems amazing.
+
+1887
+01:30:05,510 --> 01:30:09,590
+The eye is able to look at this image
+and figure out what's in the image.
+
+1888
+01:30:09,590 --> 01:30:11,510
+And the important
+thing to recognize here
+
+1889
+01:30:11,510 --> 01:30:13,910
+is that this is no longer
+just a classification task.
+
+1890
+01:30:13,910 --> 01:30:17,350
+We saw being able to classify images
+with a convolutional neural network,
+
+1891
+01:30:17,350 --> 01:30:21,680
+where the job was to take the images
+and then figure out, is it a 0, or a 1,
+
+1892
+01:30:21,680 --> 01:30:24,740
+or a 2; or is that this person's
+face or that person's face?
+
+1893
+01:30:24,740 --> 01:30:28,160
+What seems to be happening
+here is the input is an image,
+
+1894
+01:30:28,160 --> 01:30:31,190
+and we know how to get networks
+to take input of images,
+
+1895
+01:30:31,190 --> 01:30:33,320
+but the output is text.
+
+1896
+01:30:33,320 --> 01:30:34,010
+It's a sentence.
+
+1897
+01:30:34,010 --> 01:30:38,410
+It's a phrase, like "a group of people
+walking in front of a building."
+
+1898
+01:30:38,410 --> 01:30:41,420
+And this would seem to pose a
+challenge for our more traditional
+
+1899
+01:30:41,420 --> 01:30:44,450
+feed-forward neural networks,
+for the reason being
+
+1900
+01:30:44,450 --> 01:30:47,540
+that in traditional
+neural networks, we just
+
+1901
+01:30:47,540 --> 01:30:50,670
+have a fixed-size input
+and a fixed-size output.
+
+1902
+01:30:50,670 --> 01:30:53,930
+There are a certain number of neurons
+in the input to our neural network
+
+1903
+01:30:53,930 --> 01:30:56,580
+and a certain number of
+outputs for our neural network,
+
+1904
+01:30:56,580 --> 01:30:58,763
+and then some calculation
+that goes on in between.
+
+1905
+01:30:58,763 --> 01:30:59,930
+But the size of the inputs--
+
+1906
+01:30:59,930 --> 01:31:03,030
+the number of values in the input and
+the number of values in the output--
+
+1907
+01:31:03,030 --> 01:31:07,775
+those are always going to be fixed based
+on the structure of the neural network,
+
+1908
+01:31:07,775 --> 01:31:10,400
+and that makes it difficult to
+imagine how a neural network can
+
+1909
+01:31:10,400 --> 01:31:12,440
+take an image like
+this and say, you know,
+
+1910
+01:31:12,440 --> 01:31:14,840
+it's a group of people walking
+in front of the building,
+
+1911
+01:31:14,840 --> 01:31:17,360
+because the output is text.
+
+1912
+01:31:17,360 --> 01:31:19,580
+It's a sequence of words.
+
+1913
+01:31:19,580 --> 01:31:23,120
+Now it might be possible for a
+neural network to output one word.
+
+1914
+01:31:23,120 --> 01:31:25,610
+One word, you could represent
+us like a vector of values,
+
+1915
+01:31:25,610 --> 01:31:27,350
+and you can imagine ways of doing that.
+
+1916
+01:31:27,350 --> 01:31:29,517
+And next time, we'll talk
+a little bit more about AI
+
+1917
+01:31:29,517 --> 01:31:31,950
+as it relates to language
+and language processing.
+
+1918
+01:31:31,950 --> 01:31:34,290
+But a sequence of words
+is much more challenging,
+
+1919
+01:31:34,290 --> 01:31:36,080
+because depending on
+the image, you might
+
+1920
+01:31:36,080 --> 01:31:38,510
+imagine the output is a
+different number of words.
+
+1921
+01:31:38,510 --> 01:31:41,120
+We could have sequences
+of different lengths,
+
+1922
+01:31:41,120 --> 01:31:45,310
+and somehow we still want to be able
+to generate the appropriate output.
+
+1923
+01:31:45,310 --> 01:31:49,250
+And so the strategy here is to
+use a recurrent neural network,
+
+1924
+01:31:49,250 --> 01:31:52,790
+a neural network that can feed
+its own output back into itself
+
+1925
+01:31:52,790 --> 01:31:55,020
+as input for the next time.
+
+1926
+01:31:55,020 --> 01:31:59,810
+And this allows us to do what we call
+a one-to-many relationship for inputs
+
+1927
+01:31:59,810 --> 01:32:02,720
+to outputs, that in vanilla, more
+traditional neural networks--
+
+1928
+01:32:02,720 --> 01:32:05,840
+these are what we consider to
+be one-to-one neural networks--
+
+1929
+01:32:05,840 --> 01:32:10,370
+you pass in one set of values as
+input, you get one vector of values
+
+1930
+01:32:10,370 --> 01:32:12,080
+as the output--
+
+1931
+01:32:12,080 --> 01:32:14,750
+but in this case, we want to
+pass in one value as input--
+
+1932
+01:32:14,750 --> 01:32:17,840
+the image-- and we want to
+get a sequence-- many values--
+
+1933
+01:32:17,840 --> 01:32:22,190
+as output, where each value is like
+one of these words that gets produced
+
+1934
+01:32:22,190 --> 01:32:24,460
+by this particular algorithm.
+
+1935
+01:32:24,460 --> 01:32:26,960
+And so the way we might do this
+is we might imagine starting
+
+1936
+01:32:26,960 --> 01:32:30,175
+by providing input the image
+into our neural network,
+
+1937
+01:32:30,175 --> 01:32:32,300
+and the neural network is
+going to generate output,
+
+1938
+01:32:32,300 --> 01:32:34,730
+but the output is not going to
+be the whole sequence of words,
+
+1939
+01:32:34,730 --> 01:32:37,022
+because we can't represent
+the whole sequence of words.
+
+1940
+01:32:37,022 --> 01:32:39,650
+I'm using just a fixed set of neurons.
+
+1941
+01:32:39,650 --> 01:32:42,760
+Instead, the output is just
+going to be the first word.
+
+1942
+01:32:42,760 --> 01:32:44,510
+We're going to train
+the network to output
+
+1943
+01:32:44,510 --> 01:32:46,500
+what the first word of
+the caption should be.
+
+1944
+01:32:46,500 --> 01:32:48,500
+And you could imagine
+that Microsoft has trained
+
+1945
+01:32:48,500 --> 01:32:52,250
+to this by running a whole bunch
+of training samples through the AI,
+
+1946
+01:32:52,250 --> 01:32:55,400
+giving it a whole bunch of pictures
+and what the appropriate caption was,
+
+1947
+01:32:55,400 --> 01:32:58,520
+and having the AI begin
+to learn from that.
+
+1948
+01:32:58,520 --> 01:33:00,830
+But now, because the
+network generates output
+
+1949
+01:33:00,830 --> 01:33:03,020
+that can be fed back
+into itself, you can
+
+1950
+01:33:03,020 --> 01:33:06,830
+imagine the output of the network
+being fed back into the same network--
+
+1951
+01:33:06,830 --> 01:33:10,400
+this here looks like a separate network,
+but it's really the same network that's
+
+1952
+01:33:10,400 --> 01:33:12,170
+just getting different input--
+
+1953
+01:33:12,170 --> 01:33:16,340
+that this network's output
+gets fed back into itself,
+
+1954
+01:33:16,340 --> 01:33:18,440
+but it's going to
+generate another output,
+
+1955
+01:33:18,440 --> 01:33:22,910
+and that other output is going to be
+like the second word in the caption.
+
+1956
+01:33:22,910 --> 01:33:25,220
+And this recurrent neural
+network then, this network
+
+1957
+01:33:25,220 --> 01:33:27,470
+is going to generate other
+output that can be fed back
+
+1958
+01:33:27,470 --> 01:33:30,470
+into itself to generate
+yet another word, fed back
+
+1959
+01:33:30,470 --> 01:33:32,420
+into itself to generate another word.
+
+1960
+01:33:32,420 --> 01:33:35,150
+And so recurrent neural
+networks allow us to represent
+
+1961
+01:33:35,150 --> 01:33:37,610
+this sort of one-to-many structure.
+
+1962
+01:33:37,610 --> 01:33:40,370
+You provide one image as
+input, and the neural network
+
+1963
+01:33:40,370 --> 01:33:43,160
+can pass data into the
+next run of the network,
+
+1964
+01:33:43,160 --> 01:33:46,940
+and then again and again, such that you
+could run the network multiple times,
+
+1965
+01:33:46,940 --> 01:33:52,398
+each time generating a different output,
+still based on that original input.
+
+1966
+01:33:52,398 --> 01:33:54,190
+And this is where
+recurrent neural networks
+
+1967
+01:33:54,190 --> 01:33:58,880
+become particularly useful when dealing
+with sequences of inputs or outputs.
+
+1968
+01:33:58,880 --> 01:34:02,110
+My output is a sequence of words,
+and since I can't very easily
+
+1969
+01:34:02,110 --> 01:34:04,690
+represent outputting an
+entire sequence of words,
+
+1970
+01:34:04,690 --> 01:34:07,900
+I'll instead output that
+sequence one word at a time,
+
+1971
+01:34:07,900 --> 01:34:10,240
+by allowing my network
+to pass information
+
+1972
+01:34:10,240 --> 01:34:13,420
+about what still needs to
+be said about the photo
+
+1973
+01:34:13,420 --> 01:34:15,655
+into the next stage of
+running the networks.
+
+1974
+01:34:15,655 --> 01:34:17,530
+So you could run the
+network multiple times--
+
+1975
+01:34:17,530 --> 01:34:19,450
+the same network with the same weights--
+
+1976
+01:34:19,450 --> 01:34:23,260
+just getting different input each time,
+first getting input from the image,
+
+1977
+01:34:23,260 --> 01:34:25,990
+and then getting input
+from the network itself,
+
+1978
+01:34:25,990 --> 01:34:28,630
+as additional information
+about what additionally
+
+1979
+01:34:28,630 --> 01:34:32,660
+needs to be given in a
+particular caption, for example.
+
+1980
+01:34:32,660 --> 01:34:35,080
+So this then is a
+one-to-many many relationship
+
+1981
+01:34:35,080 --> 01:34:36,760
+inside of a recurrent neural network.
+
+1982
+01:34:36,760 --> 01:34:38,718
+But it turns out there
+are other models that we
+
+1983
+01:34:38,718 --> 01:34:42,280
+can use-- other ways we can try and
+use recurrent neural networks-- to be
+
+1984
+01:34:42,280 --> 01:34:45,490
+able to represent data that might
+be stored in other forms as well.
+
+1985
+01:34:45,490 --> 01:34:48,640
+We saw how we could use neural
+networks in order to analyze images,
+
+1986
+01:34:48,640 --> 01:34:51,802
+in the context of convolutional
+neural networks that take an image,
+
+1987
+01:34:51,802 --> 01:34:54,010
+figure out various different
+properties of the image,
+
+1988
+01:34:54,010 --> 01:34:57,410
+and are able to draw some sort
+of conclusion based on that.
+
+1989
+01:34:57,410 --> 01:34:59,650
+But you might imagine that
+something like YouTube,
+
+1990
+01:34:59,650 --> 01:35:02,730
+they need to be able to do a
+lot of learning based on video.
+
+1991
+01:35:02,730 --> 01:35:04,480
+They need to look
+through videos to detect
+
+1992
+01:35:04,480 --> 01:35:06,557
+if there are copyright
+violations, or they
+
+1993
+01:35:06,557 --> 01:35:08,890
+need to be able to look through
+videos to maybe identify
+
+1994
+01:35:08,890 --> 01:35:12,400
+what particular items are inside
+of the video, for example.
+
+1995
+01:35:12,400 --> 01:35:14,950
+And video, you might imagine,
+is much more difficult
+
+1996
+01:35:14,950 --> 01:35:18,610
+to put it as input to a neural
+network, because whereas an image
+
+1997
+01:35:18,610 --> 01:35:22,520
+you can just treat each pixel is a
+different value, videos are sequences.
+
+1998
+01:35:22,520 --> 01:35:26,388
+They're sequences of images, and each
+sequence might be a different length,
+
+1999
+01:35:26,388 --> 01:35:28,180
+and so it might be
+challenging to represent
+
+2000
+01:35:28,180 --> 01:35:31,120
+that entire video as a
+single vector of values
+
+2001
+01:35:31,120 --> 01:35:34,070
+that you could pass in
+to a neural network.
+
+2002
+01:35:34,070 --> 01:35:36,340
+And so here too,
+recurrent neural networks
+
+2003
+01:35:36,340 --> 01:35:40,060
+can be a valuable solution for
+trying to solve this type of problem.
+
+2004
+01:35:40,060 --> 01:35:44,150
+Then instead of just passing in a
+single input into our neural network,
+
+2005
+01:35:44,150 --> 01:35:47,170
+we could pass in the input one
+frame at a time, you might imagine,
+
+2006
+01:35:47,170 --> 01:35:51,460
+first taking the first frame of the
+video, passing it into the network,
+
+2007
+01:35:51,460 --> 01:35:54,280
+and then maybe not having the
+network output anything at all yet.
+
+2008
+01:35:54,280 --> 01:35:58,870
+Let it take in another input, and
+this time, pass it into the network,
+
+2009
+01:35:58,870 --> 01:36:01,750
+but the network gets
+information from the last time
+
+2010
+01:36:01,750 --> 01:36:03,760
+we provided an input into the network.
+
+2011
+01:36:03,760 --> 01:36:06,220
+Then we pass in a third input
+and then a fourth input,
+
+2012
+01:36:06,220 --> 01:36:09,970
+where each time, with the network
+gets it gets the most recent input,
+
+2013
+01:36:09,970 --> 01:36:12,850
+like each frame of
+the video, but it also
+
+2014
+01:36:12,850 --> 01:36:16,940
+gets information the network processed
+from all of the previous iterations.
+
+2015
+01:36:16,940 --> 01:36:19,360
+So on frame number
+four, you end up getting
+
+2016
+01:36:19,360 --> 01:36:22,750
+the input for frame number four,
+plus information the network is
+
+2017
+01:36:22,750 --> 01:36:25,630
+calculated from the first three frames.
+
+2018
+01:36:25,630 --> 01:36:28,780
+And using all of that data combined,
+this recurrent neural network
+
+2019
+01:36:28,780 --> 01:36:32,920
+can begin to learn how to extract
+patterns from a sequence of data
+
+2020
+01:36:32,920 --> 01:36:33,730
+as well.
+
+2021
+01:36:33,730 --> 01:36:35,730
+And so you might imagine
+if you want to classify
+
+2022
+01:36:35,730 --> 01:36:37,570
+a video into a number
+of different genres,
+
+2023
+01:36:37,570 --> 01:36:40,990
+like an educational video, or a music
+video, or different types of videos.
+
+2024
+01:36:40,990 --> 01:36:43,180
+That's a classification
+task, where you want
+
+2025
+01:36:43,180 --> 01:36:45,820
+to take input each of
+the frames of the video,
+
+2026
+01:36:45,820 --> 01:36:48,440
+and you want to output
+something like what it is
+
+2027
+01:36:48,440 --> 01:36:51,853
+and what category that
+it happens to belong to.
+
+2028
+01:36:51,853 --> 01:36:53,770
+And you can imagine doing
+this sort of thing--
+
+2029
+01:36:53,770 --> 01:36:56,310
+this sort of many-to-one learning--
+
+2030
+01:36:56,310 --> 01:36:58,630
+anytime your input is a sequence.
+
+2031
+01:36:58,630 --> 01:37:01,718
+And so input is a sequence
+in the context of a video.
+
+2032
+01:37:01,718 --> 01:37:04,510
+It could be in the context of like,
+if someone has typed a message,
+
+2033
+01:37:04,510 --> 01:37:06,640
+and you want to be able to
+categorize that message,
+
+2034
+01:37:06,640 --> 01:37:09,220
+like if you're trying
+to take a movie review
+
+2035
+01:37:09,220 --> 01:37:12,850
+and trying to classify it as is it a
+positive review or a negative review.
+
+2036
+01:37:12,850 --> 01:37:15,460
+That input is a sequence
+of words, and the output
+
+2037
+01:37:15,460 --> 01:37:18,060
+is a classification--
+positive or negative.
+
+2038
+01:37:18,060 --> 01:37:20,170
+There too, a recurrent
+neural network might
+
+2039
+01:37:20,170 --> 01:37:22,780
+be helpful for analyzing
+sequences of words,
+
+2040
+01:37:22,780 --> 01:37:25,875
+and they're quite popular when it
+comes to dealing with language.
+
+2041
+01:37:25,875 --> 01:37:27,950
+It could even be used
+for spoken language
+
+2042
+01:37:27,950 --> 01:37:31,250
+as well, that spoken language
+is an audio waveform that
+
+2043
+01:37:31,250 --> 01:37:34,460
+can be segmented into distinct
+chunks, and each of those
+
+2044
+01:37:34,460 --> 01:37:37,760
+can be passed in as an input
+into a recurrent neural network
+
+2045
+01:37:37,760 --> 01:37:40,380
+to be able to classify
+someone's voice, for instance,
+
+2046
+01:37:40,380 --> 01:37:43,160
+if you want to do voice recognition,
+to say is this one person
+
+2047
+01:37:43,160 --> 01:37:44,260
+or is this another?
+
+2048
+01:37:44,260 --> 01:37:48,310
+Here are also cases where you might
+want this many-to-one architecture
+
+2049
+01:37:48,310 --> 01:37:50,897
+for a recurrent neural network.
+
+2050
+01:37:50,897 --> 01:37:52,980
+And then as one final
+problem, just to take a look
+
+2051
+01:37:52,980 --> 01:37:55,860
+at in terms of what we can do,
+with these sorts of networks,
+
+2052
+01:37:55,860 --> 01:37:57,870
+imagine what Google Translate is doing.
+
+2053
+01:37:57,870 --> 01:38:01,620
+So what Google Translate is doing is
+it's taking some text written in one
+
+2054
+01:38:01,620 --> 01:38:05,850
+language and converting it into
+text written in some other language,
+
+2055
+01:38:05,850 --> 01:38:09,090
+for example, where now this
+input is a sequence of data--
+
+2056
+01:38:09,090 --> 01:38:10,770
+it's a sequence of words--
+
+2057
+01:38:10,770 --> 01:38:13,210
+and the output is a
+sequence of words as well.
+
+2058
+01:38:13,210 --> 01:38:14,440
+It's also a sequence.
+
+2059
+01:38:14,440 --> 01:38:17,340
+So here, we want effectively
+like a many-to-many relationship.
+
+2060
+01:38:17,340 --> 01:38:21,330
+Our input is a sequence, and our
+output is a sequence as well.
+
+2061
+01:38:21,330 --> 01:38:25,350
+And it's not quite going to work to
+just say, take each word in the input
+
+2062
+01:38:25,350 --> 01:38:28,620
+and translate it into
+a word in the output,
+
+2063
+01:38:28,620 --> 01:38:31,823
+because ultimately, different languages
+put their words in different orders,
+
+2064
+01:38:31,823 --> 01:38:33,990
+and maybe one language uses
+two words for something,
+
+2065
+01:38:33,990 --> 01:38:36,130
+whereas another language only uses one.
+
+2066
+01:38:36,130 --> 01:38:40,970
+So we really want some way to take
+this information-- that's input--
+
+2067
+01:38:40,970 --> 01:38:45,730
+encode it somehow, and use that encoding
+to generate what the output ultimately
+
+2068
+01:38:45,730 --> 01:38:46,230
+should be.
+
+2069
+01:38:46,230 --> 01:38:48,105
+And this has been one
+of the big advancements
+
+2070
+01:38:48,105 --> 01:38:50,700
+in automated translation
+technology is the ability
+
+2071
+01:38:50,700 --> 01:38:54,570
+to use own networks to do this, instead
+of older, more traditional methods,
+
+2072
+01:38:54,570 --> 01:38:56,820
+and this has improved
+accuracy dramatically.
+
+2073
+01:38:56,820 --> 01:38:59,070
+And the way you might
+imagine doing this is, again,
+
+2074
+01:38:59,070 --> 01:39:03,030
+using a recurrent neural network with
+multiple inputs and multiple outputs.
+
+2075
+01:39:03,030 --> 01:39:04,590
+We start by passing in all the input.
+
+2076
+01:39:04,590 --> 01:39:06,143
+Input goes into the network.
+
+2077
+01:39:06,143 --> 01:39:08,310
+Another input, like another
+word, goes into network,
+
+2078
+01:39:08,310 --> 01:39:12,030
+and we do this multiple times, like
+once for each word in the input
+
+2079
+01:39:12,030 --> 01:39:13,530
+that I'm trying to translate.
+
+2080
+01:39:13,530 --> 01:39:16,800
+And only after all of that
+is done, does the network now
+
+2081
+01:39:16,800 --> 01:39:19,950
+start to generate output, like the
+first word of the translated sentence,
+
+2082
+01:39:19,950 --> 01:39:23,060
+and the next word of the translated
+sentence, so on and so forth,
+
+2083
+01:39:23,060 --> 01:39:26,100
+where each time the
+network passes information
+
+2084
+01:39:26,100 --> 01:39:31,200
+to itself by allowing for this
+model of giving some sort of state
+
+2085
+01:39:31,200 --> 01:39:33,960
+from one run in the
+network to the next run,
+
+2086
+01:39:33,960 --> 01:39:36,120
+assembling information
+about all the inputs,
+
+2087
+01:39:36,120 --> 01:39:39,780
+and then passing in information about
+which part of the output in order
+
+2088
+01:39:39,780 --> 01:39:40,987
+to generate next.
+
+2089
+01:39:40,987 --> 01:39:43,320
+And there are a number of
+different types of these sorts
+
+2090
+01:39:43,320 --> 01:39:44,890
+of recurrent neural networks.
+
+2091
+01:39:44,890 --> 01:39:48,060
+One of the most popular is known as
+the long short-term memory neural
+
+2092
+01:39:48,060 --> 01:39:50,190
+network, otherwise known as LSTM.
+
+2093
+01:39:50,190 --> 01:39:53,303
+But in general, these types of
+networks can be very, very powerful
+
+2094
+01:39:53,303 --> 01:39:55,470
+whenever we're dealing with
+sequences, whether those
+
+2095
+01:39:55,470 --> 01:39:59,400
+are sequences of images or especially
+sequences of words when it comes
+
+2096
+01:39:59,400 --> 01:40:02,370
+towards dealing with natural language.
+
+2097
+01:40:02,370 --> 01:40:06,090
+So that then were just some of the
+different types of neural networks
+
+2098
+01:40:06,090 --> 01:40:08,590
+that can be used to do all
+sorts of different computations,
+
+2099
+01:40:08,590 --> 01:40:10,830
+and these are incredibly
+versatile tools that
+
+2100
+01:40:10,830 --> 01:40:12,930
+can be applied to a number
+of different domains.
+
+2101
+01:40:12,930 --> 01:40:16,300
+We only looked at a couple of the most
+popular types of neural networks--
+
+2102
+01:40:16,300 --> 01:40:18,570
+the more traditional
+feed-forward neural networks,
+
+2103
+01:40:18,570 --> 01:40:21,573
+convolutional neural networks,
+and recurrent neural networks.
+
+2104
+01:40:21,573 --> 01:40:22,990
+But there are other types as well.
+
+2105
+01:40:22,990 --> 01:40:25,907
+There are adversarial networks, where
+networks compete with each other
+
+2106
+01:40:25,907 --> 01:40:28,890
+to try and be able to
+generate new types of data,
+
+2107
+01:40:28,890 --> 01:40:32,370
+as well as other networks that can solve
+other tasks based on what they happen
+
+2108
+01:40:32,370 --> 01:40:34,510
+to be structured and adapted for.
+
+2109
+01:40:34,510 --> 01:40:36,810
+And these are very powerful
+tools in machine learning,
+
+2110
+01:40:36,810 --> 01:40:40,578
+from being able to very easily learn
+based on some set of input data
+
+2111
+01:40:40,578 --> 01:40:42,870
+and to be able to therefore
+figure out how to calculate
+
+2112
+01:40:42,870 --> 01:40:45,210
+some function, from inputs to outputs.
+
+2113
+01:40:45,210 --> 01:40:48,600
+Whether it's input to some sort of
+classification, like analyzing an image
+
+2114
+01:40:48,600 --> 01:40:50,910
+and getting a digit, or
+machine translation where
+
+2115
+01:40:50,910 --> 01:40:53,670
+the input is in one language
+and the output is in another,
+
+2116
+01:40:53,670 --> 01:40:58,080
+these tools have a lot of applications
+for machine learning more generally.
+
+2117
+01:40:58,080 --> 01:41:00,360
+Next time, we'll look at
+machine learning and AI
+
+2118
+01:41:00,360 --> 01:41:02,633
+in particular in the
+context of natural language.
+
+2119
+01:41:02,633 --> 01:41:04,800
+We talked a little bit about
+this today, but looking
+
+2120
+01:41:04,800 --> 01:41:08,520
+at how it is that our AI can begin
+to understand natural language
+
+2121
+01:41:08,520 --> 01:41:11,640
+and can begin to be able to
+analyze and do useful tasks with
+
+2122
+01:41:11,640 --> 01:41:13,740
+regards to human
+language, which turns out
+
+2123
+01:41:13,740 --> 01:41:15,880
+to be a challenging
+and interesting task.
+
+2124
+01:41:15,880 --> 01:41:18,110
+So we'll see you next time.
+
+2125
+01:41:18,110 --> 01:41:19,000
